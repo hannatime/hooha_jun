@@ -4,12 +4,20 @@
     </div>
     <div class="">
       <ul class="nav navbar-nav">
-        <li class="active">
+        <li class="">
           <a href="#">
             <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Dashboard"> 
               <span class="glyphicon glyphicon-home"></span> 
             </span>
-            <span class="full-nav"> Home </span>
+            <span class="full-nav"><span class="glyphicon glyphicon-home"></span> Home </span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-toggle="modal" data-target="#add_stream">
+            <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Add Stream" > 
+              <span class="glyphicon glyphicon-plus"></span> 
+            </span>
+            <span class="full-nav"> <span class="glyphicon glyphicon-plus"></span> Add Stream </span>
           </a>
         </li>
         <li>
@@ -17,7 +25,7 @@
             <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Capsule CRM"> 
               <span class="fa fa-users"></span> 
             </span>
-            <span class="full-nav"> Capsule CRM </span>
+            <span class="full-nav"> <span class="fa fa-users"></span> Capsule CRM </span>
           </a>
         </li>
         <li>
@@ -25,7 +33,7 @@
             <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Xero Finance"> 
               <span class="glyphicon glyphicon-euro"></span> 
             </span>
-            <span class="full-nav"> Xero Finance </span>
+            <span class="full-nav"><span class="glyphicon glyphicon-euro"></span> Xero Finance </span>
           </a>
         </li>
         <li>
@@ -33,7 +41,7 @@
             <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Shopify Ecommerce"> 
               <span class="glyphicon glyphicon-shopping-cart"></span> 
             </span>
-            <span class="full-nav"> Shopify Ecommerce </span>
+            <span class="full-nav"><span class="glyphicon glyphicon-shopping-cart"></span>  Shopify Ecommerce </span>
           </a>
         </li>
         <br>
@@ -42,7 +50,7 @@
             <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Settings"> 
               <span class="glyphicon glyphicon-cog"></span> 
             </span>
-            <span class="full-nav"> Settings </span>
+            <span class="full-nav"><span class="glyphicon glyphicon-cog"></span> Settings </span>
           </a>
         </li>
       </ul>
@@ -86,7 +94,7 @@
         </li>
         <li class="list-group-item">
           <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
-          <strong>Customer "John Doe" has added item to cart</strong>
+          Customer "John Doe" has added item to cart
           <span class="show-menu">
             <span class="glyphicon glyphicon-chevron-right"></span>
           </span>
@@ -97,7 +105,7 @@
         </li>
 <li class="list-group-item">
           <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
-          <strong>Customer "Jane Doe" has signed up</strong>
+          Customer "Jane Doe" has signed up
           <span class="show-menu">
             <span class="glyphicon glyphicon-chevron-right"></span>
           </span>
@@ -108,7 +116,7 @@
         </li>
         <li class="list-group-item">
           <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
-          <strong>New task "Follow up Jane Doe" has been added</strong>
+          New task "Follow up Jane Doe" has been added
           <span class="show-menu">
             <span class="glyphicon glyphicon-chevron-right"></span>
           </span>
@@ -313,4 +321,48 @@
     </div>
 </div>
 </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="add_stream" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add New Stream</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+
+          <div class="stream_brand">
+          </div>
+
+          <div class="stream_brand">
+          </div>
+
+          <div class="stream_brand">
+          </div>
+
+          <div class="stream_brand">
+          </div>
+
+          <div class="stream_brand">
+          </div>
+
+          <div class="stream_brand">
+          </div>
+
+          <div class="stream_brand">
+          </div>
+
+          <div class="stream_brand">
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
