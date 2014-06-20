@@ -9,9 +9,9 @@ $brand-danger: #d9534f;
 $brand-info: #5bc0de;
 
 // Body scaffolding
-$body-bg: #eeeeee;
-$text-color: #373737;
-$link-color: $brand-primary;
+$body-bg:#3498db ;
+$text-color: #ffffff;
+$link-color: #ffffff;
 $link-hover-color: darken($link-color, 15%);
 
 // Typography
@@ -213,7 +213,7 @@ $table-border-color: #dddddd;
 
 // Forms
 // -> Inputs
-$input-color: $text-color; // Text color for <input>s
+$input-color: black; // Text color for <input>s
 $input-bg: #ffffff; // <input> background color
 $input-border: #cccccc; // <input> border color
 $input-border-radius: $border-radius-base; // <input> border radius
@@ -467,6 +467,7 @@ margin-right:-25px;
   -o-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  color:black;
 }
 .list-group-item > .show-menu {
   position: absolute;
@@ -483,6 +484,8 @@ margin-right:-25px;
 .list-group-item > .show-menu > span {
   position: absolute;
   top: 50%;
+
+
   margin-top: -7px;
   padding: 0px 5px;
 }
@@ -504,6 +507,7 @@ margin-right:-25px;
   float: right;
   white-space: nowrap;
   display: block;
+
   padding: 10px 15px;
   margin-bottom: -1px;
   height: 60px;
@@ -722,6 +726,15 @@ body{
   z-index:1070;
 }
 
-#titlewrap img{
-width:2000px;
+
+#titlewrap{
+margin-left:0px;
+margin-right:0px;
+text-align:center;
+color:white;
+}
+
+.titlebuttons{ 
+  width: 350px;
+  margin:2px;
 }
