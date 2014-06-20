@@ -647,7 +647,7 @@ body{
   position: fixed;
   top: 15px;
   left: 15px;
-  z-index:2000;
+  z-index:1050;
 }
 .navbar-twitch ~ .navbar-twitch-toggle > .nav-open {
   display: inline-block;
@@ -715,4 +715,9 @@ body{
   margin: 2px;
   background-color: grey;
   float: left;
+}
+
+.modal{
+  
+  z-index:1070;
 }
