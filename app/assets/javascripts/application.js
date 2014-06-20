@@ -16,9 +16,19 @@
 //= require bootstrap
 //= require_tree .
 
+// List action open and close
 $(function () {
     $('.list-group-item > .show-menu').on('click', function(event) {
     event.preventDefault();
     $(this).closest('li').toggleClass('open');
   });
+});
+
+// Navbar toggle
+$(document).ready(function() {
+    $('.navbar-nav [data-toggle="tooltip"]').tooltip();
+    $('.navbar-twitch-toggle').on('click', function(event) {
+        event.preventDefault();
+        $('.navbar-twitch').toggleClass('open');
+    });
 });
