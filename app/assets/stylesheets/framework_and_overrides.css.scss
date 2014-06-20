@@ -437,14 +437,16 @@ margin-top:-22px;
   overflow: hidden;
   border-left: 1px solid rgb(221, 221, 221);
   border-right: 1px solid rgb(221, 221, 221);
+  width:335px;
 }
 
 .list-heading{
-padding:10px;
+  padding:10px;
   height:40px;
   border: solid grey 1px;
   background-color: grey;
   color:white;
+  width:335px;
 }
 .list-group-item:first-child, .list-group-item:last-child {
   border-top-right-radius: 0px;
