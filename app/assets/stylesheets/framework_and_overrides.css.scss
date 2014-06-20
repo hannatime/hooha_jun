@@ -422,7 +422,8 @@ img{
 //***********************************************************
 //***********************************************************
 // NAVBAR - Add fixed navbar padding
-body { padding-top: 70px;}
+body { padding-top: 70px;
+}
 
 
 //***********************************************************
@@ -430,14 +431,14 @@ body { padding-top: 70px;}
 // LIST
 
 .list-container {
-margin-top:-22px;
 }
 
 .list-group {
   overflow: hidden;
   border-left: 1px solid rgb(221, 221, 221);
   border-right: 1px solid rgb(221, 221, 221);
-  width:335px;
+  width:100%;
+
 }
 
 .list-heading{
@@ -446,7 +447,8 @@ margin-top:-22px;
   border: solid grey 1px;
   background-color: grey;
   color:white;
-  width:335px;
+  width:100%;
+  margin-top:-22px;
 }
 .list-group-item:first-child, .list-group-item:last-child {
   border-top-right-radius: 0px;
