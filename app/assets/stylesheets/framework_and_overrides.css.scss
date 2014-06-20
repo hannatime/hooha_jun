@@ -9,7 +9,7 @@ $brand-danger: #d9534f;
 $brand-info: #5bc0de;
 
 // Body scaffolding
-$body-bg: #ffffff;
+$body-bg: #eeeeee;
 $text-color: #373737;
 $link-color: $brand-primary;
 $link-hover-color: darken($link-color, 15%);
@@ -720,4 +720,8 @@ body{
 .modal{
   
   z-index:1070;
+}
+
+#titlewrap img{
+width:2000px;
 }
