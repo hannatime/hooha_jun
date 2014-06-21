@@ -9,7 +9,7 @@ gem 'turbolinks', '~> 2.1.0'
 gem 'jbuilder', '~> 1.5.3'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'mail_form'
-gem 'simple_form'
+gem 'simple_form', '3.0.2', :path => "vendor/gems/simple_form-3.0.2"
 
 group :doc do
   gem 'sdoc', require: false
