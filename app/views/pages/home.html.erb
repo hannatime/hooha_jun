@@ -1,14 +1,19 @@
 <% title("Home Page") %>
 
+<%= image_tag("frontpage.jpg", :alt => "frontpage", :class => "home_image") %>
   
       <% if !user_signed_in? %>
-        <div id="titlewrap" class="container">
-          <h1>Welcome to Hooha</h1>
-          <p>Manage better business</p>
-          <p><a href="users/sign_in"class="btn titlebuttons btn-success btn-lg" role="button">Sign In</a> <a href="users/sign_up"class="btn titlebuttons btn-warning btn-lg" role="button">Sign Up</a></p>
-        </div>
+      <div class="jumbotron home_page">
+  <h1>Welcome to Hooha</h1>
+  <p>Our aim is to help small businesses manage their business better. We're going to do this by giving you one place to manage your day to day activities. </p><p> We have a prototype available to give you an idea of what the app will be capable of. Sign-up, have a look, and let us know what you think.</p>
+  <p><a href="users/sign_up"class="btn titlebuttons btn-primary btn-lg" role="button">Sign Up</a></p>        
+      </div>
       <% else %>
-      
+      <div class="jumbotron home_page ">
+  <span class ="clearfix"><h1>Help us make Hooha better.</h1></span>
+  <p>We know that our app's not an app really, and yes we have a long way to go, but we hope you'll enjoy using it, if you stick with us, the first 500 users will get a lifetime of free use.</p>
+  <p><a href="contacts"class="btn titlebuttons btn-primary btn-lg" role="button">Give us feedback</a></p>        
+      </div>
 <% end %>
 
 
