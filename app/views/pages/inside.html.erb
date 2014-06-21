@@ -1,369 +1,106 @@
-<div class="navbar navbar-inverse navbar-twitch" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-    </div>
-    <div class="">
-      <ul class="nav navbar-nav">
-        <li class="">
-          <a href='#'>
-            <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Dashboard"> 
-              <span class="glyphicon glyphicon-home"></span> 
-            </span>
-            <span class="full-nav"><span class="glyphicon glyphicon-home"></span> Home </span>
-          </a>
-        </li>
-        <li>
-          <a href="#" data-toggle="modal" data-target="#add_stream">
-            <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Add Stream" > 
-              <span class="glyphicon glyphicon-plus"></span> 
-            </span>
-            <span class="full-nav"> <span class="glyphicon glyphicon-plus"></span> Add Stream </span>
-          </a>
-        </li>
-        <li>
-          <a href="#Capsule_CRM">
-            <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Capsule CRM"> 
-              <span class="fa fa-users"></span> 
-            </span>
-            <span class="full-nav"> <span class="fa fa-users"></span> Capsule CRM <span class="badge">4</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="#Xero_Finance">
-            <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Xero Finance"> 
-              <span class="glyphicon glyphicon-euro"></span> 
-            </span>
-            <span class="full-nav"><span class="glyphicon glyphicon-euro"></span> Xero Finance <span class="badge">3</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="#Shopify_Ecommerce">
-            <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Shopify Ecommerce"> 
-              <span class="glyphicon glyphicon-shopping-cart"></span> 
-            </span>
-            <span class="full-nav"><span class="glyphicon glyphicon-shopping-cart"></span>  Shopify Ecommerce <span class="badge"></span></span>
-          </a>
-        </li>
-        <br>
-        <li>
-          <a href="#Settings">
-            <span class="small-nav" data-toggle="tooltip" data-placement="right" title="Settings"> 
-              <span class="glyphicon glyphicon-cog"></span> 
-            </span>
-            <span class="full-nav"><span class="glyphicon glyphicon-cog"></span> Settings </span>
-          </a>
-        </li>
-      </ul>
-    </div><!--/.nav-collapse -->
+        <section>
+          <!-- Class "cbp-spmenu-open" gets applied to menu -->
+          <button class="btn btn-sm btn-default menu-btn" id="showLeft"><span class="glyphicon glyphicon-chevron-right"></span></i></button>
+        </section>
+
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+      <h3>Menu</h3>
+      <a href="#"></a>
+      <a href="#">Social Media</a>
+      <a href="#">Customers</a>
+      <a href="#">Finance</a>
+      <a href="#">E-Commerce</a>
+      <a href="#">Settings</a>
+    </nav>
+    <div class="container">
+    <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+    <script src="js/classie.js"></script>
+    <script>
+      var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+        menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+        menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+        menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+        showLeft = document.getElementById( 'showLeft' ),
+        showRight = document.getElementById( 'showRight' ),
+        showTop = document.getElementById( 'showTop' ),
+        showBottom = document.getElementById( 'showBottom' ),
+        showLeftPush = document.getElementById( 'showLeftPush' ),
+        showRightPush = document.getElementById( 'showRightPush' ),
+        body = document.body;
+
+      showLeft.onclick = function() {
+        classie.toggle( this, 'active' );
+        classie.toggle( menuLeft, 'cbp-spmenu-open' );
+        disableOther( 'showLeft' );
+      };
+    </script>
+
+<div class="container">
+  <div class="page-header">
+    <h1 id="timeline">Your Business Timeline</h1>
   </div>
-</div>
-<button type="button" class="btn btn-default btn-xs navbar-twitch-toggle">
-  <span class="glyphicon glyphicon-chevron-right nav-open"></span>    
-  <span class="glyphicon glyphicon-chevron-left nav-close"></span>
-</button>
 
-<div class="container list-container">
-    <div class="row">
-      <div class="col-xs-12">
-    <div class="" id="Capsule_CRM">
-      <div class="list-heading">
-        <strong>Capsule CRM</strong>
-    </div>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
-          <strong>Customer "John Doe" has signed up</strong>
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
-          <strong>New task "Follow up John Doe" has been added</strong>
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
-          Customer "John Doe" has added item to cart
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-<li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
-          Customer "Jane Doe" has signed up
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
-          New task "Follow up Jane Doe" has been added
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
-          <strong>Customer "Jane Doe" has added item to cart</strong>
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-                <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
-          <strong>Customer "Jane Doe" has placed an order</strong>
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-        <div class="" id="Xero_Finance">
-      <div class="list-heading">
-        <strong>Xero Finance</strong>
-    </div>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Xero</small><br>
-          Customer "Jane Doe" has been added
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Xero</small><br>
-          Reciept ID#4563 has been processed
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Xero</small><br>
-          Customer "John Doe" has been added
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-                <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Xero</small><br>
+<div class="container">
+      <div class="main">
+        <ul class="cbp_tmtimeline">
+          <li>
+            <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+              <small>11:43:00 AM 1/1/2011 by Shopify</small><br>
+              <strong>Order ID#4567 has been cancelled</strong>
+            </div>
+          </li>
+          <li>
+            <time class="cbp_tmtime" datetime="2013-04-11T12:04"><span>4/11/13</span> <span>12:04</span></time>
+            <div class="cbp_tmicon cbp_tmicon-screen"></div>
+            <div class="cbp_tmlabel">
+              <small>11:43:00 AM 1/1/2011 by Shopify</small><br>
+              Product ID#986 is out of stock
+            </div>
+          </li>
+          <li>
+            <time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>4/13/13</span> <span>05:36</span></time>
+            <div class="cbp_tmicon cbp_tmicon-mail"></div>
+            <div class="cbp_tmlabel">
+              <small>11:43:00 AM 1/1/2011 by Xero</small><br>
+                  Reciept ID#4563 has been processed
+            </div>
+          </li>
+          <li>
+            <time class="cbp_tmtime" datetime="2013-04-15 13:15"><span>4/15/13</span> <span>13:15</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+              <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
+            <strong>Customer "John Doe" has signed up</strong>
+            </div>
+          </li>
+          <li>
+            <time class="cbp_tmtime" datetime="2013-04-16 21:30"><span>4/16/13</span> <span>21:30</span></time>
+            <div class="cbp_tmicon cbp_tmicon-earth"></div>
+            <div class="cbp_tmlabel">
+              <small>11:43:00 AM 1/1/2011 by Xero</small><br>
           Reciept ID#1235 has been processed
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-                <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Xero</small><br>
-          Reciept ID#1232 has been processed
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-                <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Xero</small><br>
-          Reciept ID#1233 has been processed
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-                <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Xero</small><br>
-          Reciept ID#1234 has been processed
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-        <div class="" id="Shopify_Ecommerce">
-      <div class="list-heading" >
-        <strong>Shopify Ecommerce</strong>
-    </div>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Shopify</small><br>
-          <strong>Customer John Doe has purchased order ID#1234</strong>
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Shopify</small><br>
-          <strong>Order ID#9879 has changed </strong>
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Shopify</small><br>
-          <strong>Order ID#42543 has changed </strong>
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-                <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Shopify</small><br>
-          Product ID#9874 is out of stock
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-                <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Shopify</small><br>
-          <strong>Order ID#4567 has been cancelled</strong>
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-                <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Shopify</small><br>
-          Product ID#986 is out of stock
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-                <li class="list-group-item">
-          <small>11:43:00 AM 1/1/2011 by Shopify</small><br>
-          <strong>Order ID#4567 has been cancelled</strong>
-          <span class="show-menu">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </span>
-          <ul class="list-group-submenu">
-            <li class="list-group-submenu-item success"><span class="glyphicon glyphicon-share"></span></li>
-            <li class="list-group-submenu-item warning"><span class="glyphicon glyphicon-envelope"></span></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-</div>
-</div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="add_stream" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add New Stream</h4>
-      </div>
-      <div class="modal-body">
-        <div class="container">
-
-          <div class="stream_brand">
-
-          </div>
-
-          <div class="stream_brand">
-          </div>
-
-          <div class="stream_brand">
-          </div>
-
-          <div class="stream_brand">
-          </div>
-
-          <div class="stream_brand">
-          </div>
-
-          <div class="stream_brand">
-          </div>
-
-          <div class="stream_brand">
-          </div>
-
-          <div class="stream_brand">
-          </div>
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </li>
+          <li>
+            <time class="cbp_tmtime" datetime="2013-04-17 12:11"><span>4/17/13</span> <span>12:11</span></time>
+            <div class="cbp_tmicon cbp_tmicon-screen"></div>
+            <div class="cbp_tmlabel">
+              <small>11:43:00 AM 1/1/2011 by Capsule</small><br>
+            <strong>Customer "John Doe" has signed up</strong>
+            </div>
+          </li>
+          <li>
+            <time class="cbp_tmtime" datetime="2013-04-18 09:56"><span>4/18/13</span> <span>09:56</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+              <small>11:43:00 AM 1/1/2011 by Xero</small><br>
+          Reciept ID#1235 has been processed
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-</div>
+        </div>
+    </div>
