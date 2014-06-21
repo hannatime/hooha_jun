@@ -3,6 +3,8 @@ HoohaJun::Application.routes.draw do
   get "home", to: "pages#home", as: "home"
   get "inside", to: "pages#inside", as: "inside"
   
+  match '/contacts',  to: 'contacts#new',    via: 'get'
+  resources "contacts", only: [:new, :create]
     
   devise_for :users
   
