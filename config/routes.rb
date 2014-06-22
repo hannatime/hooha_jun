@@ -3,6 +3,7 @@ HoohaJun::Application.routes.draw do
   get "home", to: "pages#home", as: "home"
   get "inside", to: "pages#inside", as: "inside"
   get "about", to: "pages#about", as: "about"
+  get "feature", to: "pages#feature", as: "feature"
   
   match '/contacts',  to: 'contacts#new',    via: 'get'
   resources "contacts", only: [:new, :create]

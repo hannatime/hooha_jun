@@ -14,5 +14,8 @@ class PagesController < ApplicationController
 
   def plans
   end
+
+  def feature
+  end
     
 end

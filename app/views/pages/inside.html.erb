@@ -1,41 +1,5 @@
-        <section>
-          <!-- Class "cbp-spmenu-open" gets applied to menu -->
-          <button class="btn btn-sm btn-default menu-btn" id="showLeft"><span class="glyphicon glyphicon-chevron-right"></span></i></button>
-        </section>
-
-<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <h3>Menu</h3>
-      <a href="#"></a>
-      <a href="#">Social Media</a>
-      <a href="#">Customers</a>
-      <a href="#">Finance</a>
-      <a href="#">E-Commerce</a>
-      <a href="#">Settings</a>
-    </nav>
-    <div class="container">
-    <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-    <script src="js/classie.js"></script>
-    <script>
-      var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-        menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-        menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-        menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-        showLeft = document.getElementById( 'showLeft' ),
-        showRight = document.getElementById( 'showRight' ),
-        showTop = document.getElementById( 'showTop' ),
-        showBottom = document.getElementById( 'showBottom' ),
-        showLeftPush = document.getElementById( 'showLeftPush' ),
-        showRightPush = document.getElementById( 'showRightPush' ),
-        body = document.body;
-
-      showLeft.onclick = function() {
-        classie.toggle( this, 'active' );
-        classie.toggle( menuLeft, 'cbp-spmenu-open' );
-        disableOther( 'showLeft' );
-      };
-    </script>
-
-<div class="container">
+<% title("Dashboard") %>
+ <div class="container">
   <div class="page-header">
     <h1 id="timeline">Your Business Timeline</h1>
   </div>

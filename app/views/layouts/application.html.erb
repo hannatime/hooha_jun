@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title><%= @title || "Hooha" %></title>
-  <%= favicon_link_tag 'black.png' %>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -31,9 +31,8 @@
     </div>
   </div>
     
-  <%=if !user_signed_in?
-   render 'layouts/footer' 
-   end%>    
+  <%= render 'layouts/footer' %>
+   
 
 </body>
 </html>
