@@ -13,8 +13,15 @@ gem 'mail_form'
 gem 'simple_form', '3.0.2', :path => "vendor/gems/simple_form-3.0.2"
 gem "stripe"
 gem "stripe_event"
+
 # Rolify
 gem "rolify"
+
+# Devise
+gem 'devise', '~> 3.2.2'
+
+# Cancan
+gem "cancan"
 
 group :doc do
   gem 'sdoc', require: false
@@ -44,11 +51,7 @@ group :production do
 end
 
 
-# Devise
-gem 'devise', '~> 3.2.2'
 
-# Cancan
-gem "cancan"
 
 
 
