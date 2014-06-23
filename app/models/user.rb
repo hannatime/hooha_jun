@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   # Use friendly_id on Users
   extend FriendlyId
   friendly_id :friendify, use: :slugged

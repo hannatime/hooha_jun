@@ -10,6 +10,7 @@
     :html => { :method => :put, role: "form" }) do |f| %>
   
       <%= devise_error_messages! %>
+      <%= display_base_errors resource %>
 
       <div class="form-group">
         <%= f.label :email %>
