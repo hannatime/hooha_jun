@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
+
 gem 'rails', '4.0.4'
 gem 'sass-rails', '~> 4.0.1'
 gem 'uglifier', '~> 2.4.0'
@@ -19,6 +20,7 @@ end
 group :development, :test do
   gem 'sqlite3', '~> 1.3.8'    # dev & test database
   gem 'figaro', '~> 0.7.0'     # env variables
+  gem 'quiet_assets', group: :development
 end
 
 # Paging
@@ -41,6 +43,11 @@ end
 # Devise
 gem 'devise', '~> 3.2.2'
 
+# Cancan
+gem "cancan"
+
+# Rolify
+gem "rolify"
 
 # Bootstrap 3
 group :development, :test do
