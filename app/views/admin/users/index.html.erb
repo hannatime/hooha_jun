@@ -14,7 +14,7 @@
   </p>
 <% end %>
 
-<table class="table table-striped">
+<table class="table">
   <tr>
     <th>User ID</th>
     <th>Username</th>
@@ -34,7 +34,18 @@
     <td><%= user.id %></td>
     <td><%= link_to user.username.capitalize, admin_user_path(user) %></td>
     <td><%= user.admin? ? "<b>yes</b>".html_safe : "no" %></td>
-    <td><%= user.roles %></td>
+    <td><%= if user.admin?
+        'admin'
+      elsif user.has_role? :silver  
+        'silver'
+      elsif user.has_role? :gold
+        'gold'
+      elsif user.has_role? :platinum
+        'platinum'
+      else
+        'no role'
+    end %></td>
+
     <td><%= user.locked? ? "<b>yes</b>".html_safe : "no" %></td>
     <td><%= user.email %></td>
     <td><%= user.sign_in_count %></td>

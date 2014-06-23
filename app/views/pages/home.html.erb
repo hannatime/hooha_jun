@@ -5,44 +5,67 @@
       <% if !user_signed_in? %>
       <div class="jumbotron home_page">
   <h1>Welcome to Hooha</h1>
-  <p>Our aim is to help you manage your small business online. We're going to do this by giving you a suite of simple, fast, and secure small business focused applications. </p><p>Our first application is Hooha CRM. Sign-up, have a look, and let us know what you think.</p>
-  <p><a href="users/sign_up"class="btn titlebuttons btn-primary btn-lg" role="button">Sign Up</a></p>        
+  <p>Our aim is to help you manage your small business online. We're going to do this by giving you a suite of simple, fast, and secure small business focused applications. </p><p>Our first application is Hooha CRM. Sign-up for a free trial, and let us know what you think.</p>        
       </div>
       <% else %>
       <div class="jumbotron home_page ">
   <span class ="clearfix"><h1>Help us make Hooha better.</h1></span>
-  <p>We hope you enjoy using Hooha CRM. We're always aiming to deliver the best experience possible, so customer feedback is really important to us.</p>
-  <p><a href="contacts"class="btn titlebuttons btn-primary btn-lg" role="button">Give us feedback</a></p>        
-      </div>
+  <p>We hope you enjoy using Hooha CRM. We're always aiming to deliver the best experience possible, so customer feedback is really important to us.</p>       
+      <p><a href="contacts"class="btn titlebuttons btn-primary btn-lg" role="button">Give us feedback</a></p>   </div>
 <% end %>
+<% if !user_signed_in? %>
+<div class="row">
+  <div class="col-md-4">
+  <div class="panel panel-danger">
+     <div class="panel-heading"><h3 class="text-center">Silver</h3></div>
+         <div class="panel-body text-center">
+      <p class="lead" style="font-size:40px"><strong>$free</strong></p>
+    </div>
+                       <ul class="list-group list-group-flush text-center">
+              <li class="list-group-item"><i class="icon-ok text-danger"></i> Business Use</li>
+              <li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited Accounts</li>
+              <li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited Users</li>
+            </ul>
+    <div class="panel-footer">
+    <%= link_to 'Free Trial', new_user_registration_path(:plan => 'silver'), :class => 'btn btn-lg btn-block btn-default' %>
+  </div>
+ </div>
 
-<div id="welcome" class="hero-unit span7">
-  <h1>Membership Site</h1>
-  <h3>Learn to build a successful subscription site.</h3>
+  </div>
+   <div class="col-md-4">
+  <div class="panel panel-info">
+     <div class="panel-heading"><h3 class="text-center">Individual</h3></div>
+         <div class="panel-body text-center">
+      <p class="lead" style="font-size:40px"><strong>$10 / month</strong></p>
+    </div>
+                       <ul class="list-group list-group-flush text-center">
+              <li class="list-group-item"><i class="icon-ok text-danger"></i> Business use</li>
+              <li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited Accounts</li>
+              <li class="list-group-item"><i class="icon-ok text-danger"></i> 1-3 Users</li>
+            </ul>
+    <div class="panel-footer">
+    <%= link_to 'Join Now', new_user_registration_path(:plan => 'gold'), :class => 'btn btn-lg btn-block btn btn-warning' %>
+  </div>
+ </div>
+
+  </div>
+   <div class="col-md-4">
+  <div class="panel panel-success">
+    <div class="panel-heading"><h3 class="text-center">Team</h3></div>
+         <div class="panel-body text-center">
+      <p class="lead" style="font-size:40px"><strong>$15 / month</strong></p>
+    </div>
+                       <ul class="list-group list-group-flush text-center">
+              <li class="list-group-item"><i class="icon-ok text-danger"></i> Business use</li>
+              <li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited accounts</li>
+              <li class="list-group-item"><i class="icon-ok text-danger"></i> 5-10 Users</li>
+            </ul>
+    <div class="panel-footer">
+    <%= link_to 'Join Now', new_user_registration_path(:plan => 'platinum'), :class => 'btn btn-lg btn-block btn-default' %>
+  </div>
+ </div>
+
+  </div>
+  </div>
 </div>
-<div class="row span8 plans">
-  <div class="span2 well">
-    <div class="plan"><h2>Silver</h2></div>
-    <ul class="unstyled">
-      <li>One lesson a month</li>
-    </ul>
-    <h3>$9/month</h3>
-    <%= link_to 'Subscribe', new_user_registration_path(:plan => 'silver'), :class => 'btn btn-primary' %>
-  </div>
-  <div class="span2 well featured">
-    <div class="plan featured-plan"><h2>Gold</h2></div>
-    <ul class="unstyled">
-      <li>Ten lessons a month</li>
-    </ul>
-    <h3>$19/month</h3>
-    <%= link_to 'Subscribe', new_user_registration_path(:plan => 'gold'), :class => 'btn btn-primary' %>
-  </div>
-  <div class="span2 well">
-    <div class="plan"><h2>Platinum</h2></div>
-    <ul class="unstyled">
-      <li>Thirty lessons a month</li>
-    </ul>
-    <h3>$29/month</h3>
-    <%= link_to 'Subscribe', new_user_registration_path(:plan => 'platinum'), :class => 'btn btn-primary' %>
-  </div>
-</div>
+<% end %>

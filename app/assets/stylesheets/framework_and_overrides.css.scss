@@ -813,3 +813,25 @@ a:hover {
 .col-centered{
 margin: 0 auto;
 }
+
+.plans{
+  text-align: center;
+  color: black;
+}
+.featured{
+  -webkit-transform:scale(1.15);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.67);
+  color: black;
+}
+.plan{
+  background-color: #111575;
+  color: black;
+}
+.plan.featured-plan{
+  background-color: #CCAB00;
+  color: black;
+}
+.plan h2{
+  line-height: 100px;
+  color: black;
+}
