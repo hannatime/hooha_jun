@@ -17,9 +17,9 @@
     :html => { :class => "card_form-vertical" }) do |f| %>
     
       
-    <!-- <h3><%= params[:plan].titleize if params[:plan] %> Subscription Plan</h3> -->
-<%= devise_error_messages! %>
-    <%= hidden_field_tag 'plan', params[:plan] %>
+  <h3><%= params[:plan].titleize if params[:plan] %> Subscription Plan</h3>
+  <%= devise_error_messages! %>
+  <%= hidden_field_tag 'plan', params[:plan] %>
   <%= display_base_errors resource %>
 
       <div class="form-group">
