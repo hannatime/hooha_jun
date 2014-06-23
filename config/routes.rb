@@ -11,7 +11,7 @@ HoohaJun::Application.routes.draw do
   match '/contacts',  to: 'contacts#new',    via: 'get'
   resources "contacts", only: [:new, :create]
   
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'registrations' }
   
   namespace :admin do
     root "base#index"
