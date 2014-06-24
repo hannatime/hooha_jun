@@ -37,6 +37,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
      if current_user.has_role? :admin 
         users_path
+      elsif current_user.has_role? :free  
+      content_free_path
       elsif current_user.has_role? :silver  
         content_silver_path
       elsif current_user.has_role? :gold

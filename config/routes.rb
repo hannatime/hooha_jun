@@ -1,4 +1,5 @@
 HoohaJun::Application.routes.draw do
+  get "content/free"
   get "content/silver"
   get "content/gold"
   get "content/platinum"

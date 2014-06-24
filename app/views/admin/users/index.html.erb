@@ -36,6 +36,8 @@
     <td><%= user.admin? ? "<b>yes</b>".html_safe : "no" %></td>
     <td><%= if user.admin?
         'admin'
+      elsif user.has_role? :free  
+        'free'
       elsif user.has_role? :silver  
         'silver'
       elsif user.has_role? :gold
