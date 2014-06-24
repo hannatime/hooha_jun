@@ -171,7 +171,7 @@ $navbar-inverse-link-disabled-bg:$navbar-inverse-bg;
 // -> Brand
 $navbar-inverse-brand-color: $navbar-inverse-link-color; 
 $navbar-inverse-brand-hover-color: #ffffff; 
-$navbar-inverse-brand-hover-bg: $navbar-inverse-bg; 
+
 // -> Toggle
 $navbar-inverse-toggle-hover-bg: #333333; 
 $navbar-inverse-toggle-icon-bar-bg: #ffffff; 
@@ -368,6 +368,7 @@ img{
 //***********************************************************
 // NAVBAR
 .navbar-brand {
+  background-color:transparent;
   font-size: inherit;      
 }
 //***********************************************************
@@ -449,6 +450,7 @@ color:white;
   max-width: 350px;
   min-width: 250px;
   margin:2px;
+  margin-bottom:-20px;
 }
 
 .home_image{
@@ -476,7 +478,7 @@ color:white;
 
 
 .home_page{
-  margin-top:80px;
+  margin-top:16px;
 }
 
 
@@ -579,7 +581,7 @@ a:hover {
 }
 
 .container > header nav a:hover {
-  background: #47a3da;
+  
 }
 
 .icon-drop:before, 
@@ -854,4 +856,17 @@ margin: 0 auto;
   background-color:#bdc3c7;
   color: white;
   border-color: #bdc3c7;
+}
+
+
+.hooha-brand{
+  position:fixed;
+  height: 70px;
+  width: auto;
+  margin-top:-12px;
+}
+
+.hooha-brand:hover{
+  background-color:white;
+  
 }

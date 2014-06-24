@@ -6,7 +6,8 @@
       <div class="jumbotron home_page">
   <h1>Welcome to Hooha</h1>
   <p>Our aim is to help you manage your small business online. We're going to do this by giving you a suite of simple, fast, and secure small business focused applications. </p><p>Our first application is Hooha CRM. Sign-up for a free trial, and let us know what you think.</p>        
-      </div>
+      <p><%= link_to 'Free Trial', new_user_registration_path(:plan => 'free'), :class => 'btn titlebuttons btn-warning btn-lg' %>
+    </p></div>
       <% else %>
       <div class="jumbotron home_page ">
   <span class ="clearfix"><h1>Help us make Hooha better.</h1></span>
@@ -27,7 +28,7 @@
               <span style="color:black"><li class="list-group-item"><i class="icon-ok text-danger"></i>1 Users</li></span>
             </ul>
     <div class="panel-footer">
-    <%= link_to 'Free Trial', new_user_registration_path(:plan => 'silver'), :class => 'btn btn-lg btn-block btn-default' %>
+    <%= link_to 'Join Now', new_user_registration_path(:plan => 'silver'), :class => 'btn btn-lg btn-block btn-default' %>
   </div>
  </div>
 

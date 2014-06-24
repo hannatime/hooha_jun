@@ -17,7 +17,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-         
+  
+    # Setup accessible (or protected) attributes for your model
+  attr_accessor :stripe_token, :coupon
+
   # Pagination
   paginates_per 100
   
