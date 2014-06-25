@@ -411,7 +411,6 @@ img{
 //***********************************************************
 // FOOTER
 #footer{
-  background-color: $navbar-inverse-bg;
   color: $navbar-inverse-color;
   height: 100px;
   margin-top: -100px;  
@@ -864,6 +863,7 @@ margin: 0 auto;
   height: 70px;
   width: auto;
   margin-top:-12px;
+  z-index:100;
 }
 
 .hooha-brand:hover{
