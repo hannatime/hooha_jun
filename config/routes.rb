@@ -9,7 +9,7 @@ HoohaJun::Application.routes.draw do
   get "about", to: "pages#about", as: "about"
   get "feature", to: "pages#feature", as: "feature"
   
-  match '/contacts',  to: 'contacts#new',    via: 'get'
+  match '/contacts',  to: 'contacts#new',  via: 'get'
   resources "contacts", only: [:new, :create]
   
   devise_for :users, :controllers => { :registrations => 'registrations' }
