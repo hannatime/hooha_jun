@@ -1,13 +1,15 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [
-    :inside
+    :inside, :dashboard
   ]
 
   def home
-
   end
   
   def inside
+  end 
+
+  def dashboard
   end 
 
   def about

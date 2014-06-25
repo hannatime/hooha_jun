@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
   # Redirects on successful sign in
   def after_sign_in_path_for(resource)
      if current_user.has_role? :admin 
-        inside_path
+        dashboard_path
       elsif current_user.has_role? :free  
       content_free_path
       elsif current_user.has_role? :silver  

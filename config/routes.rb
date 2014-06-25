@@ -1,15 +1,20 @@
 HoohaJun::Application.routes.draw do
+    
+  root "pages#home"  
+
   get "content/free"
   get "content/silver"
   get "content/gold"
   get "content/platinum"
-  root "pages#home"    
+    
   get "home", to: "pages#home", as: "home"
   get "inside", to: "pages#inside", as: "inside"
+  get "dashboard", to: "pages#dashboard", as: "dashboard"
   get "about", to: "pages#about", as: "about"
   get "feature", to: "pages#feature", as: "feature"
   get "plans", to: "pages#plans", as: "plans"
   get "contacts", to: "contacts#new", as: 'feedback'
+  
   resources "contacts", only: [:new, :create]
   
   devise_for :users, :controllers => { :registrations => 'registrations' }
