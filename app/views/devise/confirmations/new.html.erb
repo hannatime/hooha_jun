@@ -12,18 +12,13 @@
       <%= devise_error_messages! %>
 
       <div class="form-group">
-        <%= f.label :username %>
         <div class="row">
-          <div class="col-sm-6">      
+            <%= f.label :username %>
             <%= f.text_field :username, :autofocus => true, class: "form-control" %>  
-          </div>
         </div>
-      </div>
   
       <div class="row">
-        <div class="col-sm-6">
-          <%= f.submit "Resend confirmation instructions", class: "btn btn-block btn-warning" %>
-        </div>
+          <%= f.submit "Resend confirmation instructions", class: "btn btn-block btn-lg submit-button btn-warning" %>
       </div>    
 
       <% end %>
@@ -32,4 +27,5 @@
 
     </div>
   </div>
-</div>  
+  </div>
+  </div>

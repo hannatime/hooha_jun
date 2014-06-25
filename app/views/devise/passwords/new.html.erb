@@ -13,23 +13,18 @@
 
 
       <div class="form-group">
-        <%= f.label :email %>
         <div class="row">
-          <div class="col-sm-6">
+          <%= f.label :email %>
             <%= f.email_field :email, :autofocus => true, class: "form-control" %>
-          </div>
-        </div>
       </div>
 
 
       <div class="row">
-        <div class="col-sm-6">
-          <%= f.submit "Send me reset password instructions", class: "btn btn-block btn-warning" %>
+          <%= f.submit "Send me reset password instructions", class: "btn btn-block btn-lg submit-button btn-warning" %>
         </div>
+        <%= render "devise/shared/links" %>
       </div>
       <% end %>
-
-      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

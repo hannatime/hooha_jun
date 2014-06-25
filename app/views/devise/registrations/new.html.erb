@@ -9,78 +9,116 @@
     <h2>Heading Three</h2>
     <p>Vinyl retro fap pickled. Pop-up American Apparel bicycle rights small batch Vice Helvetica. McSweeney's roof party XOXO ugh, farm-to-table occupy kogi normcore butcher. Narwhal wolf gluten-free gentrify photo booth. Tousled organic selfies, Helvetica freegan messenger bag try-hard Thundercats tofu. Paleo.</p>
   </div>
+
   <div class="col-sm-6">
-    <h1>Sign up</h1>
-
-    <%= form_for(resource, :as => resource_name, 
-    :url => registration_path(resource_name), 
-    :html => { :class => "card_form-vertical" }) do |f| %>
+    <%= devise_error_messages! %>
+    <%= hidden_field_tag 'plan', params[:plan] %>
+    <%= display_base_errors resource %>
     
-  <%if params[:plan] == 'free' %>
-  <h3>30 Day Free Trial</h3>
-  <% else %>
-  <h3><%= params[:plan].titleize if params[:plan] %> Subscription Plan</h3>
-  <% end %>
+    <%if params[:plan] == 'free' %>
+      <%= form_for(resource, :as => resource_name, 
+      :url => registration_path(resource_name), 
+      :html => { :class => "card_form-vertical" }) do |f| %>
 
-  <%= devise_error_messages! %>
-  <%= hidden_field_tag 'plan', params[:plan] %>
-  <%= display_base_errors resource %>
+    <h2>30 Day Free Trial</h2>
 
       <div class="form-group">
-        <%= f.label :username %>
         <div class="row">
-          <div class="col-sm-6">
-            <%= f.text_field :username, :autofocus => true, class: "form-control" %>  
-          </div>
+              <%= f.label :username %>
+              <%= f.text_field :username, :autofocus => true, class: "form-control" %>  
         </div>
-      </div>
-    
-      <div class="form-group">
-        <%= f.label :email %>
-        <div class="row">
-          <div class="col-sm-6">      
-            <%= f.email_field :email, :required => true, class: "form-control" %>  
-          </div>
-        </div>
-      </div>
+      
 
-      <div class="form-group">
         <div class="row">
-          <div class="col-sm-6">
+              <%= f.label :email %>
+              <%= f.email_field :email, :required => true, class: "form-control" %>  
+        </div>
+
+
+        <div class="row">       
+              <%= f.label :password %>
+              <%= f.password_field :password, :required => true, class: "form-control" %>
+        </div>
+
+        <div class="row">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, :required => true, class: "form-control" %>
+        </div>
+
+          <div class="row submit-button">
+            <%= f.submit "Sign up", class: "btn btn-block btn-lg btn-warning" %>
+          </div> 
+        <%= render "devise/shared/links" %>
+        </div> 
+        <% end %>
+      <% end %>
+
+      <%if params[:plan] != 'free' %>
+      
+      <h1><%= params[:plan].titleize if params[:plan] %> Subscription Plan</h1>
+
+      <%= form_for(resource, :as => resource_name, 
+      :url => registration_path(resource_name), 
+      :html => { :class => "card_form-vertical" }) do |f| %>
+
+        <div class="form-group">
+        <div class="row">
+          <%= f.label :username %>
+          <%= f.text_field :username, :autofocus => true, class: "form-control" %>  
+        </div>
+
+        <div class="row">
+          <%= f.label :email %>
+          <%= f.email_field :email, :required => true, class: "form-control" %>  
+        </div>
+
+        <div class="row">            
             <%= f.label :password %>
             <%= f.password_field :password, :required => true, class: "form-control" %>
-          </div>
         </div>
-      </div>
 
-      <div class="form-group">
         <div class="row">
-          <div class="col-sm-6">
             <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation, :required => true, class: "form-control" %>
+        </div>
+        <hr>
+        <% if @user.stripe_token %>
+          <div class="row">
+            <p>Credit card acceptance is pending.</p>
           </div>
-        </div>
-      </div>
+        <% else %>
 
-      <div class="row">
-        <div class="col-sm-6">
-          <%= f.submit "Sign up", class: "btn btn-block btn-warning" %>
-        </div>
-      </div>    
-      <% end %>
-      
-      <%if params[:plan] != 'free' %>
-      <div class="row">
-        <div class="col-sm-6">
-       CREDIT CARD DETAILS  
-       <br>
-      Not Ready?
-      <%= link_to 'Free Trial', new_user_registration_path(:plan => 'free'), :class => 'btn btn-warning btn-sm' %>
-      </div>
-      </div>  
-      <% end %>
-      
-      <%= render "devise/shared/links" %>
+          <div class="row">
+              <%= label_tag :card_number, "Credit Card Number" %>
+              <%= text_field_tag :card_number, nil, name: nil, class: "form-control" %>
+          </div>
+
+          <div class="row">
+            <div class="cvv-group"> 
+              <%= label_tag :card_code, "CVV" %><br>
+              <%= text_field_tag :card_code, nil, name: nil, class: "cvv"  %> 
+              </div>        
+              <div class="select">
+              <%= label_tag :card_month, "Card Expiration" %> <br>
+              <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}%>
+              <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}%>
+             </div>
+          </div>
+
+          <div class="row submit-button">
+              <%= f.submit "Sign up", class: "btn btn-block btn-warning btn-lg" %>
+              <%= label_tag :card_month, "Not Ready?" %><br>
+            <%= link_to 'Free Trial', new_user_registration_path(:plan => 'free'), :class => 'btn btn-success btn-lg' %>
+          </div>
+          <%= render "devise/shared/links" %>
+          </div>
+          <% end %>
+        <% end %>
+    <% end %>
+    
+  
+  
+  
 
     </div>
   </div>
