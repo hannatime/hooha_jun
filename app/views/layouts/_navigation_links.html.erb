@@ -1,9 +1,16 @@
 <% if !user_signed_in? %>
+<li><%= link_to 'Home', root_path %></li>
+<li><%= link_to 'Feedback', new_contact_path %></li>
+<li><%= link_to 'Features', feature_path %></li>
+<li><%= link_to 'Plans', plans_path %></li>
+<li><%= link_to 'About', about_path %></li>
 <li><%= link_to 'Free Trial', new_user_registration_path(:plan => 'free') %></li>
 <li><%= link_to "Sign in", new_user_session_path %></li>
 <% else %>
 <li><%= link_to "Dashboard", inside_path %></li>
 <li><%= link_to "Edit your profile", edit_user_registration_path %></li>
+<li><%= link_to 'Feedback', new_contact_path %></li>
+<li><%= link_to 'Plans', plans_path %></li>
 
 <% if current_user.admin? %>
 <li><%= link_to "Admin", admin_root_path %></li>

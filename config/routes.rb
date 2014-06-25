@@ -8,7 +8,8 @@ HoohaJun::Application.routes.draw do
   get "inside", to: "pages#inside", as: "inside"
   get "about", to: "pages#about", as: "about"
   get "feature", to: "pages#feature", as: "feature"
-  
+  get "plans", to: "pages#plans", as: "plans"
+
   match '/contacts',  to: 'contacts#new',    via: 'get'
   resources "contacts", only: [:new, :create]
   
