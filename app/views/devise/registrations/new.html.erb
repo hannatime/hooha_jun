@@ -90,13 +90,13 @@
         
           <div class="row">
               <%= label_tag :card_number, "Credit Card Number" %>
-              <%= text_field_tag :card_number, nil, name: nil, class: "form-control" %>
+              <%= number_field_tag :card_number, nil, name: nil, class: "form-control" %>
           </div>
 
           <div class="row">
             <div class="cvv-group"> 
               <%= label_tag :card_code, "CVV" %><br>
-              <%= text_field_tag :card_code, nil, name: nil, class: "cvv"  %> 
+              <%= number_field_tag :card_code, nil, name: nil, class: "cvv"  %> 
               </div>        
               <div class="select">
               <%= label_tag :card_month, "Card Expiration" %> <br>
