@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :friendify, use: :slugged
   
+  def index
+  @accounts = @current_user.accounts
+  end
+
   # necessary to override friendly_id reserved words
   def friendify
     if username.downcase == "admin"
