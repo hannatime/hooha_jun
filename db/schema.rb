@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623121036) do
+ActiveRecord::Schema.define(version: 20140626022748) do
+
+  create_table "accounts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "account_id"
+    t.string   "account_name"
+    t.string   "account_assigned_to"
+    t.string   "account_website"
+    t.string   "account_phone"
+    t.string   "account_address"
+    t.string   "account_postcode"
+    t.string   "account_city"
+    t.string   "account_state"
+    t.string   "account_country"
+  end
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false

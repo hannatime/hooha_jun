@@ -3,8 +3,8 @@
 
 # Temporary admin account
 u = User.new(
-    username: "admin2",
-    email: "admin2@example.com",
+    username: "admin",
+    email: "admin@example.com",
     password: "1234",
     password_confirmation: "1234",
     admin: true
@@ -24,3 +24,11 @@ u2 = User.new(
 u2.skip_confirmation!
 u2.save!
 u2.add_role :gold
+
+# a = Account.new(
+#     account_name: "hanna",
+#     account_phone: "04447444255",
+# )
+# a.save!
+
+

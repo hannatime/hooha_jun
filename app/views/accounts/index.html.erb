@@ -1,0 +1,25 @@
+<h1>Accounts List</h1>
+
+<table class="table table-condensed" width="647px">
+  <thead>
+    <tr>
+      <th>Account Name</th>
+      <th>Edit Account</th>
+      <th>Delete Account</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= link_to account.account_name.to_s.capitalize, account%></td>
+        <td><%= link_to 'Edit', edit_account_path(account) %></td>
+        <td><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Account', new_account_path, class: "btn submit-button btn-lg btn-warning" %>
