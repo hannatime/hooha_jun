@@ -892,7 +892,7 @@ select {
 }
 
 .cvv{
-  width:50px;
+  width:70px;
 }
 
 .form-group{
@@ -936,4 +936,57 @@ select {
 .country{
   width:100%;
   float:left;
+}
+
+.form-control{
+  background-color:white;
+}
+
+.panel-footer{
+  background-color:white;
+  border-color:white;
+}
+
+.panel-silver{
+  border-color:#bdc3c7;
+  border-width:2px;
+  border-style:solid;
+
+}
+
+.panel-gold{
+  border-color:#f1c40f;
+  border-width:2px;
+  border-style:solid;
+
+}
+
+.panel-platinum{
+  border-color:#7f8c8d;
+  border-width:2px;
+  border-style:solid;
+}
+
+.button-silver{
+  border-color:#bdc3c7;
+  border-width:1px;
+  border-style:solid;
+  background-color:#bdc3c7;
+}
+
+.button-gold{
+  border-color:#f1c40f;
+  border-width:1px;
+  border-style:solid;
+  background-color:#f1c40f;
+}
+
+.button-platinum{
+  border-color:#7f8c8d;
+  border-width:1px;
+  
+  background-color:#7f8c8d;
+}
+.button-platinum:hover{
+  background-color:#95a5a6;
 }

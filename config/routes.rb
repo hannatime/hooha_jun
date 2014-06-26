@@ -1,9 +1,5 @@
 HoohaJun::Application.routes.draw do
-    
-  
-
   root "pages#home"  
-
   get "content/free"
   get "content/silver"
   get "content/gold"
@@ -14,6 +10,7 @@ HoohaJun::Application.routes.draw do
   get "about", to: "pages#about", as: "about"
   get "feature", to: "pages#feature", as: "feature"
   get "plans", to: "pages#plans", as: "plans"
+  
   get "contacts", to: "contacts#new", as: 'feedback'
   resources "contacts", only: [:new, :create]
   
