@@ -1,5 +1,39 @@
-<div class="nav navbar">
+<!-- <div class="nav navbar">
 <%= link_to '+ Account', new_account_path, class: "btn submit-button btn-md btn-success" %>
 <%= link_to '+ Customer', new_customer_path, class: "btn submit-button btn-md btn-success" %>
 <%= link_to '+ Opportunity', new_opportunity_path, class: "btn submit-button btn-md btn-success" %>
-</div>
+</div> -->
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a>+ Task</a></li>
+                <li><a>+ Lead</a></li>
+                <li><%= link_to '+ Customer', new_customer_path %>
+                </li>
+                <li><%= link_to '+ Opportunity', new_opportunity_path %>
+                </li>
+                <li><%= link_to '+ Account', new_account_path %>
+                </li>
+                <li><a>Import</a></li>
+
+            </ul>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="content-header">
+                    <a id="menu-toggle" href="#" class="btn btn-warning btn-default"><i class="glyphicon glyphicon-plus"></i></a>
+                    
+            </div>
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row">
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
