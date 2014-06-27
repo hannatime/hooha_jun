@@ -16,7 +16,8 @@ class OpportunitiesController < ApplicationController
 
   # GET /opportunities/new
   def new
-    @opportunity = Opportunity.new
+    @opportunity            = Opportunity.new
+    @opportunity_owner      = User.all.map(&:email)
   end
 
   # GET /opportunities/1/edit
@@ -26,7 +27,7 @@ class OpportunitiesController < ApplicationController
   # POST /opportunities
   # POST /opportunities.json
   def create
-    @opportunity = Opportunity.new(opportunity_params)
+    @opportunity            = Opportunity.new(opportunity_params)
 
     respond_to do |format|
       if @opportunity.save

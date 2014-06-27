@@ -7,7 +7,7 @@
 <li><%= link_to 'Free Trial', new_user_registration_path(:plan => 'free') %></li>
 <li><%= link_to "Sign in", new_user_session_path %></li>
 <% else %>
-  <li><%= link_to "Dashboard", inside_path %></li>
+  <li><%= link_to "Dashboard", dashboard_path %></li>
   <li><%= link_to "Accounts", accounts_path %></li>
   <li><%= link_to "Customers", customers_path %></li>
   <li><%= link_to "Opportunities", opportunities_path %></li>

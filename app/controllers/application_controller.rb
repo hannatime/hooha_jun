@@ -35,19 +35,9 @@ class ApplicationController < ActionController::Base
 
   # Redirects on successful sign in
   def after_sign_in_path_for(resource)
-     if current_user.admin? 
+   
         dashboard_path
-      elsif current_user.has_role? :free  
-      content_free_path
-      elsif current_user.has_role? :silver  
-        content_silver_path
-      elsif current_user.has_role? :gold
-        content_gold_path
-      elsif current_user.has_role? :platinum
-        content_platinum_path
-      else
-        root_path
-    end
+      
   end
   
   # Auto-sign out locked users
