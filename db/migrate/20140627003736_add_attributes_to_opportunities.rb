@@ -3,7 +3,6 @@ class AddAttributesToOpportunities < ActiveRecord::Migration
     
     add_column :opportunities, :opportunity_name, :string
     add_column :opportunities, :account_name, :string
-    add_column :opportunities, :type, :string
     add_column :opportunities, :amount, :string
     add_column :opportunities, :stage, :string
     add_column :opportunities, :owner, :string

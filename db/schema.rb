@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20140627003736) do
     t.datetime "updated_at"
     t.string   "opportunity_name"
     t.string   "account_name"
-    t.string   "type"
     t.string   "amount"
     t.string   "stage"
     t.string   "owner"
