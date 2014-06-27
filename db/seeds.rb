@@ -19,16 +19,23 @@ u2 = User.new(
     password: "1234",
     password_confirmation: "1234",
     admin: false
-
 )
 u2.skip_confirmation!
 u2.save!
 u2.add_role :gold
 
-# a = Account.new(
-#     account_name: "hanna",
-#     account_phone: "04447444255",
-# )
-# a.save!
+a = Account.new(
+    account_name: "API Pharma",
+    account_phone: "04447444255",
+)
+
+a.save!
+
+b = Opportunity.new(
+    opportunity_name: "CRM Sale",
+    account_name: "API Pharma",
+    owner: "Ben Hanna"
+)
+b.save!
 
 
