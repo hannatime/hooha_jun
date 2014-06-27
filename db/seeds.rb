@@ -42,12 +42,12 @@ c = Customer.new(
     customer_first_name: "Tiffany",
     customer_last_name: "Hanna",
     customer_email:  "tiff@hooha.com.au",
-    customer_phone: "0447444255"
-    customer_address: "1/49 Foam St"
-    customer_city: "Melbourne"
-    customer_state: "Victoria"
-    customer_country: "Australia"
-    customer_postcode: "3184"
+    customer_phone: "0447444255",
+    customer_address: "1/49 Foam St",
+    customer_city: "Melbourne",
+    customer_state: "Victoria",
+    customer_country: "Australia",
+    customer_postcode: "3184",
 )
 c.save!
 
