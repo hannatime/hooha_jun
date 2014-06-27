@@ -1,0 +1,30 @@
+<%= simple_form_for @customer do |f| %>
+
+      <% if @customer.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+          <ul>
+          <% @customer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+  <%= f.input :customer_first_name, :required => true,  input_html:{ class: "form-control" } %>
+  <%= f.input :customer_last_name, :required => true, input_html:{ class: "form-control" }  %>
+  <%= f.input :customer_email, input_html:{ class: "form-control" }  %>
+  <%= f.input :customer_phone, input_html:{ class: "form-control" }  %>
+  <%= f.input :customer_address, input_html:{ class: "form-control" }  %>
+  <%= f.input :customer_city, input_html:{ class: "form-control" }  %>
+  <%= f.input :customer_state, input_html:{ class: "form-control" }  %>
+  <%= f.input :customer_country, input_html:{ class: "form-control" }, priority: ["Australia", "United States", "New Zealand", "United Kingdom"]  %>
+  <%= f.input :customer_postcode, input_html:{ class: "form-control" }  %>
+
+  <%= f.button :submit, class: "btn submit-button btn-lg btn-warning"  %>
+
+<% end %>
+
+
+

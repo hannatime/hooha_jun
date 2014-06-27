@@ -14,8 +14,8 @@ u.save!
 
 
 u2 = User.new(
-    username: "hanna",
-    email: "hanna@example.com",
+    username: "benhanna",
+    email: "ben@example.com",
     password: "1234",
     password_confirmation: "1234",
     admin: false
@@ -33,9 +33,23 @@ a.save!
 
 b = Opportunity.new(
     opportunity_name: "CRM Sale",
-    account_name: "API Pharma",
-    owner: "Ben Hanna"
+    opportunity_account_name: "API Pharma",
+    opportunity_owner: "Ben Hanna",
 )
 b.save!
 
+c = Customer.new(
+    customer_first_name: "Tiffany",
+    customer_last_name: "Hanna",
+    customer_email:  "tiff@hooha.com.au",
+    customer_phone: "0447444255"
+    customer_address: "1/49 Foam St"
+    customer_city: "Melbourne"
+    customer_state: "Victoria"
+    customer_country: "Australia"
+    customer_postcode: "3184"
+)
+c.save!
 
+
+     

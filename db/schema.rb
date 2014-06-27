@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627003736) do
+ActiveRecord::Schema.define(version: 20140627020312) do
 
   create_table "accounts", force: true do |t|
     t.datetime "created_at"
@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(version: 20140627003736) do
     t.string   "account_city"
     t.string   "account_state"
     t.string   "account_country"
+  end
+
+  create_table "customers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "customer_first_name"
+    t.string   "customer_last_name"
+    t.string   "customer_email"
+    t.string   "customer_phone"
+    t.string   "customer_address"
+    t.string   "customer_city"
+    t.string   "customer_state"
+    t.string   "customer_country"
+    t.string   "customer_postcode"
   end
 
   create_table "friendly_id_slugs", force: true do |t|
@@ -45,14 +59,14 @@ ActiveRecord::Schema.define(version: 20140627003736) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "opportunity_name"
-    t.string   "account_name"
-    t.string   "amount"
-    t.string   "stage"
-    t.string   "owner"
-    t.string   "probability"
-    t.string   "contact_name"
-    t.string   "comments"
-    t.string   "closing_date"
+    t.string   "opportunity_account_name"
+    t.string   "opportunity_amount"
+    t.string   "opportunity_stage"
+    t.string   "opportunity_owner"
+    t.string   "opportunity_probability"
+    t.string   "opportunity_contact_name"
+    t.string   "opportunity_comments"
+    t.string   "opportunity_closing_date"
   end
 
   create_table "roles", force: true do |t|

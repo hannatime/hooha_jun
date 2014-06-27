@@ -1,4 +1,6 @@
 HoohaJun::Application.routes.draw do
+  resources :customers
+
   resources :opportunities
 
   root "pages#home"  
