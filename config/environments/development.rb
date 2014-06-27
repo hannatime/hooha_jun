@@ -39,3 +39,4 @@ HoohaJun::Application.configure do
     password: ENV["SMTP_PWD"]
   }
 end
+
