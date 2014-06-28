@@ -1136,4 +1136,47 @@ select {
 
 .dash-btn{
 text-align:left;
+
+}
+
+.list-black a{
+  color:black;
+}
+
+.list-black {
+  color:black;
+}
+
+.add-btn {
+  margin-top:-73px;
+  margin-left:260px;
+}
+
+.list-settings-group{
+position:relative;
+top:-100px;
+left:200px;
+width:120px;
+margin-top:-30px;
+margin-bottom:-50px;
+}
+
+.list-setting a{
+
+}
+
+.list-setting {
+list-style: none;
+width:80px;
+margin:2px;
+}
+
+.list-wrapper{
+  min-width:330px;
+  max-width:330px;
+}
+
+.account-owner{
+  
+  position:absolute;
 }

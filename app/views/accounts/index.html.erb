@@ -1,32 +1,39 @@
 <%= render 'layouts/dashboard_top'%>
+
+
 <div class="dashboard-heading hidden-sm hidden-md hidden-lg">
   <h2>Account List</h2>
 </div>
 <div class="dashboard-heading-xs hidden-xs">
   <h2>Account List</h2>
 </div>
+<p><strong><%= link_to '+ Account', new_account_path, class: "btn add-btn btn-warning" %></strong></p>
 
-<table class="table table-condensed" width="647px">
-  <thead>
-    <tr>
-      <th>Account Name</th>
-      <th>Edit Account</th>
-      <th>Delete Account</th>
-    </tr>
-  </thead>
+<div class="col-sm-8">
 
-  <tbody>
-    <% @accounts.each do |account| %>
-      <tr>
-        <td><%= link_to account.account_name.to_s.capitalize, account%></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @accounts.each do |account| %>
 
-<br>
+<div class="list-wrapper">
+<ul class="list-group list-black">
+          <li class="list-group-item list-black">
+            <address>
+  <strong><%= link_to account.account_name.to_s.capitalize, account%></strong><br>
+  <%= link_to account.account_address.to_s, account%><br>
+  <%= link_to account.account_city.to_s, account%><br>
+  <%= link_to account.account_state, account%><br>
+  <%= link_to account.account_country, account%><br>
+  <span class="list-black">P: </span><%= link_to account.account_phone.to_s, account%><br>
+  <%= link_to account.account_website.to_s, account%><br>
+</address></li>       
+  </ul>        
+  <ul class="list-group-submenu list-settings-group">
+            <li class="btn btn-warning list-group-submenu-item list-setting"><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <li class="btn btn-warning list-group-submenu-item list-setting"><%= link_to 'Edit', edit_account_path(account) %></li>
+  </ul>   
+  </div>
+<% end %>
 
-<%= link_to 'Add Account', new_account_path, class: "btn submit-button btn-lg btn-warning" %>
+</div>
+<div class="col-sm-4">
+</div>
 <%= render 'layouts/dashboard_bottom'%>

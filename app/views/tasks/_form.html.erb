@@ -14,9 +14,10 @@
 
   <%= f.input :task_name, :required => true,  input_html:{ class: "form-control" } %>
   <%= f.input :task_due_date, :required => true, input_html:{ class: "form-control" }  %>
-  <%= f.input :task_assigned_to, :required => true, input_html:{ class: "form-control" }  %>
-  <%= f.input :task_type, :required => true, input_html:{ class: "form-control" }  %>
-  <%= f.input :task_comments,  :as => :text, :required => true, input_html:{ class: "form-control" }  %>
+  <hr>
+  <%= f.input :task_assigned_to, input_html:{ class: "form-control" }  %>
+  <%= f.input :task_type, input_html:{ class: "form-control" }  %>
+  <%= f.input :task_comments,  :as => :text, input_html:{ class: "form-control" }  %>
   <%= f.button :submit, class: "btn submit-button btn-lg btn-warning"  %>
 
 <% end %>
