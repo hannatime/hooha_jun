@@ -3,17 +3,22 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav nav nav-stacked nav-tabs">
-                <li><%= link_to ' Dashboard', dashboard_path,class: "dash-btn btn btn-primary btn-md btn-block"%></li>
-                <li><%= link_to 'Tasks', tasks_path,class: "dash-btn btn btn-primary btn-md btn-block"  %></li>
-                <li><%= link_to 'Leads', leads_path,class: "dash-btn btn btn-primary btn-md btn-block"  %></li>
-                <li><%= link_to 'Customers', customers_path,class: "dash-btn btn btn-primary btn-md btn-block"  %></li>
-                <li><%= link_to 'Opportunities', opportunities_path,class: "dash-btn btn btn-primary btn-md btn-block"  %></li>
-                <li><%= link_to 'Accounts', accounts_path, class: "dash-btn btn btn-primary btn-md btn-block" %></li>
-                <li><%= link_to 'Add Task', new_task_path, class: "dash-btn btn btn-warning btn-md btn-block" %></li>
-                <li><%= link_to 'Add Lead', new_lead_path, class: "dash-btn btn btn-warning btn-md btn-block" %></li>
-                <li><%= link_to 'Add Customer', new_customer_path, class: "dash-btn btn btn-warning btn-md btn-block" %></li>
-                <li><%= link_to 'Add Opportunity', new_opportunity_path, class: "dash-btn btn btn-warning btn-md btn-block" %></li> 
-                <li><%= link_to 'Add Account', new_account_path, class: "dash-btn btn btn-warning btn-md btn-block" %></li>
+               
+
+        
+
+<li><%= link_to "<span class=\"fa fa-tachometer\"> Dashboard</span>".html_safe, dashboard_path('messages')%></li>
+<li><%= link_to "<span class=\"fa fa-check-square-o\"> Tasks</span>".html_safe, tasks_path('messages')%></li>
+<li><%= link_to "<span class=\"fa fa-star\"> Leads</span>".html_safe, leads_path('messages')%></li>
+<li><%= link_to "<span class=\"fa fa-group\">    Customers</span>".html_safe, customers_path('messages')%></li>
+<li><%= link_to "<span class=\"fa fa-dollar\">    Opportunities</span>".html_safe, opportunities_path('messages')%></li>
+<li><%= link_to "<span class=\"fa fa-building-o\">    Accounts</span>".html_safe, accounts_path('messages')%></li>
+<li><%= link_to "<span class=\"fa fa-plus\">    Task</span>".html_safe, new_task_path('messages')%></li>
+<li><%= link_to "<span class=\"fa fa-plus\">    Lead</span>".html_safe, new_lead_path('messages')%></li>
+<li><%= link_to "<span class=\"fa fa-plus\">    Customer</span>".html_safe, new_customer_path('messages')%></li>
+<li><%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path('messages')%></li>
+<li><%= link_to "<span class=\"fa fa-plus\">    Account</span>".html_safe, accounts_path('messages')%></li>
+
                 </ul>            
         </div>
 
