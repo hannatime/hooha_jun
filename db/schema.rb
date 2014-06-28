@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627020312) do
+ActiveRecord::Schema.define(version: 20140628014725) do
 
   create_table "accounts", force: true do |t|
     t.datetime "created_at"
@@ -79,6 +79,16 @@ ActiveRecord::Schema.define(version: 20140627020312) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "tasks", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "task_name"
+    t.string   "task_due_date"
+    t.string   "task_assigned_to"
+    t.string   "task_type"
+    t.string   "task_comments"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username",               default: "",    null: false

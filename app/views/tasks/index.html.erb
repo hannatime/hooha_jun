@@ -1,0 +1,34 @@
+<%= render 'layouts/dashboard_top'%>
+
+<div class="dashboard-heading hidden-sm hidden-md hidden-lg">
+  <h2>Task List</h2>
+</div>
+<div class="dashboard-heading-xs hidden-xs">
+  <h2>Task List </h2>
+</div>
+
+<table class="table table-condensed" width="647px">
+  <thead>
+    <tr>
+      <th>Task Name</th>
+      <th>Edit Account</th>
+      <th>Delete Account</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.task_name.to_s.capitalize, task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path, class: "btn submit-button btn-lg btn-warning" %>
+
+<%= render 'layouts/dashboard_bottom'%>
