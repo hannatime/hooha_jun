@@ -1090,7 +1090,6 @@ select {
 }
 
 @media (max-width:767px) {
-
 #wrapper {
   padding-left: 0;
 }
@@ -1117,7 +1116,6 @@ select {
 .inset {
   padding: 15px;
 }
-
 }
 
 #sidebar-wrapper{
@@ -1127,18 +1125,12 @@ select {
 }
 
 .dashboard-heading{
- // position:absolute;
- // top: -5px;
- // left: 80px;
  margin-top:-85px;
  margin-left:55px;
 }
 
 .dashboard-heading-xs{
- // position:absolute;
- // top: -5px;
- // left: 80px;
  margin-top:-85px;
- margin-left:5px;
+ margin-left:10px;
 }
 
