@@ -2,22 +2,19 @@
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li><%= link_to 'Dashboard', dashboard_path %>
-                </li>
-                <li><%= link_to 'Tasks', tasks_path %>
-                </li>
-                <li><%= link_to 'Leads', leads_path %>
-                </li>
-                <li><%= link_to 'Customers', customers_path %>
-                </li>
-                <li><%= link_to 'Opportunities', opportunities_path %>
-                </li>
-                <li><%= link_to 'Account', accounts_path %>
-                </li>
-                <li><a>Import</a></li>
-
-            </ul>
+            <ul class="sidebar-nav nav nav-stacked nav-tabs">
+                <li><%= link_to ' Dashboard', dashboard_path,class: "dash-btn btn btn-primary btn-sm btn-block"%></li>
+                <li><%= link_to 'Tasks', tasks_path,class: "dash-btn btn btn-success btn-sm btn-block"  %></li>
+                <li><%= link_to 'Leads', leads_path,class: "dash-btn btn btn-success btn-sm btn-block"  %></li>
+                <li><%= link_to 'Customers', customers_path,class: "dash-btn btn btn-success btn-sm btn-block"  %></li>
+                <li><%= link_to 'Opportunities', opportunities_path,class: "dash-btn btn btn-success btn-sm btn-block"  %></li>
+                <li><%= link_to 'Accounts', accounts_path, class: "dash-btn btn btn-success btn-sm btn-block" %></li>
+                <li><%= link_to 'Add Task', new_task_path, class: "dash-btn btn btn-warning btn-sm btn-block" %></li>
+                <li><%= link_to 'Add Lead', new_lead_path, class: "dash-btn btn btn-warning btn-sm btn-block" %></li>
+                <li><%= link_to 'Add Customer', new_customer_path, class: "dash-btn btn btn-warning btn-sm btn-block" %></li>
+                <li><%= link_to 'Add Opportunity', new_opportunity_path, class: "dash-btn btn btn-warning btn-sm btn-block" %></li> 
+                <li><%= link_to 'Add Account', new_account_path, class: "dash-btn btn btn-warning btn-sm btn-block" %></li>
+                </ul>            
         </div>
 
         <!-- Page content -->
