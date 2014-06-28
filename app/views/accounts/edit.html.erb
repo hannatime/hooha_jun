@@ -1,8 +1,16 @@
-<div class="form-group form-horizontal">
-<h3>Edit Account - <%= @account.account_name %></h3>
+<%= render 'layouts/dashboard_top'%>
+
+<div class="dashboard-heading hidden-sm hidden-md hidden-lg">
+  <h2> Edit Account</h2>
+</div>
+<div class="dashboard-heading-xs hidden-xs">
+  <h2> Edit Account </h2>
+</div>
+<h3><%= @account.account_name %></h3>
+
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @account %> |
 <%= link_to 'Back', accounts_path %>
-</div>
+<%= render 'layouts/dashboard_bottom'%>

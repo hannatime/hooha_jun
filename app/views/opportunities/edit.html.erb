@@ -1,6 +1,15 @@
-<h1>Editing opportunity</h1>
+<%= render 'layouts/dashboard_top'%>
+
+<div class="dashboard-heading hidden-sm hidden-md hidden-lg">
+  <h2> Edit Opportunity</h2>
+</div>
+<div class="dashboard-heading-xs hidden-xs">
+  <h2> Edit Opportunity </h2>
+</div>
+<h3><%= @opportunity.opportunity_name %></h3>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @opportunity %> |
 <%= link_to 'Back', opportunities_path %>
+<%= render 'layouts/dashboard_bottom'%>

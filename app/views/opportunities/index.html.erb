@@ -1,4 +1,11 @@
-<h1>Opportunity List</h1>
+<%= render 'layouts/dashboard_top'%>
+
+<div class="dashboard-heading hidden-sm hidden-md hidden-lg">
+  <h2> Opportunity List</h2>
+</div>
+<div class="dashboard-heading-xs hidden-xs">
+  <h2> Opportunity List </h2>
+</div>
 
 <table class="table table-condensed" width="647px">
   <thead>
@@ -23,3 +30,5 @@
 <br>
 
 <%= link_to 'New Opportunity', new_opportunity_path, class: "btn submit-button btn-lg btn-warning" %>
+
+<%= render 'layouts/dashboard_bottom'%>
