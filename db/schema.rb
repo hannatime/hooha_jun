@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628014725) do
+ActiveRecord::Schema.define(version: 20140628023639) do
 
   create_table "accounts", force: true do |t|
     t.datetime "created_at"
@@ -54,6 +54,19 @@ ActiveRecord::Schema.define(version: 20140628014725) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "leads", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "lead_interested_in"
+    t.string   "lead_comments"
+    t.string   "lead_status"
+    t.string   "lead_source"
+    t.string   "lead_owner"
+    t.string   "lead_account_name"
+    t.string   "lead_opportunity_name"
+    t.string   "lead_opportunity_owner"
+  end
 
   create_table "opportunities", force: true do |t|
     t.datetime "created_at"

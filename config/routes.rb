@@ -1,4 +1,6 @@
 HoohaJun::Application.routes.draw do
+  resources :leads
+
   resources :tasks
 
   resources :customers

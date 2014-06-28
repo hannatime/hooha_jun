@@ -1,0 +1,34 @@
+<%= render 'layouts/dashboard_top'%>
+
+<div class="dashboard-heading hidden-sm hidden-md hidden-lg">
+  <h2>Lead List</h2>
+</div>
+<div class="dashboard-heading-xs hidden-xs">
+  <h2>Lead List</h2>
+</div>
+
+<table class="table table-condensed" width="647px">
+  <thead>
+    <tr>
+      <th>Lead Name</th>
+      <th>Edit Lead</th>
+      <th>Delete Lead</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>
+        <td><%= link_to lead.lead_interested_in.to_s.capitalize, lead %></td>
+        <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
+        <td><%= link_to 'Delete', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add lead', new_lead_path, class: "btn submit-button btn-lg btn-warning" %>
+
+<%= render 'layouts/dashboard_bottom'%>
