@@ -27,6 +27,7 @@ u2.add_role :gold
 a = Account.new(
     account_name: "API Pharma",
     account_phone: "04447444255",
+    user_id: "2",
 )
 
 a.save!
@@ -35,6 +36,7 @@ b = Opportunity.new(
     opportunity_name: "CRM Sale",
     opportunity_account_name: "API Pharma",
     opportunity_owner: "Ben Hanna",
+    user_id: "2",
 )
 b.save!
 
@@ -48,6 +50,7 @@ c = Customer.new(
     customer_state: "Victoria",
     customer_country: "Australia",
     customer_postcode: "3184",
+    user_id: "2",
 )
 c.save!
 
@@ -56,7 +59,7 @@ for crm_account in 1..100 do
  b = Account.new(
     account_name: "CRM Sale + #{crm_account}",
     account_phone: "12345678",
-    user: "2"
+    user_id: "2",
 )
  b.save!
 end
