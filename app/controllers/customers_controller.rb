@@ -5,12 +5,13 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @customers = Customer.accessible_by(current_ability)
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
+    authorize! :show, @customer
   end
 
   # GET /customers/new
@@ -20,12 +21,16 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
+    @customer = Customer.find(params[:id])
+    authorize! :edit, @customer
   end
 
   # POST /customers
   # POST /customers.json
   def create
     @customer = Customer.new(customer_params)
+    @customer.user = current_user
+    authorize! :create, @customer
 
     respond_to do |format|
       if @customer.save
@@ -55,8 +60,10 @@ class CustomersController < ApplicationController
   # DELETE /customers/1
   # DELETE /customers/1.json
   def destroy
+    @customer = Customer.find(params[:id])
+    authorize! :destroy, @customer
     @customer.destroy
-    respond_to do |format|
+    @customers = Customer.accessible_by(current_ability)    respond_to do |format|
       format.html { redirect_to customers_url }
       format.json { head :no_content }
     end

@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   
   has_many :tasks
   has_many :leads
+  has_many :opportunities
+  has_many :customers
+  has_many :accounts
 
   def index
   @accounts = @current_user.accounts

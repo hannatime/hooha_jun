@@ -6,13 +6,13 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+    @accounts = Account.accessible_by(current_ability)
   end
 
   # GET /accounts/1
   # GET /accounts/1.json
   def show
-
+    authorize! :show, @account
   end
 
   # GET /accounts/new
@@ -22,13 +22,16 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/edit
   def edit
+    @account = Account.find(params[:id])
+    authorize! :edit, @account
   end
 
   # POST /accounts
   # POST /accounts.json
   def create
     @account = Account.new(account_params)
-
+    @account.user = current_user
+    authorize! :create, @account
     respond_to do |format|
       if @account.save
         format.html { redirect_to @account, notice: 'Account was successfully created.' }
@@ -57,7 +60,10 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1
   # DELETE /accounts/1.json
   def destroy
+    @account = Account.find(params[:id])
+    authorize! :destroy, @account
     @account.destroy
+    @accounts = Account.accessible_by(current_ability)
     respond_to do |format|
       format.html { redirect_to accounts_url }
       format.json { head :no_content }

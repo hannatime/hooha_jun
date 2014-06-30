@@ -6,28 +6,33 @@ class OpportunitiesController < ApplicationController
   # GET /opportunities
   # GET /opportunities.json
   def index
-    @opportunities = Opportunity.all
+    @opportunities = Opportunity.accessible_by(current_ability)
   end
 
   # GET /opportunities/1
   # GET /opportunities/1.json
   def show
+    authorize! :show, @opportunity
   end
 
   # GET /opportunities/new
   def new
-    @opportunity            = Opportunity.new
-    @opportunity_owner      = User.all.map(&:email)
+    @opportunity = Opportunity.new
+    @opportunity_owner = User.all.map(&:email)
   end
 
   # GET /opportunities/1/edit
   def edit
+    @opportunity = Opportunity.find(params[:id])
+    authorize! :edit, @opportunity
   end
 
   # POST /opportunities
   # POST /opportunities.json
   def create
-    @opportunity            = Opportunity.new(opportunity_params)
+    @opportunity = Opportunity.new(opportunity_params)
+    @opportunity.user = current_user
+    authorize! :create, @opportunity
 
     respond_to do |format|
       if @opportunity.save
@@ -57,7 +62,10 @@ class OpportunitiesController < ApplicationController
   # DELETE /opportunities/1
   # DELETE /opportunities/1.json
   def destroy
+    @opportunity = Opportunity.find(params[:id])
+    authorize! :destroy, @opportunity
     @opportunity.destroy
+    @opportunity = Opportunity.accessible_by(current_ability)
     respond_to do |format|
       format.html { redirect_to opportunities_url }
       format.json { head :no_content }

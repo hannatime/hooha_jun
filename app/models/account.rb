@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-
-  validates_presence_of :account_name, :account_phone
+  belongs_to :user
+  validates_presence_of :user, :account_name, :account_phone
   validates :account_name, uniqueness: true
 end

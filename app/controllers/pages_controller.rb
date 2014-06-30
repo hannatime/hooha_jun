@@ -10,12 +10,12 @@ class PagesController < ApplicationController
   end 
 
   def dashboard
-    @opportunities = Opportunity.all
-    @leads = Lead.all
-    @tasks = Task.all
-    @customers = Customer.all
-    @accounts = Account.all
-    @users = User.all
+    @opportunities = Opportunity.accessible_by(current_ability)
+    @leads = Lead.accessible_by(current_ability)
+    @tasks = Task.accessible_by(current_ability)
+    @customers = Customer.accessible_by(current_ability)
+    @accounts = Account.accessible_by(current_ability)
+    @users = User.accessible_by(current_ability)
   end 
 
   def about
