@@ -24,6 +24,15 @@ u2.skip_confirmation!
 u2.save!
 u2.add_role :gold
 
+for crm_account in 1..100 do
+ b = Account.new(
+    account_name: "CRM Sale + #{crm_account}",
+    account_phone: "12345678",
+    user_id: "2",
+)
+ b.save!
+end
+
 a = Account.new(
     account_name: "API Pharma",
     account_phone: "04447444255",
@@ -40,27 +49,5 @@ b = Opportunity.new(
 )
 b.save!
 
-c = Customer.new(
-    customer_first_name: "Tiffany",
-    customer_last_name: "Hanna",
-    customer_email:  "tiff@hooha.com.au",
-    customer_phone: "0447444255",
-    customer_address: "1/49 Foam St",
-    customer_city: "Melbourne",
-    customer_state: "Victoria",
-    customer_country: "Australia",
-    customer_postcode: "3184",
-    user_id: "2",
-)
-c.save!
 
-
-for crm_account in 1..100 do
- b = Account.new(
-    account_name: "CRM Sale + #{crm_account}",
-    account_phone: "12345678",
-    user_id: "2",
-)
- b.save!
-end
   

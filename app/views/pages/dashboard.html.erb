@@ -10,6 +10,67 @@
 <table class="table table-condensed" width="647px">
   <thead>
     <tr>
+      <th>Task Name</th>
+      <th>Edit Account</th>
+      <th>Delete Account</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.task_name.to_s.capitalize, task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-condensed" width="647px">
+  <thead>
+    <tr>
+      <th>Account Name</th>
+      <th>Edit Account</th>
+      <th>Delete Account</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @accounts.each do |account| %>
+
+      <tr>
+        <td><%= link_to account.account_name.to_s.capitalize, account %></td>
+        <td><%= link_to 'Edit', edit_account_path(account) %></td>
+        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-condensed" width="647px">
+  <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Edit Customer</th>
+      <th>Delete Customer</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= link_to customer.customer_first_name.to_s.capitalize + " " + customer.customer_last_name.to_s.capitalize, customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-condensed" width="647px">
+  <thead>
+    <tr>
       <th>Opportunity Name</th>
       <th>Edit Opportunity</th>
       <th>Delete Opportunity</th>
@@ -27,12 +88,25 @@
   </tbody>
 </table>
 
-  <% @accounts.each do |account| %>
-  <ul class="list-group">
-  <li class="list-group-item"><%= link_to account.account_name.to_s.capitalize, account %>
-  </li>
-  <li class="list-group-item"><%= link_to 'Edit', edit_account_path(account) %></li>
-    <li class="list-group-item"><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    </ul>
-  <% end %>
+<table class="table table-condensed" width="647px">
+  <thead>
+    <tr>
+      <th>Lead Name</th>
+      <th>Edit Lead</th>
+      <th>Delete Lead</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>
+        <td><%= link_to lead.lead_interested_in.to_s.capitalize, lead %></td>
+        <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
+        <td><%= link_to 'Delete', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <%= render 'layouts/dashboard_bottom'%>
