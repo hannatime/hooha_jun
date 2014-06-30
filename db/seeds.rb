@@ -56,6 +56,7 @@ for crm_account in 1..100 do
  b = Account.new(
     account_name: "CRM Sale + #{crm_account}",
     account_phone: "12345678",
+    user: "2"
 )
  b.save!
 end
