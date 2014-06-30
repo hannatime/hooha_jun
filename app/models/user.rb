@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :friendify, use: :slugged
   
+  has_many :tasks
+  has_many :leads
+
   def index
   @accounts = @current_user.accounts
   end

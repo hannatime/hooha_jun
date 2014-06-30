@@ -11,5 +11,10 @@ class Ability
       can :view, :gold if user.has_role? :gold
       can :view, :platinum if user.has_role? :platinum
     end
+    can :manage, Task, user_id: user.id
+    can :manage, Account, user_id: user.id
+    can :manage, Lead, user_id: user.id
+    can :manage, Opportunity, user_id: user.id
+    can :manage, Customer, user_id: user.id
   end
 end

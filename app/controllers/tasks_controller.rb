@@ -5,12 +5,13 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.accessible_by(current_ability)
   end
 
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    authorize! :show, @task
   end
 
   # GET /tasks/new
@@ -20,13 +21,17 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @task = Task.find(params[:id])
+    authorize! :edit, @task
+   
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
+    @task.user = current_user
+    authorize! :create, @task
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
@@ -55,7 +60,10 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+    @task = Task.find(params[:id])
+    authorize! :destroy, @task
     @task.destroy
+    @tasks = Task.accessible_by(current_ability)
     respond_to do |format|
       format.html { redirect_to tasks_url }
       format.json { head :no_content }

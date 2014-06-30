@@ -4,12 +4,13 @@ class LeadsController < ApplicationController
   # GET /leads
   # GET /leads.json
   def index
-    @leads = Lead.all
+    @leads = Lead.accessible_by(current_ability)
   end
 
   # GET /leads/1
   # GET /leads/1.json
   def show
+    authorize! :show, @lead
   end
 
   # GET /leads/new
@@ -19,12 +20,17 @@ class LeadsController < ApplicationController
 
   # GET /leads/1/edit
   def edit
+    @lead = Lead.find(params[:id])
+    authorize! :edit, @lead
+  
   end
 
   # POST /leads
   # POST /leads.json
   def create
     @lead = Lead.new(lead_params)
+    @lead.user = current_user
+    authorize! :create, @lead
 
     respond_to do |format|
       if @lead.save
@@ -54,7 +60,10 @@ class LeadsController < ApplicationController
   # DELETE /leads/1
   # DELETE /leads/1.json
   def destroy
+    @lead = Lead.find(params[:id])
+    authorize! :destroy, @lead
     @lead.destroy
+    @lead = Lead.accessible_by(current_ability)
     respond_to do |format|
       format.html { redirect_to leads_url }
       format.json { head :no_content }

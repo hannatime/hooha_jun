@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
 
-    validates_presence_of :task_type, :task_name, :task_assigned_to
-
+    belongs_to :user
+    validates_presence_of :user, :task_type, :task_name, :task_assigned_to
+    
 end

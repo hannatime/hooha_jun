@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628023639) do
+ActiveRecord::Schema.define(version: 20140630103519) do
 
   create_table "accounts", force: true do |t|
     t.datetime "created_at"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140628023639) do
     t.string   "lead_account_name"
     t.string   "lead_opportunity_name"
     t.string   "lead_opportunity_owner"
+    t.integer  "user_id"
   end
 
   create_table "opportunities", force: true do |t|
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 20140628023639) do
     t.string   "task_assigned_to"
     t.string   "task_type"
     t.string   "task_comments"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
