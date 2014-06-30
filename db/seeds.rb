@@ -1,7 +1,7 @@
-Generated with RailsBricks
-Initial seed file to use with Devise User Model
+# Generated with RailsBricks
+# Initial seed file to use with Devise User Model
 
-Temporary admin account
+# Temporary admin account
 u = User.new(
     username: "admin",
     email: "admin@example.com",
