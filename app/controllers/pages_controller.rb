@@ -10,6 +10,12 @@ class PagesController < ApplicationController
   end 
 
   def dashboard
+    @opportunities = Opportunity.all
+    @leads = Lead.all
+    @tasks = Task.all
+    @customers = Customer.all
+    @accounts = Account.all
+    @users = User.all
   end 
 
   def about

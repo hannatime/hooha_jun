@@ -1,8 +1,37 @@
 <%= render 'layouts/dashboard_top'%>
 
+<div class="dashboard-heading hidden-sm hidden-md hidden-lg">
+  <h2>Dashboard</h2>
+</div>
+<div class="dashboard-heading-xs hidden-xs">
+  <h2>Dashboard</h2>
+</div>
 
+<table class="table table-condensed" width="647px">
+  <thead>
+    <tr>
+      <th>Opportunity Name</th>
+      <th>Edit Opportunity</th>
+      <th>Delete Opportunity</th>
+    </tr>
+  </thead>
 
-
-
+  <tbody>
+    <% @opportunities.each do |opportunity| %>
+      <tr>
+        <td><%= link_to opportunity.opportunity_name.to_s.capitalize, opportunity %></td>
+        <td><%= link_to 'Edit', edit_opportunity_path(opportunity) %></td>
+        <td><%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <% @accounts.each do |account| %>
+  <ul class="list-group">
+  <li class="list-group-item"><%= link_to account.account_name.to_s.capitalize, account %>
+  </li>
+  <li class="list-group-item"><%= link_to 'Edit', edit_account_path(account) %></li>
+    <li class="list-group-item"><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+  <% end %>
 <%= render 'layouts/dashboard_bottom'%>
-

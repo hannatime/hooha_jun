@@ -1016,6 +1016,7 @@ select {
   z-index: 1000;
   transition: all 0.4s ease 0s;
   border-right: solid 1px #2980b9; 
+  margin-top:-22px;
 }
 
 #page-content-wrapper {
@@ -1125,12 +1126,12 @@ select {
 }
 
 .dashboard-heading{
- margin-top:-85px;
+ margin-top:-105px;
  margin-left:55px;
 }
 
 .dashboard-heading-xs{
- margin-top:-85px;
+ margin-top:-125px;
  margin-left:10px;
 }
 
@@ -1148,18 +1149,17 @@ text-align:left;
 }
 
 .add-btn {
-  margin-top:-71px;
-  margin-left:260px;
+ width:100px;
+ margin-left:50px;
+ margin-top:10px;
 }
 
 .list-settings-group{
-position:relative;
-top:-100px;
-left:140px;
 width:120px;
-margin-top:-30px;
-margin-bottom:-50px;
-
+position:relative;
+z-index:100;
+right:-170px;
+top:-210px;
 }
 
 .list-setting a{
@@ -1173,9 +1173,10 @@ margin:2px;
 }
 
 .list-wrapper{
-  min-width:300px;
-  max-width:300px;
-  margin-left:-15px;
+  width:100%;
+  margin-left:-5px;
+  margin-right:-5px;
+  margin-bottom:-100px;
 }
 
 .account-owner{
@@ -1183,4 +1184,9 @@ margin:2px;
   position:absolute;
 }
 .glyphicon{
+}
+
+hr{
+  background-color:#2980b9;
+color:#2980b9;
 }
