@@ -1,4 +1,5 @@
 class LeadsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
 
   # GET /leads

@@ -63,7 +63,8 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     authorize! :destroy, @customer
     @customer.destroy
-    @customers = Customer.accessible_by(current_ability)    respond_to do |format|
+    @customers = Customer.accessible_by(current_ability)    
+    respond_to do |format|
       format.html { redirect_to customers_url }
       format.json { head :no_content }
     end
