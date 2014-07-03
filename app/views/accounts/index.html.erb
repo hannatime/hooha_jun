@@ -21,25 +21,6 @@
 
   <tbody>
 <% @accounts.each do |account| %>
-<!-- <div class="list-wrapper">
-  <ul class="list-group list-black">
-      <li class="list-group-item list-black">
-        <address>
-          <strong><%= link_to account.account_name.to_s.capitalize, account%></strong><br>
-          <%= link_to account.account_address.to_s, account%><br>
-          <%= link_to account.account_city.to_s, account%><br>
-          <%= link_to account.account_state, account%><br>
-          <%= link_to account.account_country, account%><br>
-          <span class="list-black">P: </span><%= link_to account.account_phone.to_s, account%><br>
-          <%= link_to account.account_website.to_s, account%><br>
-        </address>
-      </li>       
-    </ul>        
-    <ul class="list-group-submenu list-settings-group">
-        <li class="btn btn-warning list-group-submenu-item list-setting"><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-        <li class="btn btn-warning list-group-submenu-item list-setting"><%= link_to 'Edit', edit_account_path(account) %></li>
-    </ul>   
-</div> -->
 
       <tr>
         <td><%= link_to account.account_name.to_s.capitalize, account %></td>
