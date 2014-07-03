@@ -14,6 +14,7 @@ gem 'simple_form', '3.0.2', :path => "vendor/gems/simple_form-3.0.2"
 gem 'country_select'
 gem "stripe"
 gem "stripe_event"
+gem 'newrelic_rpm'
 
 # Rolify
 gem "rolify"
