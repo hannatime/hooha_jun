@@ -19,6 +19,8 @@ class OpportunitiesController < ApplicationController
   def new
     @opportunity = Opportunity.new
     @opportunity_owner = User.all.map(&:email)
+    @accounts = Account.all.map { |account| [account.account_name, account.id]}
+
   end
 
   # GET /opportunities/1/edit
@@ -84,6 +86,6 @@ class OpportunitiesController < ApplicationController
     end
 
     def opportunity_params
-      params.require(:opportunity).permit(:opportunity_name, :opportunity_account_name, :opportunity_amount, :opportunity_stage, :opportunity_owner, :opportunity_probability, :opportunity_contact_name, :opportunity_comments, :opportunity_closing_date)
+      params.require(:opportunity).permit(:account_id, :opportunity_name, :opportunity_account_name, :opportunity_amount, :opportunity_stage, :opportunity_owner, :opportunity_probability, :opportunity_contact_name, :opportunity_comments, :opportunity_closing_date)
     end
 end

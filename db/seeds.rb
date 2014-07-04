@@ -24,19 +24,20 @@ u2.skip_confirmation!
 u2.save!
 u2.add_role :gold
 
-for crm_account in 1..100 do
- b = Account.new(
-    account_name: "CRM Sale + #{crm_account}",
-    account_phone: "12345678",
-    user_id: "2",
-)
- b.save!
-end
+# for crm_account in 1..100 do
+#  b = Account.new(
+#     account_name: "Account + #{crm_account}",
+#     account_phone: "12345678",
+#     user_id: "1",
+#     account_id: "2",
+# )
+#  b.save!
+# end
 
 a = Account.new(
     account_name: "API Pharma",
     account_phone: "04447444255",
-    user_id: "2",
+    user_id: "1",
 )
 
 a.save!
@@ -45,7 +46,8 @@ b = Opportunity.new(
     opportunity_name: "CRM Sale",
     opportunity_account_name: "API Pharma",
     opportunity_owner: "Ben Hanna",
-    user_id: "2",
+    user_id: "1",
+    account_id: "1",
 )
 b.save!
 
