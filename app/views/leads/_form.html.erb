@@ -13,13 +13,11 @@
       <% end %>
 
   <%= f.input :lead_interested_in, :required => true,  input_html:{ class: "form-control" } %>
-  <%= f.input :lead_owner, input_html:{ class: "form-control" }  %>
-   <%= f.input :lead_comments, :as => :text, :required => true, input_html:{ class: "form-control" }  %>
+  <%= f.input :lead_comments, :as => :text, :required => true, input_html:{ class: "form-control" }  %>
    <hr>
   <%= f.input :lead_status, input_html:{ class: "form-control" }  %>
   <%= f.input :lead_source, input_html:{ class: "form-control" }  %>
   <%= f.input :lead_account_name, input_html:{ class: "form-control" }  %>
   <%= f.input :lead_opportunity_name, input_html:{ class: "form-control" }  %>
-  <%= f.input :lead_opportunity_owner, input_html:{ class: "form-control"}  %>
   <%= f.button :submit, class: "btn submit-button btn-lg btn-warning"  %>
 <% end %>

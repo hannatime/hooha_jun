@@ -20,7 +20,7 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new
     @opportunity_owner = User.all.map(&:email)
     @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
-
+    @opportunity_stages = [['Prospecting', 'prospecting'], ['Proposal', 'proposal'], ['Analysis', 'analysis'], ['Presentation', 'presentation'], ['Negotiation', 'negotiation'], ['Final Review', 'final_review'], ['Closed/Won','closed_won'], ['Closed/Lost', 'closed_lost']]
   end
 
   # GET /opportunities/1/edit
@@ -86,6 +86,6 @@ class OpportunitiesController < ApplicationController
     end
 
     def opportunity_params
-      params.require(:opportunity).permit(:account_id, :opportunity_name, :opportunity_account_name, :opportunity_amount, :opportunity_stage, :opportunity_owner, :opportunity_probability, :opportunity_contact_name, :opportunity_comments, :opportunity_closing_date)
+      params.require(:opportunity).permit(:account_id, :opportunity_name, :opportunity_amount, :opportunity_stage, :opportunity_owner, :opportunity_probability, :opportunity_contact_name, :opportunity_comments, :opportunity_closing_date)
     end
 end

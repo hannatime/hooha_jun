@@ -3,6 +3,6 @@ class Account < ActiveRecord::Base
   validates_presence_of :user, :account_name, :account_phone
   validates :account_name, uniqueness: true
 
-  has_many :opportunities
-  has_many :customers
+  has_many :opportunities, dependent: :destroy 
+  has_many :customers 
 end

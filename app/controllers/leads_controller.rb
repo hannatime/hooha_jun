@@ -79,6 +79,6 @@ class LeadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lead_params
-      params.require(:lead).permit(:lead_interested_in,:lead_comments,:lead_status,:lead_source,:lead_owner,:lead_account_name,:lead_opportunity_name,:lead_opportunity_owner)
+      params.require(:lead).permit(:lead_interested_in,:lead_comments,:lead_status,:lead_source,:lead_account_name,:lead_opportunity_name)
     end
 end
