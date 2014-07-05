@@ -4,4 +4,5 @@ class Account < ActiveRecord::Base
   validates :account_name, uniqueness: true
 
   has_many :opportunities
+  has_many :customers
 end

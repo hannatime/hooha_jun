@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704094110) do
+ActiveRecord::Schema.define(version: 20140704122333) do
 
   create_table "accounts", force: true do |t|
     t.datetime "created_at"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140704094110) do
     t.string   "customer_country"
     t.string   "customer_postcode"
     t.integer  "user_id"
+    t.integer  "account_id",          default: 1
   end
 
   create_table "friendly_id_slugs", force: true do |t|

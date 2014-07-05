@@ -19,7 +19,7 @@ class OpportunitiesController < ApplicationController
   def new
     @opportunity = Opportunity.new
     @opportunity_owner = User.all.map(&:email)
-    @accounts = Account.all.map { |account| [account.account_name, account.id]}
+    @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
 
   end
 
