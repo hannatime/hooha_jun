@@ -13,9 +13,13 @@
       <% end %>
 
   <%= f.input :task_name, :required => true,  input_html:{ class: "form-control" } %>
-  <%= f.input :task_due_date, :required => true, input_html:{ class: "form-control" }  %>
+  <%= f.label :task_type %>
+  <%= f.select :task_type, options_for_select([['Call', 'call'], ['Meeting', 'meeting'], ['Email', 'email'] , ['Follow-Up', 'Follow-Up']]), {:include_blank => '-- Select One --'}, { class: "form-control" }  %>
+  <%= f.label :task_due_date  %>
+  <div class="form-inline">
+    <%= f.date_select :task_due_date, {},{ class: "form-control" }  %>
+  </div>
   <hr>
-  <%= f.input :task_type, input_html:{ class: "form-control" }  %>
   <%= f.input :task_comments,  :as => :text, input_html:{ class: "form-control" }  %>
   <%= f.button :submit, class: "btn submit-button btn-lg btn-warning"  %>
 
