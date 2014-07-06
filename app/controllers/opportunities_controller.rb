@@ -19,9 +19,7 @@ class OpportunitiesController < ApplicationController
   def new
     @opportunity = Opportunity.new
     @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
-    # @opportunity_stages = [['Prospecting', 'prospecting'], ['Proposal', 'proposal'], ['Analysis', 'analysis'], ['Presentation', 'presentation'], ['Negotiation', 'negotiation'], ['Final Review', 'final_review'], ['Closed/Won','closed_won'], ['Closed/Lost', 'closed_lost']]
-    # @opportunity_prob = [['High', 'high'], ['Medium', 'medium'], ['Low', 'Low']]
-
+    @opportunities = Opportunity.accessible_by(current_ability)
   end
 
   # GET /opportunities/1/edit
