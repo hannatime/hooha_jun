@@ -21,5 +21,5 @@
   <%= f.select :lead_source, options_for_select([['Web Lead', 'web'], ['Phone', 'phone'], ['Referral', 'referral'], ['Conference', 'conference']]), {:include_blank => '-- Select One --'}, { class: "form-control" }  %>
   <%= f.input :lead_account_name, input_html:{ class: "form-control" }  %>
   <%= f.input :lead_opportunity_name, input_html:{ class: "form-control" }  %>
-  <%= f.button :submit, class: "btn submit-button btn-lg btn-warning"  %>
+  <%= f.button :submit, :label => "Submit", class: "btn submit-button btn-lg btn-warning"  %>
 <% end %>

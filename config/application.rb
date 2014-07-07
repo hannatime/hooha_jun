@@ -27,4 +27,5 @@ module HoohaJun
     config.generators.test_framework false
     
   end
+
 end
