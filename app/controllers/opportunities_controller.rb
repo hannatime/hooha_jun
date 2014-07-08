@@ -22,6 +22,8 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.find(params[:id])
     authorize! :edit, @opportunity
     @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
+    @customers = Customer.accessible_by(current_ability).all.map { |customer| [customer.customer_first_name, customer.id]}
+
   end
 
   def create
@@ -29,6 +31,7 @@ class OpportunitiesController < ApplicationController
     @opportunity.user = current_user
     authorize! :create, @opportunity
     @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
+    @customers = Customer.accessible_by(current_ability).all.map { |customer| [customer.customer_first_name, customer.id]}
 
     respond_to do |format|
       if @opportunity.save
@@ -43,6 +46,8 @@ class OpportunitiesController < ApplicationController
 
   def update
     @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
+    @customers = Customer.accessible_by(current_ability).all.map { |customer| [customer.customer_first_name, customer.id]}
+
     respond_to do |format|
       if @opportunity.update(opportunity_params)
         format.html { redirect_to @opportunity, notice: 'Opportunity was successfully updated.' }
