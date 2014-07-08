@@ -53,10 +53,6 @@ group :production do
 end
 
 
-
-
-
-
 # Bootstrap 3
 group :development, :test do
   gem 'rails_layout', '~> 0.5.11'  # Bootstrap 3 layout generator

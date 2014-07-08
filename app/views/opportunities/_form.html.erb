@@ -15,6 +15,8 @@
   <%= f.input :opportunity_name, :label => "Opportunity Name",:required => true,  input_html:{ class: "form-control" } %>
   <%= f.label :Opportunity_Account , :label => "Opportunity Account"%>
   <%= f.select :account_id, options_for_select(@accounts),{:include_blank => '-- Select One --'}, { :required => true, class: "form-control" } %>
+  <%= f.label :Opportunity_Contact , :label => "Opportunity Contact"%>
+  <%= f.select :customer_id, options_for_select(@customers),{:include_blank => '-- Select One --'}, { :required => true, class: "form-control" } %>
   <hr>
   <%= f.input :opportunity_amount, :label => "Opportunity Amount", input_html:{ class: "form-control" }  %>
   <%= f.label :opportunity_stage , :label => "Opportunity Stage"%>

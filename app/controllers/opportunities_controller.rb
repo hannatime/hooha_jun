@@ -15,6 +15,7 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new
     @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
     @opportunities = Opportunity.accessible_by(current_ability)
+    @customers = Customer.accessible_by(current_ability).all.map { |customer| [customer.customer_first_name, customer.id]}
   end
 
   def edit
@@ -74,6 +75,6 @@ class OpportunitiesController < ApplicationController
     end
 
     def opportunity_params
-      params.require(:opportunity).permit(:account_id, :opportunity_name, :opportunity_amount, :opportunity_stage, :opportunity_probability, :opportunity_contact_name, :opportunity_comments, :opportunity_closing_date)
+      params.require(:opportunity).permit(:account_id, :opportunity_name, :customer_id, :opportunity_amount, :opportunity_stage, :opportunity_probability, :opportunity_contact_name, :opportunity_comments, :opportunity_closing_date)
     end
 end
