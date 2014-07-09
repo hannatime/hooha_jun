@@ -13,15 +13,15 @@
       <% end %>
   <%= f.input :customer_first_name, :label => "Contact First Name",:required => true,  input_html:{ class: "form-control" } %>
   <%= f.input :customer_last_name, :label => "Contact Last Name",:required => true, input_html:{ class: "form-control" }  %>
-  <%= f.input :customer_email, :label => "Contact Email Address",:required => true, input_html:{ class: "form-control" }  %>
+  <%= f.input :customer_email, as: :email, :label => "Contact Email Address",:required => true, input_html:{ class: "form-control" }  %>
   <%=f.association :account,:label => 'Contact Account Name', label_method: :account_name, value_method: :id, include_blank: '-- Select One --' %>
     <hr>
-  <%= f.input :customer_phone, :label => "Contact Primary Phone",input_html:{ class: "form-control" }  %>
+  <%= f.input :customer_phone, as: :tel,:label => "Contact Primary Phone",input_html:{ class: "form-control" }  %>
   <%= f.input :customer_address, :label => "Contact Address",input_html:{ class: "form-control" }  %>
   <%= f.input :customer_city, :label => "Contact City",input_html:{ class: "form-control" }  %>
   <%= f.input :customer_state, :label => "Contact State",input_html:{ class: "form-control" }  %>
   <%= f.input :customer_country, :label => "Contact Country",input_html:{ class: "form-control" }, priority: ["Australia", "United States", "New Zealand", "United Kingdom"]  %>
   <%= f.input :customer_postcode, :label => "Contact Postcode",input_html:{ class: "form-control" }  %>
-
   <%= f.button :submit, "Submit", class: "btn submit-button btn-lg btn-warning"  %>
 <% end %>
+

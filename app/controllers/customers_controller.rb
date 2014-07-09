@@ -12,21 +12,18 @@ class CustomersController < ApplicationController
 
   def new
     @customer = Customer.new
-    @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
 
   end
 
   def edit
     @customer = Customer.find(params[:id])
     authorize! :edit, @customer
-    @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
   end
 
   def create
     @customer = Customer.new(customer_params)
     @customer.user = current_user
     authorize! :create, @customer
-    @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
     respond_to do |format|
       if @customer.save
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
@@ -39,8 +36,6 @@ class CustomersController < ApplicationController
   end
 
   def update
-    @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
-
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }

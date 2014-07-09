@@ -13,16 +13,12 @@ class OpportunitiesController < ApplicationController
 
   def new
     @opportunity = Opportunity.new
-    @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
     @opportunities = Opportunity.accessible_by(current_ability)
-    @customers = Customer.accessible_by(current_ability).all.map { |customer| [customer.customer_first_name, customer.id]}
   end
 
   def edit
     @opportunity = Opportunity.find(params[:id])
     authorize! :edit, @opportunity
-    @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
-    @customers = Customer.accessible_by(current_ability).all.map { |customer| [customer.customer_first_name, customer.id]}
 
   end
 
@@ -30,8 +26,6 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new(opportunity_params)
     @opportunity.user = current_user
     authorize! :create, @opportunity
-    @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
-    @customers = Customer.accessible_by(current_ability).all.map { |customer| [customer.customer_first_name, customer.id]}
 
     respond_to do |format|
       if @opportunity.save
@@ -45,8 +39,6 @@ class OpportunitiesController < ApplicationController
   end
 
   def update
-    @accounts = Account.accessible_by(current_ability).all.map { |account| [account.account_name, account.id]}
-    @customers = Customer.accessible_by(current_ability).all.map { |customer| [customer.customer_first_name, customer.id]}
 
     respond_to do |format|
       if @opportunity.update(opportunity_params)
@@ -80,6 +72,6 @@ class OpportunitiesController < ApplicationController
     end
 
     def opportunity_params
-      params.require(:opportunity).permit(:account_id, :opportunity_name, :customer_id, :opportunity_amount, :opportunity_stage, :opportunity_probability, :opportunity_contact_name, :opportunity_comments, :opportunity_closing_date)
+      params.require(:opportunity).permit(:account_id, :customer_id, :opportunity_name,  :opportunity_amount, :opportunity_stage, :opportunity_probability, :opportunity_contact_name, :opportunity_comments, :opportunity_closing_date)
     end
 end

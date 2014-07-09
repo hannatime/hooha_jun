@@ -17,12 +17,14 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @tasks = [['Call', 'Call'], ['Meeting', 'Meeting'], ['Email', 'Email'] , ['Follow-Up', 'Follow-Up']]
   end
 
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
     authorize! :edit, @task
+    @tasks = [['Call', 'Call'], ['Meeting', 'Meeting'], ['Email', 'Email'] , ['Follow-Up', 'Follow-Up']]
   end
 
   # POST /tasks

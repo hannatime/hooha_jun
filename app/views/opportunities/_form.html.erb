@@ -1,34 +1,30 @@
 <%= simple_form_for @opportunity do |f| %>
 
-      <% if @opportunity.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@opportunity.errors.count, "error") %> prohibited this account from being saved:</h2>
+  <% if @opportunity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@opportunity.errors.count, "error") %> prohibited this account from being saved:</h2>
 
-          <ul>
-          <% @opportunity.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
+      <ul>
+      <% @opportunity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <%= f.input :opportunity_name, :label => "Opportunity Name",:required => true,  input_html:{ class: "form-control" } %>
-  <%= f.label :Opportunity_Account , :label => "Opportunity Account"%>
-  <%= f.select :account_id, options_for_select(@accounts),{:include_blank => '-- Select One --'}, { :required => true, class: "form-control" } %>
-  <%= f.label :Opportunity_Contact , :label => "Opportunity Contact"%>
-  <%= f.select :customer_id, options_for_select(@customers),{:include_blank => '-- Select One --'}, { :required => true, class: "form-control" } %>
-  <hr>
-  <%= f.input :opportunity_amount, :label => "Opportunity Amount", input_html:{ class: "form-control" }  %>
-  <%= f.label :opportunity_stage , :label => "Opportunity Stage"%>
-  <%= f.select :opportunity_stage, options_for_select([['Prospecting', 'prospecting'], ['Proposal', 'proposal'], ['Analysis', 'analysis'], ['Presentation', 'presentation'], ['Negotiation', 'negotiation'], ['Final Review', 'final_review'], ['Closed/Won','closed_won'], ['Closed/Lost', 'closed_lost']]),{:include_blank => '-- Select One --'}, { :required => true, class: "form-control" } %>
-  <%= f.label :opportunity_probability , :label => "Opportunity Probability"%>
-  <%= f.select :opportunity_probability,options_for_select([['High', 'high'], ['Medium', 'medium'], ['Low', 'Low']]), {:include_blank => '-- Select One --'}, { class: "form-control" }  %>
-  <%= f.input :opportunity_contact_name, :label => "Opportunity Contact Name", input_html:{ class: "form-control" }  %>
-  <%= f.input :opportunity_comments, :label => "Opportunity Comments",  :as => :text, input_html:{ class: "form-control"}  %>
-  <%= f.label :opportunity_closing_date , :label => "Opportunity Close Date" %>
-  <div class="form-inline">
+<%= f.input :opportunity_name, :label => "Opportunity Name",:required => true,  input_html:{ class: "form-control" } %>
+<%=f.association :account, :label => 'Opportunity Account Name', label_method: :account_name,  value_method: :id, :required => true, include_blank: '-- Select One --' %>
+<hr>
+<%= f.input :opportunity_amount, as: :float, :label => "Opportunity Amount ($)", input_html:{ class: "form-control" }  %>
+<%= f.input :opportunity_stage, :label => "Opportunity Stage", :collection => [['Lead', 'lead'],['Prospecting', 'prospecting'], ['Proposal', 'proposal'], ['Analysis', 'analysis'], ['Presentation', 'presentation'], ['Negotiation', 'negotiation'], ['Final Review', 'final_review'], ['Closed/Won','closed_won'], ['Closed/Lost', 'closed_lost']], :group_method => @opportunity.opportunity_stage, input_html:{ class: "form-control" }  %>
+<%= f.input :opportunity_probability, :label => "Opportunity Probability", :collection => [['High', 'high'], ['Medium', 'medium'], ['Low', 'Low']], :group_method => @opportunity.opportunity_probability,  input_html:{ class: "form-control" }  %>
+<%= f.input :opportunity_comments, :label => "Opportunity Comments",  :as => :text, input_html:{ class: "form-control"}  %>
+<%= f.label :opportunity_closing_date , :label => "Opportunity Close Date"%>
+
+<div class="form-inline">
     <%= f.date_select :opportunity_closing_date, {},{ class: "form-control" }  %>
-  </div>
-  <%= f.button :submit, :label => "Submit", class: "btn submit-button btn-lg btn-warning"  %>
+</div>
+
+<%= f.button :submit, :label => "Submit", class: "btn submit-button btn-lg btn-warning"  %>
 
 <% end %>
