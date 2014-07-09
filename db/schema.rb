@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20140704122333) do
     t.string   "customer_country"
     t.string   "customer_postcode"
     t.integer  "user_id"
-    t.integer  "account_id",          default: 1
-    t.integer  "opportunity_id",      default: 1
+    t.integer  "account_id"
+    t.integer  "opportunity_id"
   end
 
   create_table "friendly_id_slugs", force: true do |t|
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 20140704122333) do
     t.string   "opportunity_comments"
     t.date     "opportunity_closing_date"
     t.integer  "user_id"
-    t.integer  "account_id",               default: 1
-    t.integer  "customer_id",              default: 1
+    t.integer  "account_id"
+    t.integer  "customer_id"
   end
 
   create_table "roles", force: true do |t|
