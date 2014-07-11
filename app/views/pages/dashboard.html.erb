@@ -6,97 +6,181 @@
 <div class="dashboard-heading-xs hidden-xs">
   <h2>Dashboard</h2>
 </div>
+<div class="row">
+          <div class="col-lg-3">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <i class="fa fa-check-square-o fa-5x"></i>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <p class="announcement-heading"><%=@tasks.count%></p>
+                    <p class="announcement-text">Tasks!</p>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <%= link_to 'View Tasks', tasks_path %>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <i class="fa fa-group fa-5x"></i>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <p class="announcement-heading"><%=@customers.count%></p>
+                    <p class="announcement-text">Contacts</p>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <%= link_to 'View Contacts', customers_path %>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <i class="fa fa-dollar fa-5x"></i>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <p class="announcement-heading"><%=@opportunities.count%></p>
+                    <p class="announcement-text">Opps</p>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <%= link_to 'View Opps', opportunities_path %>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <i class="fa fa-building-o fa-5x"></i>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <p class="announcement-heading"><%=@accounts.count%></p>
+                    <p class="announcement-text">Accounts</p>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <%= link_to 'View Accounts', accounts_path %>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div><!-- /.row -->
 
-<table class="table table-condensed" width="647px">
-  <h3>Tasks</h3>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Due Date</th>
-      <th>Type</th>
-      <th>Comments</th>
-      <th></th>
-      <th></th> 
-    </tr>
-  </thead>
+        <div class="row">
+          
+          <div class="col-lg-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Tasks</h3>
+              </div>
+              <div class="panel-body">
+                <div class="list-group">
+              <% @tasks.each do |task| %>
+          <div class="panel-heading black-text bg-primary task">
+                    <h3 class="black-text"><%= link_to task.task_name.to_s.capitalize, task %></h3>
+                    <h5><span>Due Date</span> - <span><%= task.task_due_date.to_s.capitalize %></span> </h5>
+                    <%= link_to task.task_type.to_s.capitalize, task %>
+                </div>
+                <div class="panel-body bg-primary black-text task">
+                    <p><%= link_to task.task_comments.to_s.capitalize, task %></p>
+              
+                    <button type="button" class="[ btn btn-success ]"><%= link_to 'Edit', edit_task_path(task) %></button>
+                    <button type="button" class="[ btn btn-success ]">
+                       <%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </button>
+                    <div class="input-placeholder"></div>
+                </div>
+                <hr>
+                <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Opportunities</h3>
+              </div>
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover tablesorter">
+                    <thead>
+                      <tr>
+                        <th>Name<i class="fa fa-sort"></i></th>
+                        <th>Account<i class="fa fa-sort"></i></th>
+                        <th class="hidden-xs">Amount<i class="fa fa-sort"></i></th>
+                        <th>Close Date<i class="fa fa-sort"></i></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @opportunities.each do |opportunity| %>
+                        <tr>
+                         <td><%= link_to opportunity.opportunity_name.to_s.capitalize, opportunity %></td>
+                          <td><%= opportunity.account_id.to_s %></td>
+                          <td class="hidden-xs"><%= opportunity.opportunity_amount %></td>
+                          <td><%= opportunity.opportunity_closing_date.to_s %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.row -->
 
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= link_to task.task_name.to_s.capitalize, task %></td>
-        <td><%= link_to task.task_due_date.to_s.capitalize, task %></td>
-        <td><%= link_to task.task_type.to_s.capitalize, task %></td>
-        <td><%= link_to task.task_comments.to_s.capitalize, task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<div class="col-sm-6">
-<table class="table table-condensed" width="647px">
-  <thead>
-    <tr>
-      <th>Account Name</th>
-      <th>Edit Account</th>
-      <th>Delete Account</th>
-    </tr>
-  </thead>
-
-  <tbody>
-<% @accounts.each do |account| %>
-
-      <tr>
-        <td><%= link_to account.account_name.to_s.capitalize, account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<table class="table table-condensed" width="647px">
-  <thead>
-    <tr>
-      <th>Customer Name</th>
-      <th>Edit Customer</th>
-      <th>Delete Customer</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= link_to customer.customer_first_name.to_s.capitalize + " " + customer.customer_last_name.to_s.capitalize, customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
-<div class="col-sm-6">
-<table class="table table-condensed" width="647px">
-  <thead>
-    <tr>
-      <th>Opportunity Name</th>
-      <th>Edit Opportunity</th>
-      <th>Delete Opportunity</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @opportunities.each do |opportunity| %>
-      <tr>
-        <td><%= link_to opportunity.opportunity_name.to_s.capitalize, opportunity %></td>
-        <td><%= link_to 'Edit', edit_opportunity_path(opportunity) %></td>
-        <td><%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-</div>
 
 <%= render 'layouts/dashboard_bottom'%>

@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20140704122333) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "opportunity_name"
-    t.string   "opportunity_amount"
+    t.decimal  "opportunity_amount"
     t.string   "opportunity_stage"
     t.string   "opportunity_probability"
     t.string   "opportunity_contact_name"
