@@ -13,13 +13,18 @@
   </div>
   <div class="panel-body">
     <div class="list-group">
+       <% if @customers.empty?%>
+                 <div class="text-center black-text">
+                  "<%= link_to "Add your first contact here +Contact".html_safe, new_contact_path('messages')%>"
+                </div>
+                  <%end%>
       <% @customers.each do |customer| %>
       <div class ="task">
         <div class="panel-heading black-text bg-primary">
-
+           
           <address>
             <strong><%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %></strong><br>
-            <a href="mailto:<%= customer.customer_email.to_s.capitalize %>"><%= customer.customer_email.to_s.capitalize %></a><br>
+            <a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a><br>
             Address:<%= customer.customer_address.to_s.titlecase %> <br>
             <%= customer.customer_city.to_s.titlecase %><br>
             <%= customer.customer_state.to_s.titlecase %>

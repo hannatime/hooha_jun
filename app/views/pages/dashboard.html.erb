@@ -122,6 +122,13 @@
               </div>
               <div class="panel-body">
                 <div class="list-group">
+
+                <% if @tasks.empty?%>
+                 <div class="text-center black-text">
+                  "<%= link_to "Add your first task here +Task".html_safe, new_task_path('messages')%>"
+                </div>
+                  <%end%>
+
               <% @tasks.each do |task| %>
              
               <div class="panel-heading black-text bg-info">
@@ -145,6 +152,11 @@
               </div>
               <div class="panel-body">
                 <div class="list-group">
+                  <% if @opportunities.empty?%>
+                 <div class="black-text text-center">
+                  "<%= link_to "Add your first opportunity here +Opportunity".html_safe, new_opportunity_path('messages')%>"
+                </div>
+                  <%end%>
               <% @opportunities.each do |opportunity| %>
              
               <div class="panel-heading black-text bg-info">

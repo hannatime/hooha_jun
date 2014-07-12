@@ -1,4 +1,12 @@
 <%= render 'layouts/dashboard_top'%>
+
+<div class="dashboard-heading hidden-sm hidden-md hidden-lg">
+  <h2>Contact</h2>
+</div>
+<div class="dashboard-heading-xs hidden-xs">
+  <h2>Contact</h2>
+</div>
+
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title"><%= @customer.customer_first_name.to_s.upcase%> <%= @customer.customer_last_name.to_s.upcase%></h3>
@@ -8,7 +16,7 @@
 <div class="panel-heading black-text bg-primary">
 
           <address>
-            <a href="mailto:<%= @customer.customer_email.to_s.capitalize %>"><%= @customer.customer_email.to_s.capitalize %></a><br>
+            <a href="mailto:<%= @customer.customer_email.to_s.downcase %>"><%= @customer.customer_email.to_s.downcase %></a><br>
             <abbr title="Address">A:</abbr><%= @customer.customer_address.to_s.capitalize %> <br>
             <%= @customer.customer_city.to_s.capitalize %><br>
             <%= @customer.customer_state.to_s.capitalize %>

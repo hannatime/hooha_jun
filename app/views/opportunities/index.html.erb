@@ -12,6 +12,11 @@
               </div>
               <div class="panel-body">
                 <div class="list-group">
+                  <% if @opportunities.empty?%>
+                 <div class="text-center black-text">
+                  "<%= link_to "Add your first opportunity here +Opportunity".html_safe, new_opportunity_path('messages')%>"
+                </div>
+                  <%end%>
               <% @opportunities.each do |opportunity| %>
              
               <div class="panel-heading black-text bg-primary">

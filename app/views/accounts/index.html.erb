@@ -13,10 +13,15 @@
   </div>
   <div class="panel-body">
     <div class="list-group">
+      <% if @accounts.empty?%>
+                 <div class="text-center black-text">
+                  "<%= link_to "Add your first account here +Account".html_safe, new_account_path('messages')%>"
+                </div>
+                  <%end%>
       <% @accounts.each do |account| %>
       <div class ="task">
         <div class="panel-heading black-text bg-primary">
-
+          
           <address>
             <strong><%= link_to account.account_name.to_s.upcase, account%></strong><br>
             Address:<%= account.account_address.to_s.titlecase %> <br>
