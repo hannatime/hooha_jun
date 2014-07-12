@@ -13,6 +13,7 @@
   </div>
   <div class="panel-body">
     <div class="list-group">
+       
 <div class="panel-heading black-text bg-primary">
           <address>
             Address:<%= @account.account_address.to_s.titlecase %> <br>
@@ -24,11 +25,15 @@
            <div class ="account-panel">
           <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Account Opportunities</h3>
+          <h3 class="panel-title">Opportunities</h3>
         </div>
         </div>
           <div class="panel-heading black-text bg-primary">
-          
+          <% if @account.opportunities.empty?%>
+                 <div class="text-center black-text">
+                  "<%= link_to "Add your first opportunity here +Opportunity".html_safe, new_opportunity_path('messages')%>"
+                </div>
+                  <%end%>
           <ul>
           <% @account.opportunities.each do |opportunity| %>
           <li><%= link_to opportunity.opportunity_name, opportunity %> </li>
@@ -39,10 +44,15 @@
         <div class ="account-panel">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Account Contacts</h3>
+          <h3 class="panel-title">Contacts</h3>
         </div>
         </div>
         <div class="panel-heading black-text bg-primary">
+          <% if @account.customers.empty?%>
+                 <div class="text-center black-text">
+                  "<%= link_to "Add your first contact here +Contact".html_safe, new_contact_path('messages')%>"
+                </div>
+                  <%end%>
           <ul>
             <% @account.customers.each do |customer| %>
             <li><%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %></li>

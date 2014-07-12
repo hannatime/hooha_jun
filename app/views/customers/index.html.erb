@@ -15,7 +15,7 @@
     <div class="list-group">
        <% if @customers.empty?%>
                  <div class="text-center black-text">
-                  "<%= link_to "Add your first contact here +Contact".html_safe, new_contact_path('messages')%>"
+                  "<%= link_to "Add your first contact here +Contact".html_safe, new_customer_path('messages')%>"
                 </div>
                   <%end%>
       <% @customers.each do |customer| %>
