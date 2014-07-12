@@ -13,10 +13,10 @@
   <div class="panel-body">
     <div class="list-group">
 <div class="panel-heading black-text bg-primary">
-                    <p><span>Close Date</span> - <span><%= @opportunity.opportunity_closing_date.to_s.capitalize %></span> </p>
-                    <p><span>Stage</span> - <span><%==@opportunity.opportunity_stage.to_s.capitalize%></span> </p>
-                    <p><span>Probability</span> - <span><%= @opportunity.opportunity_probability.to_s.capitalize%></span></p>
-                    <p><span>Comments</span> - <span><%= @opportunity.opportunity_comments.to_s.capitalize%></span></p>
+                    <p><span>Close Date: <%= @opportunity.opportunity_closing_date.to_s.capitalize %></span> </p>
+                    <p><span>Stage: <%==@opportunity.opportunity_stage.to_s.capitalize%></span> </p>
+                    <p><span>Probability: <%= @opportunity.opportunity_probability.to_s.capitalize%></span></p>
+                    <p><span>Comments: <%= @opportunity.opportunity_comments.to_s.capitalize%></span></p>
                        <%= link_to 'Edit', edit_opportunity_path(@opportunity) %>|<%= link_to 'Delete', @opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
         </div>

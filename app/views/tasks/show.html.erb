@@ -12,9 +12,9 @@
   <div class="panel-body">
     <div class="list-group">
 <div class="panel-heading black-text bg-primary">
-                    <p><span>Due Date</span> - <span><%= @task.task_due_date.to_s.capitalize %></span> </p>
-                    <p><span>Type</span> - <span><%==@task.task_type.to_s.capitalize%></span> </p>
-                    <p><span>Comments</span> - <span><%=@task.task_comments.to_s.capitalize%></span></p>
+                    <p><span>Due Date: <%= @task.task_due_date.to_s.capitalize %></span> </p>
+                    <p><span>Type: <%==@task.task_type.to_s.capitalize%></span> </p>
+                    <p><span>Comments: <%=@task.task_comments.to_s.capitalize%></span></p>
                        <%= link_to 'Edit', edit_task_path(@task) %>|<%= link_to 'Delete', @task, method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
         </div>

@@ -15,11 +15,11 @@
     <div class="list-group">
 <div class="panel-heading black-text bg-primary">
           <address>
-            <abbr title="Address">A:</abbr><%= @account.account_address.to_s.titlecase %> <br>
+            Address:<%= @account.account_address.to_s.titlecase %> <br>
             <%= @account.account_city.to_s.titlecase %><br>
             <%= @account.account_state.to_s.titlecase %>
             <%= @account.account_country.to_s.titlecase %> <%= @account.account_postcode.to_s.titlecase %><br>
-            <a href="linkto:<%= @account.account_phone.to_s.capitalize %>"<abbr title="Phone">P:</abbr><%= @account.account_phone.to_s.capitalize %></a><br>
+            Phone:<%= @account.account_phone.to_s.capitalize %><br>
           </address>
            <div class ="account-panel">
           <div class="panel panel-primary">

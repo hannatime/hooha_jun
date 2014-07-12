@@ -12,8 +12,8 @@
             <abbr title="Address">A:</abbr><%= @customer.customer_address.to_s.capitalize %> <br>
             <%= @customer.customer_city.to_s.capitalize %><br>
             <%= @customer.customer_state.to_s.capitalize %>
-            <%= @customer.customer_country.to_s.capitalize %>, <%= @customer.customer_postcode.to_s.capitalize %>
-            <a href="linkto:<%= @customer.customer_phone.to_s.capitalize %>"<abbr title="Phone">P:</abbr><%= @customer.customer_phone.to_s.capitalize %></a>
+            <%= @customer.customer_country.to_s.capitalize %>, <%= @customer.customer_postcode.to_s.capitalize %><br>
+            Phone:<%= @customer.customer_phone.to_s.capitalize %>
           </address>
           <%= link_to 'Edit', edit_customer_path(@customer) %> | <%= link_to 'Delete', @customer, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>

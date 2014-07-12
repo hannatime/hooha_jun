@@ -19,11 +19,11 @@
 
           <address>
             <strong><%= link_to account.account_name.to_s.upcase, account%></strong><br>
-            <abbr title="Address">A:</abbr><%= account.account_address.to_s.titlecase %> <br>
-            <%= account.account_city.to_s.titlecase %>
+            Address:<%= account.account_address.to_s.titlecase %> <br>
+            <%= account.account_city.to_s.titlecase %><br>
             <%= account.account_state.to_s.titlecase %>
-            <%= account.account_country.to_s.titlecase %>, <%= account.account_postcode.to_s.capitalize %><br>
-            <a href="linkto:<%= account.account_phone.to_s.capitalize %>"<abbr title="Phone">P:</abbr><%= account.account_phone.to_s.capitalize %></a>
+            <%= account.account_country.to_s.titlecase %> <%= account.account_postcode.to_s.capitalize %><br>
+            Phone:<%= account.account_phone.to_s.capitalize %>
           </address>
            <%= link_to 'Edit', edit_account_path(account) %>|<%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', account %>
         </div>
