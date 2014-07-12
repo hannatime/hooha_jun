@@ -15,8 +15,7 @@
                     <i class="fa fa-check-square-o fa-3x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%=@tasks.count%></p>
-                    <p class="announcement-text">Tasks!</p>
+                    <strong><p class="announcement-heading"><%=@tasks.count%></p></strong>
                   </div>
                 </div>
               </div>
@@ -24,7 +23,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      <%= link_to 'View Tasks', tasks_path %>
+                      <%= link_to 'Tasks!', tasks_path %>
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -42,8 +41,7 @@
                     <i class="fa fa-group fa-3x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%=@customers.count%></p>
-                    <p class="announcement-text">Contacts</p>
+                    <strong><p class="announcement-heading"><%=@customers.count%></p></strong>
                   </div>
                 </div>
               </div>
@@ -51,7 +49,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      <%= link_to 'View Contacts', customers_path %>
+                      <%= link_to 'Contacts', customers_path %>
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -69,8 +67,7 @@
                     <i class="fa fa-dollar fa-3x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%=@opportunities.count%></p>
-                    <p class="announcement-text">Opps</p>
+                    <strong><p class="announcement-heading"><%=@opportunities.count%></p></strong>
                   </div>
                 </div>
               </div>
@@ -78,7 +75,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      <%= link_to 'View Opps', opportunities_path %>
+                      <%= link_to 'Opportunities', opportunities_path %>
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -96,8 +93,7 @@
                     <i class="fa fa-building-o fa-3x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><%=@accounts.count%></p>
-                    <p class="announcement-text">Accounts</p>
+                    <strong><p class="announcement-heading"><%=@accounts.count%></p></strong>
                   </div>
                 </div>
               </div>
@@ -105,7 +101,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      <%= link_to 'View Accounts', accounts_path %>
+                      <%= link_to 'Accounts', accounts_path %>
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -162,15 +158,12 @@
               <hr>
                 <% end %>
                 </div>
+                
               </div>
+
             </div>
+
           </div>
         </div><!-- /.row -->
-
-   <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
-    <script src="js/morris/chart-data-morris.js"></script>
-    <script src="js/tablesorter/jquery.tablesorter.js"></script>
-    <script src="js/tablesorter/tables.js"></script>
 
 <%= render 'layouts/dashboard_bottom'%>
