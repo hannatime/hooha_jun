@@ -1278,3 +1278,35 @@ color:#2980b9;
 .black-text{
   color:black
 }
+
+table.tablesorter thead {
+  cursor: pointer;
+}
+
+table.tablesorter thead tr th:hover {
+  background-color: #f5f5f5;
+}
+
+a {
+  color:black;
+}
+
+.white-table{
+  background-color:white;
+  color:black;
+}
+
+.task{
+  
+  height:150px;
+}
+
+.task-btn{
+  float:right;
+  margin-top:-50px;
+}
+
+.account-panel{
+  border:solid 1px grey;
+  margin-top:10px;
+}

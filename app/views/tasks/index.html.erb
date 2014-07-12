@@ -7,25 +7,27 @@
   <h2>Task List </h2>
 </div>
 
-<table class="table table-condensed" width="647px">
-  <thead>
-    <tr>
-      <th>Task Name</th>
-      <th>Edit Account</th>
-      <th>Delete Account</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= link_to task.task_name.to_s.capitalize, task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+         
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">TASKS</h3>
+              </div>
+              <div class="panel-body">
+                <div class="list-group">
+              <% @tasks.each do |task| %>
+             
+              <div class="panel-heading black-text bg-primary">
+                    <strong><%=link_to task.task_name.to_s.upcase, task %></strong>
+                    <p><span>Due Date</span> - <span><%= task.task_due_date.to_s.upcase%></span> </p>
+                    <p><span>Type</span> - <span><%==task.task_type.to_s.capitalize%></span> </p>
+                    <p><span>Comments</span> - <span><%=task.task_comments.to_s.capitalize%></span></p>
+                       <%= link_to 'Edit', edit_task_path(task) %>|<%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', task %>
+              </div>
+              <hr>
+                <% end %>
+                </div>
+              </div>
+            </div>
 
 
 <%= render 'layouts/dashboard_bottom'%>

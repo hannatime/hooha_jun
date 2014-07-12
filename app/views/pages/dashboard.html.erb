@@ -6,13 +6,13 @@
 <div class="dashboard-heading-xs hidden-xs">
   <h2>Dashboard</h2>
 </div>
-<div class="row">
-          <div class="col-lg-3">
+<div class="row hidden-xs hidden-sm">
+          <div class="col-md-3">
             <div class="panel panel-info">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-check-square-o fa-5x"></i>
+                    <i class="fa fa-check-square-o fa-3x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading"><%=@tasks.count%></p>
@@ -20,7 +20,7 @@
                   </div>
                 </div>
               </div>
-              <a href="#">
+              
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
@@ -34,12 +34,12 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-md-3">
             <div class="panel panel-info">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-group fa-5x"></i>
+                    <i class="fa fa-group fa-3x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading"><%=@customers.count%></p>
@@ -61,12 +61,12 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-md-3">
             <div class="panel panel-info">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-dollar fa-5x"></i>
+                    <i class="fa fa-dollar fa-3x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading"><%=@opportunities.count%></p>
@@ -88,12 +88,12 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-md-3">
             <div class="panel panel-info">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-building-o fa-5x"></i>
+                    <i class="fa fa-building-o fa-3x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading"><%=@accounts.count%></p>
@@ -120,67 +120,57 @@
         <div class="row">
           
           <div class="col-lg-6">
-            <div class="panel panel-primary">
+                        <div class="panel panel-info">
               <div class="panel-heading">
-                <h3 class="panel-title">Tasks</h3>
+                <h3 class="panel-title">TASKS</h3>
               </div>
               <div class="panel-body">
                 <div class="list-group">
               <% @tasks.each do |task| %>
-          <div class="panel-heading black-text bg-primary task">
-                    <h3 class="black-text"><%= link_to task.task_name.to_s.capitalize, task %></h3>
-                    <h5><span>Due Date</span> - <span><%= task.task_due_date.to_s.capitalize %></span> </h5>
-                    <%= link_to task.task_type.to_s.capitalize, task %>
-                </div>
-                <div class="panel-body bg-primary black-text task">
-                    <p><%= link_to task.task_comments.to_s.capitalize, task %></p>
-              
-                    <button type="button" class="[ btn btn-success ]"><%= link_to 'Edit', edit_task_path(task) %></button>
-                    <button type="button" class="[ btn btn-success ]">
-                       <%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </button>
-                    <div class="input-placeholder"></div>
-                </div>
-                <hr>
+             
+              <div class="panel-heading black-text bg-info">
+                    <strong><%= link_to task.task_name.to_s.upcase, task%></strong>
+                    <p><span>Due Date</span> - <span><%=task.task_due_date.to_s.upcase  %></span> </p>
+                    <p><span>Type</span> - <span><%==task.task_type.to_s.capitalize%></span> </p>
+                    <p><span>Comments</span> - <span><%=task.task_comments.to_s.capitalize%></span></p>
+                       <%= link_to 'Edit', edit_task_path(task) %>|<%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', task %>
+              </div>
+              <hr>
                 <% end %>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="col-lg-6">
-            <div class="panel panel-primary">
+          <div class="col-lg-6 hidden-xs">
+            <div class="panel panel-info">
               <div class="panel-heading">
-                <h3 class="panel-title">Opportunities</h3>
+                <h3 class="panel-title">OPPORTUNITIES</h3>
               </div>
               <div class="panel-body">
-                <div class="table-responsive">
-                  <table class="table table-bordered table-hover tablesorter">
-                    <thead>
-                      <tr>
-                        <th>Name<i class="fa fa-sort"></i></th>
-                        <th>Account<i class="fa fa-sort"></i></th>
-                        <th class="hidden-xs">Amount<i class="fa fa-sort"></i></th>
-                        <th>Close Date<i class="fa fa-sort"></i></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% @opportunities.each do |opportunity| %>
-                        <tr>
-                         <td><%= link_to opportunity.opportunity_name.to_s.capitalize, opportunity %></td>
-                          <td><%= opportunity.account_id.to_s %></td>
-                          <td class="hidden-xs"><%= opportunity.opportunity_amount %></td>
-                          <td><%= opportunity.opportunity_closing_date.to_s %></td>
-                        </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
+                <div class="list-group">
+              <% @opportunities.each do |opportunity| %>
+             
+              <div class="panel-heading black-text bg-info">
+                    <strong><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></strong>
+                    <p><span>Close Date</span> - <span><%= opportunity.opportunity_closing_date.to_s.capitalize %></span> </p>
+                    <p><span>Stage</span> - <span><%==opportunity.opportunity_stage.to_s.capitalize%></span> </p>
+                    <p><span>Probability</span> - <span><%= opportunity.opportunity_probability.to_s.capitalize%></span></p>
+                    <p><span>Comments</span> - <span><%=opportunity.opportunity_comments.to_s.capitalize%></span></p>
+                       <%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', opportunity %>
+              </div>
+              <hr>
+                <% end %>
                 </div>
               </div>
             </div>
           </div>
         </div><!-- /.row -->
 
-
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+    <script src="js/morris/chart-data-morris.js"></script>
+    <script src="js/tablesorter/jquery.tablesorter.js"></script>
+    <script src="js/tablesorter/tables.js"></script>
 
 <%= render 'layouts/dashboard_bottom'%>

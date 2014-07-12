@@ -1,7 +1,27 @@
 <%= render 'layouts/dashboard_top'%>
-<p id="notice"><%= notice %></p>
+<div class="dashboard-heading hidden-sm hidden-md hidden-lg">
+  <h2>Opportunity</h2>
+</div>
+<div class="dashboard-heading-xs hidden-xs">
+  <h2>Opportunity</h2>
+</div>
 
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @opportunity.opportunity_name.to_s.upcase%></h3>
+  </div>
+  <div class="panel-body">
+    <div class="list-group">
+<div class="panel-heading black-text bg-primary">
 
-<%= link_to 'Edit', edit_opportunity_path(@opportunity) %> |
-<%= link_to 'Back', opportunities_path %>
+          <h3 class="black-text"><%= @opportunity.opportunity_name.to_s.capitalize%></h3>
+                    <p><span>Close Date</span> - <span><%= @opportunity.opportunity_closing_date.to_s.capitalize %></span> </p>
+                    <p><span>Stage</span> - <span><%==@opportunity.opportunity_stage.to_s.capitalize%></span> </p>
+                    <p><span>Probability</span> - <span><%= @opportunity.opportunity_probability.to_s.capitalize%></span></p>
+                    <p><span>Comments</span> - <span><%= @opportunity.opportunity_comments.to_s.capitalize%></span></p>
+                       <%= link_to 'Edit', edit_opportunity_path(@opportunity) %>|<%= link_to 'Delete', @opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+        </div>
+      </div>
+    </div>
 <%= render 'layouts/dashboard_bottom'%>

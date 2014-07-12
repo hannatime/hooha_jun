@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find(params[:id])
     authorize! :edit, @task
-    @tasks = [['Call', 'Call'], ['Meeting', 'Meeting'], ['Email', 'Email'] , ['Follow-Up', 'Follow-Up']]
+    @tasks = [['Call', 'Call'], ['Meeting', 'Meeting'], ['Email', 'Email'] , ['Follow-Up', 'Follow-Up'],['Closed', 'Closed']]
   end
 
   # POST /tasks

@@ -1,23 +1,61 @@
 <%= render 'layouts/dashboard_top'%>
 
-<h3><%=@account.account_name%></h3>
+<div class="dashboard-heading hidden-sm hidden-md hidden-lg">
+  <h2>Account</h2>
+</div>
+<div class="dashboard-heading-xs hidden-xs">
+  <h2>Account</h2>
+</div>
 <p id="notice"><%= notice %></p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @account.account_name.to_s.upcase%></h3>
+  </div>
+  <div class="panel-body">
+    <div class="list-group">
+<div class="panel-heading black-text bg-primary">
+          <address>
+            <abbr title="Address">A:</abbr><%= @account.account_address.to_s.titlecase %> <br>
+            <%= @account.account_city.to_s.titlecase %><br>
+            <%= @account.account_state.to_s.titlecase %>
+            <%= @account.account_country.to_s.titlecase %> <%= @account.account_postcode.to_s.titlecase %><br>
+            <a href="linkto:<%= @account.account_phone.to_s.capitalize %>"<abbr title="Phone">P:</abbr><%= @account.account_phone.to_s.capitalize %></a><br>
+          </address>
+           <div class ="account-panel">
+          <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Account Opportunities</h3>
+        </div>
+        </div>
+          <div class="panel-heading black-text bg-primary">
+          
+          <ul>
+          <% @account.opportunities.each do |opportunity| %>
+          <li><%= link_to opportunity.opportunity_name, opportunity %> </li>
+          <% end %>
+          </ul>
+        </div>
+        </div>
+        <div class ="account-panel">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Account Contacts</h3>
+        </div>
+        </div>
+        <div class="panel-heading black-text bg-primary">
+          <ul>
+            <% @account.customers.each do |customer| %>
+            <li><%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+<%= link_to 'Edit', edit_customer_path(@account) %> | <%= link_to 'Delete', @account, method: :delete, data: { confirm: 'Are you sure?' } %>
+                
+        </div>
+      </div>
+    </div>
+        </div>
 
-
-<p>Account Opportunities</p>
-<ul>
-  <% @account.opportunities.each do |opportunity| %>
-  <li><%= link_to opportunity.opportunity_name, opportunity %> </li>
-  <% end %>
-</ul>
-
-<p>Account Contacts</p>
-<ul>
-  <% @account.customers.each do |customer| %>
-  <li><%= link_to customer.customer_first_name, customer %> </li>
-  <% end %>
-</ul>
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
 <%= render 'layouts/dashboard_bottom'%>
 

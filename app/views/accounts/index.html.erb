@@ -1,7 +1,5 @@
 <% @add_path = new_account_path %>
 <%= render 'layouts/dashboard_top'%>
-
-
 <div class="dashboard-heading hidden-sm hidden-md hidden-lg">
   <h2>Account List</h2>
 </div>
@@ -9,25 +7,33 @@
   <h2>Account List</h2>
 </div>
 
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">ACCOUNTS</h3>
+  </div>
+  <div class="panel-body">
+    <div class="list-group">
+      <% @accounts.each do |account| %>
+      <div class ="task">
+        <div class="panel-heading black-text bg-primary">
 
-<table class="table table-condensed" width="647px">
-  <thead>
-    <tr>
-      <th>Account Name</th>
-      <th>Edit Account</th>
-      <th>Delete Account</th>
-    </tr>
-  </thead>
+          <address>
+            <strong><%= link_to account.account_name.to_s.upcase, account%></strong><br>
+            <abbr title="Address">A:</abbr><%= account.account_address.to_s.titlecase %> <br>
+            <%= account.account_city.to_s.titlecase %>
+            <%= account.account_state.to_s.titlecase %>
+            <%= account.account_country.to_s.titlecase %>, <%= account.account_postcode.to_s.capitalize %><br>
+            <a href="linkto:<%= account.account_phone.to_s.capitalize %>"<abbr title="Phone">P:</abbr><%= account.account_phone.to_s.capitalize %></a>
+          </address>
+           <%= link_to 'Edit', edit_account_path(account) %>|<%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', account %>
+        </div>
+      </div>
+      <hr>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-  <tbody>
-<% @accounts.each do |account| %>
 
-      <tr>
-        <td><%= link_to account.account_name.to_s.capitalize, account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
 <%= render 'layouts/dashboard_bottom'%>
