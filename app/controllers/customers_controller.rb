@@ -1,23 +1,29 @@
 class CustomersController < ApplicationController
+
   before_filter :authenticate_user!
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy] 
 
   def index
     @customers = Customer.accessible_by(current_ability)
   end
 
   def show
+    @customers = Customer.find(params[:id])
+    @customer.user = current_user
     authorize! :show, @customer
   end
 
   def new
     @customer = Customer.new
-
+    @customer.user = current_user
+    authorize! :new, @customer
   end
 
   def edit
     @customer = Customer.find(params[:id])
+    @customer.user = current_user
     authorize! :edit, @customer
+
   end
 
   def create
@@ -60,10 +66,21 @@ class CustomersController < ApplicationController
 
   private
     def set_customer
-      @customer = Customer.find(params[:id])
+      @customer = Customer.accessible_by(current_ability).find(params[:id])
     end
 
     def customer_params
-      params.require(:customer).permit(:account_id, :customer_first_name,:customer_last_name,:customer_email,:customer_phone,:customer_address,:customer_city,:customer_state,:customer_country,:customer_postcode)
+      params.require(:customer).permit(
+        :account_id, 
+        :customer_first_name,
+        :customer_last_name,
+        :customer_email,
+        :customer_phone,
+        :customer_address,
+        :customer_city,
+        :customer_state,
+        :customer_country,
+        :customer_postcode
+        )
     end
 end

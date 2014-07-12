@@ -72,6 +72,16 @@ class OpportunitiesController < ApplicationController
     end
 
     def opportunity_params
-      params.require(:opportunity).permit(:account_id, :customer_id, :opportunity_name,  :opportunity_amount, :opportunity_stage, :opportunity_probability, :opportunity_contact_name, :opportunity_comments, :opportunity_closing_date)
+      params.require(:opportunity).permit(
+        :account_id, 
+        :customer_id, 
+        :opportunity_name,  
+        :opportunity_amount, 
+        :opportunity_stage, 
+        :opportunity_probability, 
+        :opportunity_contact_name, 
+        :opportunity_comments, 
+        :opportunity_closing_date
+        )
     end
 end
