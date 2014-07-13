@@ -6,6 +6,13 @@
 <div class="dashboard-heading-xs hidden-xs">
   <h2>Dashboard</h2>
 </div>
+<% if current_user.present? %>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+            <%= render 'layouts/messages'%>
+        </div>
+            </div>
+          <% end %>
 <div class="row hidden-xs hidden-sm">
           <div class="col-md-3">
             <div class="panel panel-info">

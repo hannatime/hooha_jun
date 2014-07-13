@@ -2,7 +2,8 @@ class CustomersController < ApplicationController
 
   before_filter :authenticate_user!
   before_action :set_customer, only: [:show, :edit, :update, :destroy] 
-
+  skip_authorize_resource :only => :show
+  
   def index
     @customers = Customer.accessible_by(current_ability)
   end

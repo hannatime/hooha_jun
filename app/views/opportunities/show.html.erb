@@ -5,7 +5,13 @@
 <div class="dashboard-heading-xs hidden-xs">
   <h2>Opportunity</h2>
 </div>
-
+<% if current_user.present? %>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+            <%= render 'layouts/messages'%>
+        </div>
+            </div>
+          <% end %>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title"><%= @opportunity.opportunity_name.to_s.upcase%></h3>

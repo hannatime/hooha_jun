@@ -16,7 +16,7 @@
 <%=f.association :account, :label => 'Opportunity Account Name', label_method: :account_name,  value_method: :id, :required => true, include_blank: '-- Select One --' %>
 <hr>
 <%= f.input :opportunity_amount, as: :decimal, :label => "Opportunity Amount ($)", input_html:{ class: "form-control" }  %>
-<%= f.input :opportunity_stage, :label => "Opportunity Stage", :collection => [['Lead', 'lead'],['Prospecting', 'prospecting'], ['Proposal', 'proposal'], ['Analysis', 'analysis'], ['Presentation', 'presentation'], ['Negotiation', 'negotiation'], ['Final Review', 'final_review'], ['Closed/Won','closed_won'], ['Closed/Lost', 'closed_lost']], :group_method => @opportunity.opportunity_stage, input_html:{ class: "form-control" }  %>
+<%= f.input :opportunity_stage, :label => "Opportunity Stage", :collection => [['Lead', 'lead'],['Qualified', 'qualified'],['Proposal', 'proposal'], ['Presentation', 'presentation'], ['Negotiation', 'negotiation'], ['Closed/Won','closed_won'], ['Closed/Lost', 'closed_lost']], :group_method => @opportunity.opportunity_stage, input_html:{ class: "form-control" }  %>
 <%= f.input :opportunity_probability, :label => "Opportunity Probability", :collection => [['High', 'high'], ['Medium', 'medium'], ['Low', 'Low']], :group_method => @opportunity.opportunity_probability,  input_html:{ class: "form-control" }  %>
 <%= f.input :opportunity_comments, :label => "Opportunity Comments",  :as => :text, input_html:{ class: "form-control"}  %>
 <%= f.label :opportunity_closing_date , :label => "Opportunity Close Date"%>

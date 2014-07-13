@@ -6,7 +6,13 @@
 <div class="dashboard-heading-xs hidden-xs">
   <h2>Contact</h2>
 </div>
-
+<% if current_user.present? %>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+            <%= render 'layouts/messages'%>
+        </div>
+            </div>
+          <% end %>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title"><%= @customer.customer_first_name.to_s.upcase%> <%= @customer.customer_last_name.to_s.upcase%></h3>
