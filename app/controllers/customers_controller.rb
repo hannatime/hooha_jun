@@ -5,12 +5,12 @@ class CustomersController < ApplicationController
   skip_authorize_resource :only => :show
   
   def index
-    @customers = Customer.accessible_by(current_ability)
-    @customers = Customer.order(:customer_first_name).page params[:page]
+    @customers = Customer.accessible_by(current_ability).order(:customer_first_name).page params[:page]
   end
 
   def show
-    @customers = Customer.find(params[:id])
+    
+    @customers = Customer.accessible_by(current_ability).find(params[:id])
     @customer.user = current_user
     authorize! :show, @customer
   end
@@ -22,7 +22,7 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = Customer.accessible_by(current_ability).find(params[:id])
     @customer.user = current_user
     authorize! :edit, @customer
 

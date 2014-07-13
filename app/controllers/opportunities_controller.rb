@@ -4,8 +4,7 @@ class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show, :edit, :update, :destroy]
 
   def index
-    @opportunities = Opportunity.accessible_by(current_ability)
-    @opportunities = Opportunity.order(:opportunity_closing_date).page params[:page]
+    @opportunities = Opportunity.accessible_by(current_ability).order(:opportunity_closing_date).page params[:page]
   end
 
   def show
@@ -18,7 +17,7 @@ class OpportunitiesController < ApplicationController
   end
 
   def edit
-    @opportunity = Opportunity.find(params[:id])
+    @opportunity = Opportunity.accessible_by(current_ability).find(params[:id])
     authorize! :edit, @opportunity
 
   end

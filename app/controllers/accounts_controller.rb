@@ -7,8 +7,7 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.accessible_by(current_ability)
-    @accounts = Account.order(:account_name).page params[:page]
+    @accounts = Account.accessible_by(current_ability).order(:account_name).page params[:page]
   end
 
   # GET /accounts/1
@@ -20,11 +19,13 @@ class AccountsController < ApplicationController
 
   # GET /accounts/new
   def new
+    @accounts = Account.accessible_by(current_ability)
     @account = Account.new 
   end
 
   # GET /accounts/1/edit
   def edit
+    @accounts = Account.accessible_by(current_ability)
     @account = Account.find(params[:id])
     authorize! :edit, @account
   end
@@ -32,6 +33,7 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
+    @accounts = Account.accessible_by(current_ability)
     @account = Account.new(account_params)
     @account.user = current_user
     authorize! :create, @account
@@ -76,7 +78,8 @@ class AccountsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_account
-      @account = Account.find(params[:id])
+     
+      @account = Account.accessible_by(current_ability).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

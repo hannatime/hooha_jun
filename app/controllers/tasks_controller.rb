@@ -4,10 +4,8 @@ class TasksController < ApplicationController
 
   # GET /tasks
   # GET /tasks.json
-  def index
-    @tasks = Task.accessible_by(current_ability)
-    @tasks = Task.order(:task_due_date).page params[:page]
-
+  def index  
+    @tasks = Task.accessible_by(current_ability).order(:task_due_date).page params[:page]
   end
 
   # GET /tasks/1
