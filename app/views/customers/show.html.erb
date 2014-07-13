@@ -20,7 +20,7 @@
   <div class="panel-body">
     <div class="list-group">
 <div class="panel-heading black-text bg-info">
-
+<div class ="task">
           <address>
             <a href="mailto:<%= @customer.customer_email.to_s.downcase %>"><%= @customer.customer_email.to_s.downcase %></a><br>
             <abbr title="Address">A:</abbr><%= @customer.customer_address.to_s.capitalize %> <br>
@@ -32,6 +32,7 @@
           <%= link_to 'Edit', edit_customer_path(@customer) %> | <%= link_to 'Delete', @customer, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
       </div>
+    </div>
     </div>
     </div>
 
