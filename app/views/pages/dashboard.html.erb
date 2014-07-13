@@ -133,8 +133,9 @@
               <div class="panel-body">
                 <small class="black-text"><%= page_entries_info @tasks1 %></small>
                 <div class="list-group">
-                  <br>
+                  
                 <% if @tasks.empty?%>
+                 <br>
                  <div class=" black-text">
                   "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path('messages')%>"
                 </div>
