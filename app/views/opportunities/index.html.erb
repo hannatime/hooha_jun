@@ -13,9 +13,11 @@
               </div>
               <div class="panel-body">
                 <div class="list-group">
+                  <small class="black-text"><%= page_entries_info @opportunities %></small>
+                  <br>
                   <% if @opportunities.empty?%>
                  <div class="text-center black-text">
-                  "<%= link_to "Add your first opportunity here +Opportunity".html_safe, new_opportunity_path('messages')%>"
+                  "<%= link_to "Add your first opportunity here or click +Opportunity".html_safe, new_opportunity_path('messages')%>"
                 </div>
                   <%end%>
               <% @opportunities.each do |opportunity| %>
@@ -30,6 +32,7 @@
               </div>
               <hr>
                 <% end %>
+                <%= paginate @opportunities , :window => 2%>
                 </div>
               </div>
             </div>

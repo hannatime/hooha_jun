@@ -13,10 +13,11 @@
                 <h3 class="panel-title">TASKS</h3>
               </div>
               <div class="panel-body">
+                <small class="black-text"><%= page_entries_info @tasks %></small>
                 <div class="list-group">
                   <% if @tasks.empty?%>
                  <div class="text-center black-text">
-                  "<%= link_to "Add your first task here +Task".html_safe, new_task_path('messages')%>"
+                  "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path('messages')%>"
                 </div>
                   <%end%>
               <% @tasks.each do |task| %>
@@ -30,6 +31,7 @@
               </div>
               <hr>
                 <% end %>
+                <%= paginate @tasks , :window => 2%>
                 </div>
               </div>
             </div>

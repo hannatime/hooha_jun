@@ -123,11 +123,15 @@
         <div class="row">
           
           <div class="col-lg-6">
+
                         <div class="panel panel-info">
               <div class="panel-heading">
                 <h3 class="panel-title">TASKS</h3>
+
               </div>
+
               <div class="panel-body">
+                <small class="black-text"><%= page_entries_info @tasks1 %></small>
                 <div class="list-group">
 
                 <% if @tasks.empty?%>
@@ -135,8 +139,8 @@
                   "<%= link_to "Add your first task here +Task".html_safe, new_task_path('messages')%>"
                 </div>
                   <%end%>
-
-              <% @tasks.each do |task| %>
+              
+              <% @tasks1.each do |task| %>
              
               <div class="panel-heading black-text bg-info">
                     <strong><%= link_to task.task_name.to_s.upcase, task%></strong>
@@ -147,9 +151,13 @@
               </div>
               <hr>
                 <% end %>
+                
+                <%= paginate @tasks1 , :window => 2%>
+
                 </div>
               </div>
             </div>
+            
           </div>
           
           <div class="col-lg-6 hidden-xs">
@@ -158,13 +166,15 @@
                 <h3 class="panel-title">OPPORTUNITIES</h3>
               </div>
               <div class="panel-body">
+                <small class="black-text"><%= page_entries_info @opportunities1 %></small>
                 <div class="list-group">
                   <% if @opportunities.empty?%>
-                 <div class="black-text text-center">
-                  "<%= link_to "Add your first opportunity here +Opportunity".html_safe, new_opportunity_path('messages')%>"
+                  <br>
+                 <div class="black-text">
+                  "<%= link_to "Add your first opportunity here or click +Opportunity".html_safe, new_opportunity_path('messages')%>"
                 </div>
                   <%end%>
-              <% @opportunities.each do |opportunity| %>
+              <% @opportunities1.each do |opportunity| %>
              
               <div class="panel-heading black-text bg-info">
                     <strong><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></strong>
@@ -176,13 +186,16 @@
               </div>
               <hr>
                 <% end %>
+
+                <%= paginate @opportunities1 , :window => 2%>
                 </div>
                 
               </div>
 
             </div>
-
+ 
           </div>
+
         </div><!-- /.row -->
 
 <%= render 'layouts/dashboard_bottom'%>

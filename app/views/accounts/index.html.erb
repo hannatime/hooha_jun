@@ -12,10 +12,11 @@
     <h3 class="panel-title">ACCOUNTS</h3>
   </div>
   <div class="panel-body">
+    <small class="black-text"><%= page_entries_info @accounts %></small>
     <div class="list-group">
       <% if @accounts.empty?%>
                  <div class="text-center black-text">
-                  "<%= link_to "Add your first account here +Account".html_safe, new_account_path('messages')%>"
+                  "<%= link_to "Add your first account here or click +Account".html_safe, new_account_path('messages')%>"
                 </div>
                   <%end%>
       <% @accounts.each do |account| %>
@@ -35,6 +36,7 @@
       </div>
       <hr>
       <% end %>
+      <%= paginate @accounts , :window => 2%>
     </div>
   </div>
 </div>

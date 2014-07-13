@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
   
   def index
     @customers = Customer.accessible_by(current_ability)
+    @customers = Customer.order(:customer_first_name).page params[:page]
   end
 
   def show

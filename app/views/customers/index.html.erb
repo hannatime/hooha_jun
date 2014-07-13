@@ -12,10 +12,11 @@
     <h3 class="panel-title">CONTACTS</h3>
   </div>
   <div class="panel-body">
+    <small class="black-text"><%= page_entries_info @customers, :param_name => :contact %></small>
     <div class="list-group">
        <% if @customers.empty?%>
                  <div class="text-center black-text">
-                  "<%= link_to "Add your first contact here +Contact".html_safe, new_customer_path('messages')%>"
+                  "<%= link_to "Add your first contact here or click +Contact".html_safe, new_customer_path('messages')%>"
                 </div>
                   <%end%>
       <% @customers.each do |customer| %>
@@ -36,8 +37,10 @@
       </div>
       <hr>
       <% end %>
+      <%= paginate @customers , :window => 2%>
     </div>
   </div>
 </div>
 
 <%= render 'layouts/dashboard_bottom'%>
+

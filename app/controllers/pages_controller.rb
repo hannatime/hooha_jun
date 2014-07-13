@@ -8,11 +8,13 @@ class PagesController < ApplicationController
   
   def inside
   end 
+    
 
   def dashboard
-    @opportunities = Opportunity.accessible_by(current_ability)
-    @leads = Lead.accessible_by(current_ability)
+    @tasks1 = Task.order(:task_due_date).page params[:page]
     @tasks = Task.accessible_by(current_ability)
+    @opportunities1 = Opportunity.order(:opportunity_closing_date).page params[:page]
+    @opportunities = Opportunity.accessible_by(current_ability)
     @customers = Customer.accessible_by(current_ability)
     @accounts = Account.accessible_by(current_ability)
     @users = User.accessible_by(current_ability)

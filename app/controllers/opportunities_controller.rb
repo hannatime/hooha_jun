@@ -5,6 +5,7 @@ class OpportunitiesController < ApplicationController
 
   def index
     @opportunities = Opportunity.accessible_by(current_ability)
+    @opportunities = Opportunity.order(:opportunity_closing_date).page params[:page]
   end
 
   def show
