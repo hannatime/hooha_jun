@@ -8,7 +8,7 @@
 </div>
 
          
-            <div class="panel panel-primary">
+            <div class="panel panel-info">
               <div class="panel-heading">
                 <h3 class="panel-title">TASKS</h3>
               </div>
@@ -21,7 +21,7 @@
                   <%end%>
               <% @tasks.each do |task| %>
              
-              <div class="panel-heading black-text bg-primary">
+              <div class="panel-heading black-text bg-info">
                     <strong><%=link_to task.task_name.to_s.upcase, task %></strong>
                     <p><span>Due Date: <%= task.task_due_date.to_s.upcase%></span> </p>
                     <p><span>Type: <%==task.task_type.to_s.capitalize%></span> </p>

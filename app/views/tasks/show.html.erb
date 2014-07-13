@@ -12,13 +12,13 @@
         </div>
             </div>
           <% end %>
-<div class="panel panel-primary">
+<div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title"><%= @task.task_name.to_s.upcase%></h3>
   </div>
   <div class="panel-body">
     <div class="list-group">
-<div class="panel-heading black-text bg-primary">
+<div class="panel-heading black-text bg-info">
                     <p><span>Due Date: <%= @task.task_due_date.to_s.capitalize %></span> </p>
                     <p><span>Type: <%==@task.task_type.to_s.capitalize%></span> </p>
                     <p><span>Comments: <%=@task.task_comments.to_s.capitalize%></span></p>

@@ -13,14 +13,14 @@
         </div>
             </div>
           <% end %>
-<div class="panel panel-primary">
+<div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title"><%= @account.account_name.to_s.upcase%></h3>
   </div>
   <div class="panel-body">
     <div class="list-group">
        
-<div class="panel-heading black-text bg-primary">
+<div class="panel-heading black-text bg-info">
           <address>
             Address:<%= @account.account_address.to_s.titlecase %> <br>
             <%= @account.account_city.to_s.titlecase %><br>
@@ -29,12 +29,12 @@
             Phone:<%= @account.account_phone.to_s.capitalize %><br>
           </address>
            <div class ="account-panel">
-          <div class="panel panel-primary">
+          <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Opportunities</h3>
         </div>
         </div>
-          <div class="panel-heading black-text bg-primary">
+          <div class="panel-heading black-text bg-default">
           <% if @account.opportunities.empty?%>
                  <div class="text-center black-text">
                   "<%= link_to "Add your first opportunity here +Opportunity".html_safe, new_opportunity_path('messages')%>"
@@ -48,12 +48,12 @@
         </div>
         </div>
         <div class ="account-panel">
-      <div class="panel panel-primary">
+      <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Contacts</h3>
         </div>
         </div>
-        <div class="panel-heading black-text bg-primary">
+        <div class="panel-heading black-text bg-default">
           <% if @account.customers.empty?%>
                  <div class="text-center black-text">
                   "<%= link_to "Add your first contact here +Contact".html_safe, new_contact_path('messages')%>"
