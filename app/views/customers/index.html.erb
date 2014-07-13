@@ -12,7 +12,7 @@
     <h3 class="panel-title">CONTACTS</h3>
   </div>
   <div class="panel-body">
-    <small class="black-text"><%= page_entries_info @customers, :param_name => :contact %></small>
+    <small class="black-text"><%= custom_page_entries_info(@customers)%></small>
     <div class="list-group">
        <% if @customers.empty?%>
                  <div class="text-center black-text">
