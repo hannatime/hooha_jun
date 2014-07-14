@@ -12,14 +12,14 @@
     </div>
   <% end %>
 
-<%= f.input :opportunity_name, :label => "Opportunity Name",:required => true,  input_html:{ class: "form-control" } %>
-<%=f.association :account, :label => 'Opportunity Account Name', label_method: :account_name,  value_method: :id, :required => true, include_blank: '-- Select One --' %>
+<%= f.input :opportunity_name, :label => "Name",:required => true,  input_html:{ class: "form-control" } %>
+<%=f.association :account, :label => 'Account Name', label_method: :account_name,  value_method: :id, :required => true, include_blank: '-- Select One --' %>
 <hr>
-<%= f.input :opportunity_amount, as: :decimal, :label => "Opportunity Amount ($)", input_html:{ class: "form-control" }  %>
-<%= f.input :opportunity_stage, :label => "Opportunity Stage", :collection => [['Lead', 'lead'],['Qualified', 'qualified'],['Proposal', 'proposal'], ['Presentation', 'presentation'], ['Negotiation', 'negotiation'], ['Closed/Won','closed_won'], ['Closed/Lost', 'closed_lost']], :group_method => @opportunity.opportunity_stage, input_html:{ class: "form-control" }  %>
-<%= f.input :opportunity_probability, :label => "Opportunity Probability", :collection => [['High', 'high'], ['Medium', 'medium'], ['Low', 'Low']], :group_method => @opportunity.opportunity_probability,  input_html:{ class: "form-control" }  %>
-<%= f.input :opportunity_comments, :label => "Opportunity Comments",  :as => :text, input_html:{ class: "form-control"}  %>
-<%= f.label :opportunity_closing_date , :label => "Opportunity Close Date"%>
+<%= f.input :opportunity_amount, as: :decimal, :label => "Amount ($)", input_html:{ class: "form-control" }  %>
+<%= f.input :opportunity_stage, :label => "Stage", :collection => [['Lead', 'lead'],['Qualified', 'qualified'],['Proposal', 'proposal'], ['Presentation', 'presentation'], ['Negotiation', 'negotiation'], ['Closed/Won','closed_won'], ['Closed/Lost', 'closed_lost']], :group_method => @opportunity.opportunity_stage, input_html:{ class: "form-control" }  %>
+<%= f.input :opportunity_probability, :label => "Probability", :collection => [['High', 'high'], ['Medium', 'medium'], ['Low', 'Low']], :group_method => @opportunity.opportunity_probability,  input_html:{ class: "form-control" }  %>
+<%= f.input :opportunity_comments, :label => "Comments",  :as => :text, input_html:{ class: "form-control"}  %>
+<%= f.label :opportunity_closing_date , :label => "Close Date"%>
 
 <div class="form-inline">
     <%= f.date_select :opportunity_closing_date, {},{ class: "form-control" }  %>

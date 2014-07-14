@@ -12,17 +12,17 @@
         </div>
       <% end %>
 
-  <%= f.input :task_name, :required => true,  input_html:{ class: "form-control" } %>  
+  <%= f.input :task_name, :label => "Name",:required => true,  input_html:{ class: "form-control" } %>  
 
-  <%= f.input :task_type, :label => "Task Type", :collection => @tasks , :group_method => @task.task_type, input_html:{ class: "form-control" }  %>
+  <%= f.input :task_type, :label => "Type", :collection => @tasks , :group_method => @task.task_type, input_html:{ class: "form-control" }  %>
 
 
-  <%= f.label :task_due_date  %>
+  <%= f.label :due_date, :label => "Due Date"  %>
   <div class="form-inline">
     <%= f.date_select :task_due_date, {},{ class: "form-control" }  %>
   </div>
   <hr>
-  <%= f.input :task_comments,  :as => :text, input_html:{ class: "form-control" }  %>
+  <%= f.input :task_comments, :label => "Comments",  :as => :text, input_html:{ class: "form-control" }  %>
   <%= f.button :submit, class: "btn submit-button btn-lg btn-warning"  %>
 
 <% end %>
