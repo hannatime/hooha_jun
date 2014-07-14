@@ -13,7 +13,7 @@
   <% end %>
 
 <%= f.input :opportunity_name, :label => "Name",:required => true,  input_html:{ class: "form-control" } %>
-<%=f.association :account, :label => 'Account Name', label_method: :account_name,  value_method: :id, :required => true, include_blank: '-- Select One --' %>
+<%=f.association :account, :label => 'Account Name', label_method: :account_name,  value_method: :id, :required => true, include_blank: '-- Select One --', collection: Account.accessible_by(current_ability) %>
 <hr>
 <%= f.input :opportunity_amount, as: :decimal, :label => "Amount ($)", input_html:{ class: "form-control" }  %>
 <%= f.input :opportunity_stage, :label => "Stage", :collection => [['Lead', 'lead'],['Qualified', 'qualified'],['Proposal', 'proposal'], ['Presentation', 'presentation'], ['Negotiation', 'negotiation'], ['Closed/Won','closed_won'], ['Closed/Lost', 'closed_lost']], :group_method => @opportunity.opportunity_stage, input_html:{ class: "form-control" }  %>
