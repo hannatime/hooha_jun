@@ -32,6 +32,7 @@
             <%= customer.customer_country.to_s.titlecase %>, <%= customer.customer_postcode.to_s %><br>
             Phone:<%= customer.customer_phone.to_s %>
           </address>
+          <p><%= link_to customer.account.account_name.to_s.titlecase, customer.account %></p>
            <%= link_to 'Edit', edit_customer_path(customer) %>|<%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', customer %>
         </div>
       </div>

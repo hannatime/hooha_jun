@@ -29,6 +29,7 @@
             <%= @customer.customer_country.to_s.capitalize %>, <%= @customer.customer_postcode.to_s.capitalize %><br>
             Phone:<%= @customer.customer_phone.to_s.capitalize %>
           </address>
+          <p>Account: <%= link_to @customer.account.account_name.to_s.titlecase, @customer.account %></p>
           <%= link_to 'Edit', edit_customer_path(@customer) %> | <%= link_to 'Delete', @customer, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
       </div>
