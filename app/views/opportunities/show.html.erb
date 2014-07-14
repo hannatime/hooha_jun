@@ -27,12 +27,12 @@
                     <p><span>Comments: <%= @opportunity.opportunity_comments.to_s.capitalize%></span></p>
                        <%= link_to 'Edit', edit_opportunity_path(@opportunity) %>|<%= link_to 'Delete', @opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>
                       <div class ="account-panel"> 
-                       <div class="panel panel-default">
+                       <div class="panel panel-primary">
                         <div class="panel-heading">
                           <h3 class="panel-title">Tasks</h3>
                         </div>
                           </div>
-                            <div class="panel-heading black-text bg-default">
+                            <div class="panel-heading black-text bg-primary">
                           <% if @opportunity.tasks.empty?%>
                                  <div class="text-center black-text">
                                   "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path('messages')%>"

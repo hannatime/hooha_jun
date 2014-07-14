@@ -30,12 +30,12 @@
           </address>
         
            <div class ="account-panel">
-          <div class="panel panel-default">
+          <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Opportunities</h3>
         </div>
         </div>
-          <div class="panel-heading black-text bg-default">
+          <div class="panel-heading black-text bg-primary">
           <% if @account.opportunities.empty?%>
                  <div class="text-center black-text">
                   "<%= link_to "Add your first opportunity here +Opportunity".html_safe, new_opportunity_path('messages')%>"
@@ -49,12 +49,12 @@
         </div>
         </div>
         <div class ="account-panel">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Contacts</h3>
         </div>
         </div>
-        <div class="panel-heading black-text bg-default">
+        <div class="panel-heading black-text bg-primary">
           <% if @account.customers.empty?%>
                  <div class="text-center black-text">
                   "<%= link_to "Add your first contact here +Contact".html_safe, new_customer_path('messages')%>"
