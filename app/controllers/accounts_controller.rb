@@ -7,7 +7,8 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.accessible_by(current_ability).order(:account_name).page params[:page]
+    @q = Account.accessible_by(current_ability).search(params[:q])
+    @accounts = @q.result(distinct: true).page params[:page]
   end
 
   # GET /accounts/1

@@ -5,7 +5,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index  
-    @tasks = Task.accessible_by(current_ability).order(:task_due_date).page params[:page]
+    @q = Task.accessible_by(current_ability).search(params[:q])
+    @tasks = @q.result(distinct: true).page params[:page]
   end
 
   # GET /tasks/1

@@ -5,8 +5,8 @@ class CustomersController < ApplicationController
   skip_authorize_resource :only => :show
   
   def index
-    @customers = Customer.accessible_by(current_ability).order(:customer_first_name).page params[:page]
-    
+   @q = Customer.accessible_by(current_ability).search(params[:q])
+    @customers = @q.result(distinct: true).page params[:page]    
   end
 
   def show
