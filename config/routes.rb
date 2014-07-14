@@ -8,10 +8,10 @@ HoohaJun::Application.routes.draw do
   resources :opportunities
 
   root "pages#home"  
-  get "content/free"
-  get "content/silver"
-  get "content/gold"
-  get "content/platinum"
+  # get "content/free"
+  # get "content/silver"
+  # get "content/gold"
+  # get "content/platinum"
   get "home", to: "pages#home", as: "home"
   get "inside", to: "pages#inside", as: "inside"
   get "dashboard", to: "pages#dashboard", as: "dashboard"
