@@ -123,14 +123,14 @@
 
                         <div class="panel panel-info">
               <div class="panel-heading">
-                <h3 class="panel-title">TASKS</h3>
+                <h3 class="panel-title">TASKS - Sort by <%= content_tag :th, sort_link(@q, :task_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :task_due_date, 'Due Date', default_order: :desc) %></h3>
 
               </div>
 
               <div class="panel-body">
-                <small class="black-text"><%= page_entries_info @tasks1 %></small>
+                <small class="black-text"><%= page_entries_info @tasks1 %></small><br>
+                <small class="black-text"></small>
                 <div class="list-group">
-                  
                 <% if @tasks.empty?%>
                  <br>
                  <div class=" black-text">
@@ -142,7 +142,7 @@
               <% @tasks1.each do |task| %>
              
               <div class="panel-heading black-text bg-info">
-                    <strong><%= link_to task.task_name.to_s.upcase, task%></strong>
+                    <strong>Name:  <%= link_to task.task_name.to_s.upcase, task%></strong>
                     <p><span>Due Date: <%=task.task_due_date.to_s.upcase  %></span> </p>
                     <p><span>Type: <%==task.task_type.to_s.capitalize%></span> </p>
                     <p><span>Comments: <%=task.task_comments.to_s.capitalize%></span></p>
@@ -162,7 +162,7 @@
           <div class="col-lg-6 hidden-xs">
             <div class="panel panel-info">
               <div class="panel-heading">
-                <h3 class="panel-title">OPPORTUNITIES</h3>
+                <h3 class="panel-title">OPPORTUNITIES - Sort by <%= content_tag :th, sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_closing_date, 'Due Date', default_order: :desc) %></h3>
               </div>
               <div class="panel-body">
                 <small class="black-text"><%= page_entries_info @opportunities1 %></small>
