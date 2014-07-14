@@ -8,6 +8,8 @@ class OpportunitiesController < ApplicationController
     @opportunities = @q.result(distinct: true).page params[:page]      end
 
   def show
+     @opportunities = Opportunity.accessible_by(current_ability)
+
     authorize! :show, @opportunity
   end
 

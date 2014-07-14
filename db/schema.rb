@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20140704122333) do
     t.string   "task_type"
     t.string   "task_comments"
     t.integer  "user_id"
+    t.integer  "opportunity_id"
   end
 
   create_table "users", force: true do |t|

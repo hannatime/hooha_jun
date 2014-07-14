@@ -9,7 +9,7 @@
 
 <div class="panel panel-info">
               <div class="panel-heading">
-                <h3 class="panel-title">OPPORTUNITIES - Sort by <%= content_tag :th, sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_closing_date, 'Closing Date', default_order: :desc) %></h3>
+                <h3 class="panel-title">OPPORTUNITIES - Sort by <%= content_tag :th, sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_closing_date, 'Closing Date', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_amount, 'Amount', default_order: :desc) %></h3>
               </div>
               <div class="panel-body">
                 <div class="list-group">
@@ -28,6 +28,7 @@
                     <p><span>Close Date: <%= opportunity.opportunity_closing_date.to_s.capitalize %></span> </p>
                     <p><span>Stage: <%==opportunity.opportunity_stage.to_s.capitalize%></span> </p>
                     <p><span>Probability: <%= opportunity.opportunity_probability.to_s.capitalize%></span></p>
+                    <p><span>Amount: <%= opportunity.opportunity_amount.to_s.capitalize%></span></p>
                     <p><span>Comments: <%=opportunity.opportunity_comments.to_s.capitalize%></span></p>
                        <%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', opportunity %>
               </div>

@@ -85,7 +85,8 @@ class TasksController < ApplicationController
         :task_name, 
         :task_due_date, 
         :task_type, 
-        :task_comments
+        :task_comments,
+        :opportunity_id
         )
     end
 end

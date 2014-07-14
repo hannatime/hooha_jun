@@ -180,6 +180,7 @@
                     <p>Account: <%= link_to opportunity.account.account_name.to_s.titlecase, opportunity.account %></p>
                     <p><span>Close Date: <%= opportunity.opportunity_closing_date.to_s.capitalize %></span> </p>
                     <p><span>Stage: <%==opportunity.opportunity_stage.to_s.capitalize%></span> </p>
+                    <p><span>Amount: <%= opportunity.opportunity_amount.to_s.capitalize%></span></p>
                     <p><span>Probability: <%= opportunity.opportunity_probability.to_s.capitalize%></span></p>
                     <p><span>Comments: <%=opportunity.opportunity_comments.to_s.capitalize%></span></p>
                        <%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', opportunity %>
