@@ -7,13 +7,14 @@
       <div class="jumbotron home_page">
   <h1>Welcome to Hooha</h1>
 
-  <p>Our aim is to help you manage your small business online. We're going to do this by giving you a suite of simple, fast, and secure small business focused applications. </p><p>Our first application is Hooha CRM. Sign-up for a 30 day free platinum trial, and let us know what you think.</p>  
+  <p>Our aim is to help you manage your small business online. We're going to do this by giving you a suite of simple, fast, and secure small business focused applications. </p><p>Our first application is Hooha CRM. Sign-up for a free trial, and let us know what you think.</p>  
       <p><%= link_to 'Free Trial', new_user_registration_path(:plan => 'free'), :class => 'btn titlebuttons btn-warning btn-lg' %>
     </p><small class="text-center front-page-button">No credit card required</small></div>
       <% else %>
       <div class="jumbotron home_page ">
   <span class ="clearfix"><h1>Help us make Hooha better.</h1></span>
-  <p>We hope you enjoy using Hooha CRM. We're always aiming to deliver the best experience possible, so customer feedback is really important to us.</p>       
+  <p>We hope you enjoy using Hooha CRM. We're always aiming to deliver the best experience possible, so customer feedback is really important to us.</p>  
+
       <p><a href="contacts"class="btn titlebuttons btn-primary btn-lg" role="button">Give us feedback</a></p>   </div>
 <% end %>
 
