@@ -16,7 +16,7 @@
 
   <%= f.input :task_type, :label => "Type", :collection => @tasks , :group_method => @task.task_type, input_html:{ class: "form-control" }  %>
 
-  <%=f.association :opportunity,:label => 'Opportunity Name', label_method: :opportunity_name, value_method: :id, include_blank: '-- Select One --', collection: Opportunity.accessible_by(current_ability)%>
+  <%=f.association :opportunity,:label => 'Opportunity Name', label_method: :opportunity_name, value_method: :id, include_blank: '-- Select One --', :required => true, collection: Opportunity.accessible_by(current_ability)%>
   
   <%= f.label :due_date, :label => "Due Date"  %>
   <div class="form-inline">
