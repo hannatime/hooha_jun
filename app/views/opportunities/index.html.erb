@@ -1,14 +1,14 @@
 <%= render 'layouts/dashboard_top'%>
 
 <div class="dashboard-heading hidden-sm hidden-md hidden-lg">
-  <h2>OPPORTUNITIES</h2>
+  <h2>Opportunities List</h2>
 </div>
 <div class="dashboard-heading-xs hidden-xs">
-  <h2>OPPORTUNITIES</h2>
+  <h2>Opportunities List</h2>
 </div>
             <div class="panel panel-info hidden-md hidden-lg">
               <div class="panel-heading">
-                <h3 class="panel-title">OPPORTUNITIES - Sort by <%= content_tag :th, sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_closing_date, 'Closing Date', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_amount, 'Amount', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_stage, 'Stage', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_probability, 'Probability', default_order: :desc) %></h3>
+                <h3 class="panel-title">Opportunities - Sort by <%= content_tag :th, sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_closing_date, 'Closing Date', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_amount, 'Amount', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_stage, 'Stage', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_probability, 'Probability', default_order: :desc) %></h3>
               </div>
               <div class="panel-body">
                 <small class="black-text task-info"><%= page_entries_info @opportunities %></small>
@@ -70,7 +70,7 @@
             </div>
 
   <div class="panel panel-info hidden-xs hidden-sm">
-  <div class="panel-heading"><h3 class="panel-title">OPPORTUNITIES</h3></div>
+  <div class="panel-heading"><h3 class="panel-title">Opportunities</h3></div>
   <div class="panel-body">
     <p><small class="black-text task-info"><%= page_entries_info @opportunities %></small></p>
     <%= paginate @opportunities , :window => 2%>

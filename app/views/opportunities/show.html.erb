@@ -18,7 +18,7 @@
   </div>
   <div class="panel-body">
     <div class="list-group">
-<div class="panel-heading black-text bg-info">
+      <div class="panel-heading black-text bg-info">
                     <p>Account: <%= link_to @opportunity.account.account_name.to_s.titlecase, @opportunity.account %></p>
                     <p><span>Close Date: <%= @opportunity.opportunity_closing_date.to_s.capitalize %></span> </p>
                     <p><span>Stage: <%==@opportunity.opportunity_stage.to_s.capitalize%></span> </p>
@@ -26,29 +26,30 @@
                     <p><span>Amount: <%= @opportunity.opportunity_amount.to_s.capitalize%></span></p>
                     <p><span>Comments: <%= @opportunity.opportunity_comments.to_s.capitalize%></span></p>
                        <%= link_to 'Edit', edit_opportunity_path(@opportunity) %>|<%= link_to 'Delete', @opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>
-                      <div class ="account-panel"> 
-                       <div class="panel panel-primary">
-                        <div class="panel-heading">
-                          <h3 class="panel-title">Tasks</h3>
-                        </div>
-                          </div>
-                            <div class="panel-heading black-text bg-primary">
-                          <% if @opportunity.tasks.empty?%>
-                                 <div class="text-center black-text">
-                                  "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path('messages')%>"
-                                </div>
-                                  <%end%>
-                            <ul>
+                          <h3>Tasks</h3>
+                                
+
+                            <table class="black-text table-responsive table-bordered table table-condensed white-bg">
+                            <tr>
+                              <th>Name</th>
+                              <th>Due Date</th>
+                            </tr>
                             <% @opportunity.tasks.each do |task| %>
-                            <li><%= link_to task.task_name, task %></li>
+                            <tr>
+                              <td><%= link_to task.task_name.upcase, task %></td>
+                              <td><%= link_to task.task_due_date, task %></td>
+                            </tr>
                             <% end %>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      </div>
+                            </table>
+                            <% if @opportunity.tasks.empty?%>
+                                 <div class="text-center black-text bordered-table white-bg">
+                                  "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path(opportunity_id)%>"
+                                </div>
+                                <%end%>
+
                       
         </div>
       </div>
     </div>
+  </div>
 <%= render 'layouts/dashboard_bottom'%>

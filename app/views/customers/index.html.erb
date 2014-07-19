@@ -9,14 +9,14 @@
 
 <div class="panel panel-info hidden-md hidden-lg">
   <div class="panel-heading">
-    <h3 class="panel-title">CONTACTS - Sort by Name, <%= content_tag :th, sort_link(@q, :customer_first_name, 'First', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :customer_last_name, 'Last', default_order: :desc) %></h3>
+    <h3 class="panel-title">Contacts - Sort by Name, <%= content_tag :th, sort_link(@q, :customer_first_name, 'First', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :customer_last_name, 'Last', default_order: :desc) %></h3>
   </div>
   <div class="panel-body">
     <small class="black-text"><%= custom_page_entries_info(@customers)%></small>
     <div class="list-group">
        <% if @customers.empty?%>
                  <div class="text-center black-text">
-                  "<%= link_to "Add your first contact here or click +Contact".html_safe, new_customer_path('messages')%>"
+                  "<%= link_to "Add your first contact here or click +Contact".html_safe, new_customer_path%>"
                 </div>
                   <%end%>
       <% @customers.each do |customer| %>
@@ -41,10 +41,10 @@
               </tr>
               <tr>
                 <td>Address:</td>
-                <td><address>Address:<%= customer.customer_address.to_s.titlecase %> <br>
-            <%= customer.customer_city.to_s.titlecase %><br>
+                <td><address>Address:<%= customer.customer_address.to_s.titlecase %>
+            <%= customer.customer_city.to_s.titlecase %>
             <%= customer.customer_state.to_s.titlecase %>
-            <%= customer.customer_country.to_s.titlecase %>, <%= customer.customer_postcode.to_s %></address></td>
+            <%= customer.customer_country.to_s.titlecase %> <%= customer.customer_postcode.to_s %></address></td>
               </tr>
               <tr>
                 <td>
@@ -64,7 +64,7 @@
   </div>
 </div>
 <div class="panel panel-info hidden-xs hidden-sm">
-  <div class="panel-heading"><h3 class="panel-title">CUSTOMERS</h3></div>
+  <div class="panel-heading"><h3 class="panel-title">Contacts</h3></div>
   <div class="panel-body">
     <p><small class="black-text task-info"><%= custom_page_entries_info(@customers)%></small></p>
     <%= paginate @customers , :window => 2%>

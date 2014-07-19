@@ -38,7 +38,7 @@
           <div class="panel-heading black-text bg-primary">
           <% if @account.opportunities.empty?%>
                  <div class="text-center black-text">
-                  "<%= link_to "Add your first opportunity here +Opportunity".html_safe, new_opportunity_path('messages')%>"
+                  "<%= link_to "Add your first opportunity here +Opportunity".html_safe, new_opportunity_path%>"
                 </div>
                   <%end%>
           <ul>
@@ -60,11 +60,19 @@
                   "<%= link_to "Add your first contact here +Contact".html_safe, new_customer_path('messages')%>"
                 </div>
                   <%end%>
-          <ul>
-            <% @account.customers.each do |customer| %>
-            <li><%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %></li>
-            <% end %>
-          </ul>
+                     
+
+            <table class="black-text table-responsive table-bordered table table-condensed white-bg">
+                            <tr>
+                              <th>Name</th>
+                            </tr>
+                            <% @account.customers.each do |customer| %>
+                            <tr>
+                              <td><%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %></td>
+                            </tr>
+                            <% end %>
+                            </table>
+          
         </div>
       </div>
 <%= link_to 'Edit', edit_account_path(@account) %> | <%= link_to 'Delete', @account, method: :delete, data: { confirm: 'Are you sure?' } %>
