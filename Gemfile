@@ -16,6 +16,7 @@ gem "stripe"
 gem "stripe_event"
 gem 'newrelic_rpm'
 gem "ransack"
+gem "chartkick"
 
 # Rolify
 gem "rolify"

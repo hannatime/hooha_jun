@@ -30,7 +30,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      <%= link_to 'Tasks!', tasks_path %>
+                      <strong><%= link_to 'Tasks!', tasks_path %></strong>
                     </div>
                     <div class="col-xs-6 text-right">
                       
@@ -56,7 +56,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      <%= link_to 'Contacts', customers_path %>
+                      <strong><%= link_to 'Contacts', customers_path %></strong>
                     </div>
                     <div class="col-xs-6 text-right">
                     </div>
@@ -81,7 +81,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      <%= link_to 'Opportunities', opportunities_path %>
+                      <strong><%= link_to 'Opportunities', opportunities_path %></strong>
                     </div>
                     <div class="col-xs-6 text-right">
                     </div>
@@ -106,7 +106,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      <%= link_to 'Accounts', accounts_path %>
+                      <strong><%= link_to 'Accounts', accounts_path %></strong>
                     </div>
                     <div class="col-xs-6 text-right">
                     </div>
@@ -116,6 +116,42 @@
             </div>
           </div>
         </div><!-- /.row -->
+        <div class="row">
+          
+          <div class="col-sm-12">
+
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">PIPELINE VALUE</h3>
+
+              </div>
+
+              <div class="panel-body">
+                <div class="list-group">
+                <% if @opportunities.empty?%>
+                 <br>
+                 <div class=" black-text">
+                  "<%= link_to "Your pipeline is empty, add an opportunity".html_safe, new_opportunity_path%>"
+                </div>
+              <%end%>
+                <div class="panel-heading hidden-xs hidden-lg hidden-sm black-text bg-info">
+                    <%= column_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount), colors: [ "#2ecc71"]  %>
+                </div>
+                <div class="panel-heading hidden-sm hidden-md hidden-lg black-text bg-info">
+                    <%= column_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount), colors: [ "#2ecc71"] %>
+                </div>
+                <div class="panel-heading hidden-xs hidden-md hidden-lg black-text bg-info">
+                    <%= column_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount), colors: [ "#2ecc71"] %>
+                </div>
+                <div class="panel-heading hidden-xs hidden-md hidden-sm black-text bg-info">
+                    <%= column_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount), colors: [ "#2ecc71"] %>
+                </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
 
         <div class="row">
           
@@ -134,21 +170,44 @@
                 <% if @tasks.empty?%>
                  <br>
                  <div class=" black-text">
-                  "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path('messages')%>"
+                  "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path%>"
                 </div>
                 <br>
                   <%end%>
               
               <% @tasks1.each do |task| %>
              
-              <div class="panel-heading black-text bg-info">
-                    <strong>Name:  <%= link_to task.task_name.to_s.upcase, task%></strong>
-                    <p><span>Due Date: <%=task.task_due_date.to_s.upcase  %></span> </p>
-                    <p><span>Type: <%==task.task_type.to_s.capitalize%></span> </p>
-                    <p><span>Comments: <%=task.task_comments.to_s.capitalize%></span></p>
-                       <%= link_to 'Edit', edit_task_path(task) %>|<%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', task %>
-              </div>
-              <hr>
+                       <div class="task black-text">
+             <table class="black-text table-responsive table table-condensed white-bg">
+
+              <tr>
+                <th><strong>Name:</strong></th>
+                <th><strong><%= link_to task.task_name.to_s.upcase, task%></strong></th>
+              </tr>
+              <tr>
+                <td>Due Date:</td>
+                <td><%=task.task_due_date.to_s.upcase  %></td>
+              </tr>
+              <tr>
+                <td>Type:</td>
+                <td><%==task.task_type.to_s.capitalize%></td>
+              </tr>
+              <tr>
+                <td>Comments:</td>
+                <td><%=task.task_comments.to_s.capitalize%></td>
+              </tr>
+              
+            <tr>
+              <td> <strong><%= link_to 'Edit', edit_task_path(task) %>|<%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', task %></strong></td>
+              <td>
+              </td>
+          </tr>
+            </table>
+           
+            </div>
+
+            
+             
                 <% end %>
                 
                 <%= paginate @tasks1 , :window => 2%>
@@ -159,33 +218,61 @@
             
           </div>
           
-          <div class="col-lg-6 hidden-xs">
+          <div class="col-lg-6">
             <div class="panel panel-info">
               <div class="panel-heading">
                 <h3 class="panel-title">OPPORTUNITIES - Sort by <%= content_tag :th, sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_closing_date, 'Close Date', default_order: :desc) %></h3>
               </div>
               <div class="panel-body">
-                <small class="black-text"><%= page_entries_info @opportunities1 %></small>
+                <small class="black-text task-info"><%= page_entries_info @opportunities1 %></small>
                 <div class="list-group">
                   <% if @opportunities.empty?%>
                   <br>
                  <div class="black-text">
-                  "<%= link_to "Add your first opportunity here or click +Opportunity".html_safe, new_opportunity_path('messages')%>"
+                  "<%= link_to "Add your first opportunity here or click +Opportunity".html_safe, new_opportunity_path%>"
                 </div>
                   <%end%>
               <% @opportunities1.each do |opportunity| %>
-             
-              <div class="panel-heading black-text bg-info">
-                    <strong><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></strong>
-                    <p>Account: <%= link_to opportunity.account.account_name.to_s.titlecase, opportunity.account %></p>
-                    <p><span>Close Date: <%= opportunity.opportunity_closing_date.to_s.capitalize %></span> </p>
-                    <p><span>Stage: <%==opportunity.opportunity_stage.to_s.capitalize%></span> </p>
-                    <p><span>Amount: <%= opportunity.opportunity_amount.to_s.capitalize%></span></p>
-                    <p><span>Probability: <%= opportunity.opportunity_probability.to_s.capitalize%></span></p>
-                    <p><span>Comments: <%=opportunity.opportunity_comments.to_s.capitalize%></span></p>
-                       <%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', opportunity %>
-              </div>
-              <hr>
+              <div class="task black-text">
+             <table class="black-text table-responsive table table-condensed white-bg">
+
+              <tr>
+                <th><strong>Name:</strong></th>
+                <th><strong><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></strong></th>
+              </tr>
+              <tr>
+                <td>Account:</td>
+                <td><%= link_to opportunity.account.account_name.to_s.titlecase, opportunity.account %></td>
+              </tr>
+              <tr>
+                <td>Close Date:</td>
+                <td><%= opportunity.opportunity_closing_date.to_s.capitalize %></td>
+              </tr>
+              <tr>
+                <td>Stage:</td>
+                <td><%==opportunity.opportunity_stage.to_s.capitalize%></td>
+              </tr>
+              <tr>
+                <td>Amount:</td>
+                <td>$<%= opportunity.opportunity_amount.to_s.capitalize%></td>
+              </tr>
+              <tr>
+                <td>Probability:</td>
+                <td><%= opportunity.opportunity_probability.to_s.capitalize%></td>
+              </tr>
+              <tr>
+                <td>Comments:</td>
+                <td><%=opportunity.opportunity_comments.to_s.capitalize%></td>
+              </tr>
+            <tr>
+              <td> <strong><%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', opportunity %></strong></td>
+              <td>
+              </td>
+          </tr>
+            </table>
+           
+            </div>
+
                 <% end %>
 
                 <%= paginate @opportunities1 , :window => 2%>
@@ -198,5 +285,6 @@
           </div>
 
         </div><!-- /.row -->
+
 
 <%= render 'layouts/dashboard_bottom'%>
