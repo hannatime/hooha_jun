@@ -30,7 +30,7 @@
               </tr>
               <tr>
                 <td>Type:</td>
-                <td><%= link_to task.task_type.to_s.titlecase, task %></td>
+                <td><%= task.task_type.to_s.titlecase %></td>
               </tr>
               <tr>
                 <td>Opportunity:</td>
@@ -73,7 +73,7 @@
     </tr>
       <th><%= sort_link(@q, :task_name, 'Name', default_order: :desc) %></th>
       <th><%= sort_link(@q, :task_type, 'Type', default_order: :desc) %></th>
-      <th><%= sort_link(@q, :opportunity_id, 'Account', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :opportunity_id, 'Opportunity', default_order: :desc) %></th>
       <th><%= sort_link(@q, :task_due_date, 'Due Date', default_order: :desc) %></th>
       <th>Comments</th>
       <th>Edit</th>
