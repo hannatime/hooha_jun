@@ -18,6 +18,7 @@ gem 'newrelic_rpm'
 gem "ransack"
 gem "chartkick"
 
+
 # Rolify
 gem "rolify"
 

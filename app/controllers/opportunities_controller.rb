@@ -5,7 +5,12 @@ class OpportunitiesController < ApplicationController
 
   def index
     @q = Opportunity.accessible_by(current_ability).search(params[:q])
-    @opportunities = @q.result(distinct: true).page params[:page]  
+    @opportunities = @q.result(distinct: true).page params[:page] 
+    respond_to do |format|
+    format.html
+    format.csv { send_data @opportunities.to_csv }
+    format.xls { send_data @opportunities.to_csv(col_sep: "\t") }
+  end 
         end
 
   def show

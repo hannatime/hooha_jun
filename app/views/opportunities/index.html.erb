@@ -106,5 +106,10 @@
 </div>
 
 </div>
+<p class="white-txt">
+  Download:
+  <%= link_to "CSV", opportunities_path(format: "csv") %> |
+  <%= link_to "Excel", opportunities_path(format: "xls") %>
+</p>
 
 <%= render 'layouts/dashboard_bottom'%>
