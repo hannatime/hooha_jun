@@ -1,12 +1,12 @@
 <%= render 'layouts/dashboard_top'%>
 
 <div class="dashboard-heading hidden-sm hidden-md hidden-lg">
-  <h2>Opportunity List</h2>
+  <h2>OPPORTUNITIES</h2>
 </div>
 <div class="dashboard-heading-xs hidden-xs">
-  <h2>Opportunity List </h2>
+  <h2>OPPORTUNITIES</h2>
 </div>
-            <div class="panel panel-info">
+            <div class="panel panel-info hidden-md hidden-lg">
               <div class="panel-heading">
                 <h3 class="panel-title">OPPORTUNITIES - Sort by <%= content_tag :th, sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_closing_date, 'Closing Date', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_amount, 'Amount', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_stage, 'Stage', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_probability, 'Probability', default_order: :desc) %></h3>
               </div>
@@ -22,8 +22,8 @@
                                   <small class="black-text task-info"><%= paginate @opportunities , :window => 2%></small>
 
               <% @opportunities.each do |opportunity| %>
-            <div class="task black-text">
-             <table class="black-text table-responsive table table-condensed white-bg">
+            <div class=" black-text">
+             <table class="black-text table-responsive table-condensed table table-condensed white-bg">
               <tr>
                 <th><strong>Name:</strong></th>
                 <th><strong><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></strong></th>
@@ -53,7 +53,7 @@
                 <td><%= opportunity.opportunity_comments.to_s.capitalize%></td>
               </tr>
             <tr>
-              <td> <strong><%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', opportunity %></strong></td>
+              <td> <strong><%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></strong></td>
               <td></td>
           </tr>
             </table>
@@ -68,5 +68,41 @@
               </div>
 
             </div>
+
+  <div class="panel panel-info hidden-xs hidden-sm">
+  <div class="panel-heading"><h3 class="panel-title">OPPORTUNITIES</h3></div>
+  <div class="panel-body">
+    <p><small class="black-text task-info"><%= page_entries_info @opportunities %></small></p>
+    <%= paginate @opportunities , :window => 2%>
+  </div>
+  <table class="table black-text table-striped white-bg">
+    </tr>
+      <th><%= sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :account_id, 'Account Name', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :opportunity_closing_date, 'Closing Date', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :opportunity_stage, 'Stage', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :opportunity_amount, 'Amount', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :opportunity_probability, 'Probability', default_order: :desc) %></th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+   <% @opportunities.each do |opportunity| %>
+    </tr>
+      <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
+     <td><%= link_to opportunity.account.account_name.to_s.titlecase, opportunity.account %></td>
+     <td><%= opportunity.opportunity_closing_date.to_s.capitalize %></td>
+     <td><%==opportunity.opportunity_stage.to_s.capitalize%></td>
+     <td>$<%= opportunity.opportunity_amount.to_s.capitalize%></td>
+     <td><%= opportunity.opportunity_probability.to_s.capitalize%></td>
+     <td><%= link_to 'Edit', edit_opportunity_path(opportunity) %></td>
+     <td><%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </table>
+  <div id="pagination">
+<%= paginate @opportunities , :window => 2 %>
+</div>
+
+</div>
 
 <%= render 'layouts/dashboard_bottom'%>

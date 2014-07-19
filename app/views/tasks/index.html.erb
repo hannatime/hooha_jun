@@ -7,35 +7,93 @@
   <h2>Task List </h2>
 </div>
 
-         
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <h3 class="panel-title">TASKS - Sort by <%= content_tag :th, sort_link(@q, :task_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :task_due_date, 'Due Date', default_order: :desc) %></h3>
-              </div>
-              <div class="panel-body">
-                <small class="black-text"><%= page_entries_info @tasks %></small>
-                <div class="list-group">
-                  <% if @tasks.empty?%>
+
+<div class="panel panel-info hidden-md hidden-lg">
+  <div class="panel-heading">
+    <h3 class="panel-title">Tasks - Sort by <%= content_tag :th, sort_link(@q, :task_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :task_type, 'Type', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :task_due_date, 'Due Date', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_id, 'Opportunity', default_order: :desc) %></h3>
+  </div>
+  <div class="panel-body">
+    <small class="black-text"><%= page_entries_info @tasks%></small>
+    <div class="list-group">
+       <% if @tasks.empty?%>
                  <div class="text-center black-text">
-                  "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path('messages')%>"
+                  "<%= link_to "Add your first contact here or click +Contact".html_safe, new_customer_path('messages')%>"
                 </div>
                   <%end%>
-              <% @tasks.each do |task| %>
-             
-              <div class="panel-heading black-text bg-info">
-                    <strong><%=link_to task.task_name.to_s.upcase, task %></strong>
-                    <p><span>Opportunity: <%= link_to task.opportunity.opportunity_name.to_s.capitalize, task.opportunity%></span></p>
-                    <p><span>Due Date: <%= task.task_due_date.to_s.upcase%></span> </p>
-                    <p><span>Type: <%==task.task_type.to_s.capitalize%></span> </p>
-                    <p><span>Comments: <%=task.task_comments.to_s.capitalize%></span></p>
-                       <%= link_to 'Edit', edit_task_path(task) %>|<%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', task %>
-              </div>
-              <hr>
-                <% end %>
-                <%= paginate @tasks , :window => 2%>
-                </div>
-              </div>
-            </div>
+      <% @tasks.each do |task| %>
+      <div class ="">
+        <div class="panel-heading black-text bg-info">
+           <table class="black-text table-responsive table-condensed table table-condensed white-bg">
+              <tr>
+                <th>Name:</th>
+                <th><%= link_to task.task_name.upcase, task %></th>
+              </tr>
+              <tr>
+                <td>Type:</td>
+                <td><%= link_to task.task_type.to_s.titlecase, task %></td>
+              </tr>
+              <tr>
+                <td>Opportunity:</td>
+                <td><%= link_to task.opportunity.opportunity_name.to_s.capitalize, task.opportunity%></td>
+              </tr>
+              <tr>
+                <td>Due Date:</td>
+                <td><%= task.task_due_date.to_s.upcase%></td>
+              </tr>
+              <tr>
+                <td>Comments:</td>
+                <td><%=task.task_comments.to_s.capitalize%></td>
+              </tr>
+              <tr>
+                <td>
+            <strong><%= link_to 'Edit', edit_task_path(task) %>|<%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
+            </td>
+            <td>
+            </td>
+              </tr>
+            </table>
 
+        </div>
+        
+      </div>
+      <% end %>
+      <%= paginate @tasks , :window => 2%>
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-info hidden-xs hidden-sm">
+  <div class="panel-heading"><h3 class="panel-title">Tasks</h3></div>
+  <div class="panel-body">
+    <p><small class="black-text task-info"><%= page_entries_info @tasks%></small></p>
+    <%= paginate @tasks , :window => 2%>
+  </div>
+  <table class="table black-text table-striped white-bg">
+    </tr>
+      <th><%= sort_link(@q, :task_name, 'Name', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :task_type, 'Type', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :opportunity_id, 'Account', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :task_due_date, 'Due Date', default_order: :desc) %></th>
+      <th>Comments</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+   <% @tasks.each do |task| %>
+    </tr>
+      <td><%=link_to task.task_name.to_s.upcase, task %></td>
+      <td><%=link_to task.task_type.to_s.upcase, task %></td>
+     <td><%= link_to task.opportunity.opportunity_name.to_s.capitalize, task.opportunity%></td>
+    <td><%= task.task_due_date.to_s.upcase%></td>
+     <td><%=task.task_comments.to_s.capitalize%></td>
+     <td><%= link_to 'Edit', edit_task_path(task) %></td>
+     <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </table>
+<div id="pagination">
+<%= paginate @tasks , :window => 2 %>
+</div>
+</div>
 
 <%= render 'layouts/dashboard_bottom'%>

@@ -118,11 +118,11 @@
         </div><!-- /.row -->
         <div class="row">
           
-          <div class="col-sm-12">
+          <div class="col-sm-6">
 
             <div class="panel panel-info">
               <div class="panel-heading">
-                <h3 class="panel-title">PIPELINE VALUE</h3>
+                <h3 class="panel-title">PIPELINE by stage</h3>
 
               </div>
 
@@ -151,9 +151,43 @@
             </div>
             
           </div>
+
+          <div class="col-sm-6">
+
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">TASKS by type</h3>
+
+              </div>
+
+              <div class="panel-body">
+                <div class="list-group">
+                <% if @tasks.empty?%>
+                 <br>
+                 <div class=" black-text">
+                  "<%= link_to "Your task list is empty, add a task".html_safe, new_task_path%>"
+                </div>
+              <%end%>
+                <div class="panel-heading hidden-xs hidden-lg hidden-sm black-text bg-info">
+                    <%= column_chart @tasks.group(:task_type).count, colors: [ "#2ecc71"]  %>
+                </div>
+                <div class="panel-heading hidden-sm hidden-md hidden-lg black-text bg-info">
+                    <%= column_chart @tasks.group(:task_type).count, colors: [ "#2ecc71"] %>
+                </div>
+                <div class="panel-heading hidden-xs hidden-md hidden-lg black-text bg-info">
+                    <%= column_chart @tasks.group(:task_type).count, colors: [ "#2ecc71"] %>
+                </div>
+                <div class="panel-heading hidden-xs hidden-md hidden-sm black-text bg-info">
+                    <%= column_chart @tasks.group(:task_type).count, colors: [ "#2ecc71"] %>
+                </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
         </div><!-- /.row -->
 
-        <div class="row">
+ <!--        <div class="row">
           
           <div class="col-lg-6">
 
@@ -292,7 +326,7 @@
  
           </div></div>
 
-        </div><!-- /.row -->
+        </div><!-- /.row --> 
 
 
 <%= render 'layouts/dashboard_bottom'%>

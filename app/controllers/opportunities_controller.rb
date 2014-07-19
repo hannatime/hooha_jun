@@ -5,7 +5,8 @@ class OpportunitiesController < ApplicationController
 
   def index
     @q = Opportunity.accessible_by(current_ability).search(params[:q])
-    @opportunities = @q.result(distinct: true).page params[:page]      end
+    @opportunities = @q.result(distinct: true).page params[:page]  
+        end
 
   def show
      @opportunities = Opportunity.accessible_by(current_ability)

@@ -7,7 +7,7 @@
   <h2>Contact List</h2>
 </div>
 
-<div class="panel panel-info">
+<div class="panel panel-info hidden-md hidden-lg">
   <div class="panel-heading">
     <h3 class="panel-title">CONTACTS - Sort by Name, <%= content_tag :th, sort_link(@q, :customer_first_name, 'First', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :customer_last_name, 'Last', default_order: :desc) %></h3>
   </div>
@@ -20,28 +20,80 @@
                 </div>
                   <%end%>
       <% @customers.each do |customer| %>
-      <div class ="task">
+      <div class ="">
         <div class="panel-heading black-text bg-info">
-           
-          <address>
-            <strong><%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %></strong><br>
-            <a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a><br>
-            Address:<%= customer.customer_address.to_s.titlecase %> <br>
+           <table class="black-text table-responsive table-condensed table table-condensed white-bg">
+              <tr>
+                <th>Name:</th>
+                <th><%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %></th>
+              </tr>
+              <tr>
+                <td>Account:</td>
+                <td><%= link_to customer.account.account_name.to_s.titlecase, customer.account %></td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a></td>
+              </tr>
+              <tr>
+                <td>Phone:</td>
+                <td><%= customer.customer_phone.to_s %></td>
+              </tr>
+              <tr>
+                <td>Address:</td>
+                <td><address>Address:<%= customer.customer_address.to_s.titlecase %> <br>
             <%= customer.customer_city.to_s.titlecase %><br>
             <%= customer.customer_state.to_s.titlecase %>
-            <%= customer.customer_country.to_s.titlecase %>, <%= customer.customer_postcode.to_s %><br>
-            Phone:<%= customer.customer_phone.to_s %>
-          </address>
-          <p>Account: <%= link_to customer.account.account_name.to_s.titlecase, customer.account %></p>
-           <%= link_to 'Edit', edit_customer_path(customer) %>|<%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', customer %>
+            <%= customer.customer_country.to_s.titlecase %>, <%= customer.customer_postcode.to_s %></address></td>
+              </tr>
+              <tr>
+                <td>
+            <strong><%= link_to 'Edit', edit_customer_path(customer) %>|<%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
+            </td>
+            <td>
+            </td>
+              </tr>
+            </table>
+
         </div>
+        
       </div>
-      <hr>
       <% end %>
       <%= paginate @customers , :window => 2%>
     </div>
   </div>
 </div>
-
+<div class="panel panel-info hidden-xs hidden-sm">
+  <div class="panel-heading"><h3 class="panel-title">CUSTOMERS</h3></div>
+  <div class="panel-body">
+    <p><small class="black-text task-info"><%= custom_page_entries_info(@customers)%></small></p>
+    <%= paginate @customers , :window => 2%>
+  </div>
+  <table class="table black-text table-striped white-bg">
+    </tr>
+      <th><%= sort_link(@q, :customer_first_name, 'First', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :customer_last_name, 'Last', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :account_id, 'Account', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :customer_email, 'Email', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :customer_phone, 'Phone', default_order: :desc) %></th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+   <% @customers.each do |customer| %>
+    </tr>
+      <td><%=link_to customer.customer_first_name.upcase, customer%></td>
+     <td><%= link_to customer.customer_last_name.to_s.titlecase, customer %></td>
+    <td><%= link_to customer.account.account_name.to_s.titlecase, customer.account %></td>
+     <td><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></td>
+     <td><%==customer.customer_phone.to_s.capitalize%></td>
+     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+     <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </table>
+<div id="pagination">
+<%= paginate @customers , :window => 2 %>
+</div>
+</div>
 <%= render 'layouts/dashboard_bottom'%>
 
