@@ -43,7 +43,7 @@
                             </table>
                             <% if @opportunity.tasks.empty?%>
                                  <div class="text-center black-text bordered-table white-bg">
-                                  "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path(opportunity_id)%>"
+                                  "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path%>"
                                 </div>
                                 <%end%>
 

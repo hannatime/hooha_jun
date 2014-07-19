@@ -15,8 +15,9 @@
     <small class="black-text"><%= custom_page_entries_info(@customers)%></small>
     <div class="list-group">
        <% if @customers.empty?%>
+       <br>
                  <div class="text-center black-text">
-                  "<%= link_to "Add your first contact here or click +Contact".html_safe, new_customer_path%>"
+                  <%= link_to "Add your first contact here or click +Contact".html_safe, new_customer_path%>
                 </div>
                   <%end%>
       <% @customers.each do |customer| %>

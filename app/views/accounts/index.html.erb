@@ -15,8 +15,9 @@
     <small class="black-text"><%= page_entries_info @accounts%></small>
     <div class="list-group">
        <% if @accounts.empty?%>
+       <br>
                  <div class="text-center black-text">
-                  "<%= link_to "Add your first account here or click +Account".html_safe, new_account_path%>"
+                  <%= link_to "Add your first account here or click +Account".html_safe, new_account_path%>
                 </div>
                   <%end%>
       <% @accounts.each do |account| %>

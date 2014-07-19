@@ -116,7 +116,22 @@
             </div>
           </div>
         </div><!-- /.row -->
-        <div class="row">
+<% if @accounts.empty?%>
+<div class="row">
+  <div class="col-sm-12">
+
+            <div class="panel panel-info">
+              <div class="panel-heading text-center ">
+                <br>
+                <h1 class="panel-title"><%= link_to "Start by adding your first account here or click +Account".html_safe, new_account_path%></h1>
+       <br>             
+</div>
+</div>
+</div>
+</div>      
+ <%else%>
+
+ <div class="row">
           
           <div class="col-sm-6">
 
@@ -130,8 +145,8 @@
                 <div class="list-group">
                 <% if @opportunities.empty?%>
                  <br>
-                 <div class=" black-text">
-                  "<%= link_to "Your pipeline is empty, add an opportunity".html_safe, new_opportunity_path%>"
+                 <div class=" black-text text-center">
+                  <%= link_to "Your pipeline is empty, add an opportunity".html_safe, new_opportunity_path%>
                 </div>
               <%end%>
                 <div class="panel-heading hidden-xs hidden-lg hidden-sm black-text bg-info">
@@ -162,11 +177,13 @@
 
               <div class="panel-body">
                 <div class="list-group">
-                <% if @tasks.empty?%>
+                <% if @tasks.empty? && !@opportunities.empty?%>
                  <br>
-                 <div class=" black-text">
-                  "<%= link_to "Your task list is empty, add a task".html_safe, new_task_path%>"
+                 <div class=" black-text text-center">
+                  <%= link_to "Your task list is empty, add a task".html_safe, new_task_path%>
                 </div>
+              <%elsif @tasks.empty? && @opportunities.empty?%>
+              <br><br>
               <%end%>
                 <div class="panel-heading hidden-xs hidden-lg hidden-sm black-text bg-info">
                     <%= column_chart @tasks.group(:task_type).count, colors: [ "#2ecc71"]  %>
@@ -328,5 +345,5 @@
 
         </div><!-- /.row --> 
 
-
+<%end%>
 <%= render 'layouts/dashboard_bottom'%>
