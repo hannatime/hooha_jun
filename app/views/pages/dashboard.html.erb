@@ -151,7 +151,7 @@
             </div>
             
           </div>
-        </div>
+        </div><!-- /.row -->
 
         <div class="row">
           
@@ -228,50 +228,58 @@
                 <div class="list-group">
                   <% if @opportunities.empty?%>
                   <br>
-                 <div class="black-text">
+                  <div class="black-text">
                   "<%= link_to "Add your first opportunity here or click +Opportunity".html_safe, new_opportunity_path%>"
                 </div>
                   <%end%>
               <% @opportunities1.each do |opportunity| %>
+              
               <div class="task black-text">
-             <table class="black-text table-responsive table table-condensed white-bg">
+                     <table class="black-text table-responsive table table-condensed white-bg">
 
-              <tr>
-                <th><strong>Name:</strong></th>
-                <th><strong><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></strong></th>
-              </tr>
-              <tr>
-                <td>Account:</td>
-                <td><%= link_to opportunity.account.account_name.to_s.titlecase, opportunity.account %></td>
-              </tr>
-              <tr>
-                <td>Close Date:</td>
-                <td><%= opportunity.opportunity_closing_date.to_s.capitalize %></td>
-              </tr>
-              <tr>
-                <td>Stage:</td>
-                <td><%==opportunity.opportunity_stage.to_s.capitalize%></td>
-              </tr>
-              <tr>
-                <td>Amount:</td>
-                <td>$<%= opportunity.opportunity_amount.to_s.capitalize%></td>
-              </tr>
-              <tr>
-                <td>Probability:</td>
-                <td><%= opportunity.opportunity_probability.to_s.capitalize%></td>
-              </tr>
-              <tr>
-                <td>Comments:</td>
-                <td><%=opportunity.opportunity_comments.to_s.capitalize%></td>
-              </tr>
-            <tr>
-              <td> <strong><%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', opportunity %></strong></td>
-              <td>
-              </td>
-          </tr>
-            </table>
+                        <tr>
+                          <th>Name:</th>
+                          <th><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></th>
+                        </tr>
+
+                        <tr>
+                          <td>Account:</td>
+                          <td><%= link_to opportunity.account.account_name.to_s.titlecase, opportunity.account %></td>
+                        </tr>
+
+                        <tr>
+                          <td>Close Date:</td>
+                          <td><%= opportunity.opportunity_closing_date.to_s.capitalize %></td>
+                        </tr>
+
+                        <tr>
+                          <td>Stage:</td>
+                          <td><%==opportunity.opportunity_stage.to_s.capitalize%></td>
+                        </tr>
+
+                        <tr>
+                          <td>Amount:</td>
+                          <td>$<%= opportunity.opportunity_amount.to_s.capitalize%></td>
+                        </tr>
+
+                        <tr>
+                          <td>Probability:</td>
+                          <td><%= opportunity.opportunity_probability.to_s.capitalize%></td>
+                        </tr>
+
+                        <tr>
+                          <td>Comments:</td>
+                          <td><%=opportunity.opportunity_comments.to_s.capitalize%></td>
+                        </tr>
+
+                      <tr>
+                        <td><strong><%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'Show', opportunity %></strong></td>
+                        <td></td>
+                      </tr>
+
+                  </table>
            
-            </div>
+                  </div>
 
                 <% end %>
 
@@ -282,7 +290,7 @@
 
             </div>
  
-          </div>
+          </div></div>
 
         </div><!-- /.row -->
 
