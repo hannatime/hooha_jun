@@ -25,7 +25,7 @@
                     <p><span>Probability: <%= @opportunity.opportunity_probability.to_s.capitalize%></span></p>
                     <p><span>Amount: <%= @opportunity.opportunity_amount.to_s.capitalize%></span></p>
                     <p><span>Comments: <%= @opportunity.opportunity_comments.to_s.capitalize%></span></p>
-                       <%= link_to 'Edit', edit_opportunity_path(@opportunity) %>|<%= link_to 'Delete', @opportunity, method: :delete, data: { confirm: 'Are you sure?' } %>
+                       <strong><%= link_to 'Edit', edit_opportunity_path(@opportunity) %>|<%= link_to 'Delete', @opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
                           <h3>Tasks</h3>
                                 
 
@@ -53,10 +53,14 @@
                             <table class="black-text table-responsive table-bordered table table-condensed white-bg">
                             <tr>
                               <th>Name</th>
+                              <th>Phone</th>
+                              <th>Email</th>
                             </tr>
                             <% @opportunity.customers.each do |customer| %>
                             <tr>
-                              <td><%= link_to customer.customer_first_name.upcase, customer %></td>
+                              <td><%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %></td>
+                              <td><%= link_to customer.customer_phone, customer %></td>
+                              <td><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a></td>
                             </tr>
                             <% end %>
                             </table>

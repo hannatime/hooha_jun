@@ -18,7 +18,7 @@
        <% if @tasks.empty?%>
                  <br>
                  <div class="text-center black-text">
-                  <%= link_to "Add your first contact here or click +Contact".html_safe, new_customer_path%>
+                  <%= link_to "Add your first task here or click +Task".html_safe, new_task_path%>
                 </div>
                   <%end%>
       <% @tasks.each do |task| %>

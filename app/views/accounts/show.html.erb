@@ -27,7 +27,7 @@
             <%= @account.account_country.to_s.titlecase %> <%= @account.account_postcode.to_s.titlecase %><br>
             Phone:<%= @account.account_phone.to_s.capitalize %><br>
           </address>
-          <p><%= link_to 'Edit', edit_account_path(@account) %> | <%= link_to 'Delete', @account, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <p><strong><%= link_to 'Edit', edit_account_path(@account) %> | <%= link_to 'Delete', @account, method: :delete, data: { confirm: 'Are you sure?' } %></strong></p>
 <div class="col-md-6"> 
           <h3>Opportunities</h3>
 
@@ -56,13 +56,17 @@
 <div class="col-md-6"> 
 
           <h3>Contacts</h3>
-            <table class="black-text table-responsive table-bordered table table-condensed white-bg">
+              <table class="black-text table-responsive table-bordered table table-condensed white-bg">
                             <tr>
                               <th>Name</th>
+                              <th>Phone</th>
+                              <th>Email</th>
                             </tr>
                             <% @account.customers.each do |customer| %>
                             <tr>
                               <td><%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %></td>
+                              <td class="tel"><%= customer.customer_phone %></td>
+                              <td><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a></td>
                             </tr>
                             <% end %>
                             </table>

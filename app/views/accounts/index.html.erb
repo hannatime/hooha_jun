@@ -80,8 +80,8 @@
       <th><%= sort_link(@q, :account_name, 'Name', default_order: :desc) %></th>
       <th><%= sort_link(@q, :id, 'ID', default_order: :desc) %></th>
       <th><%= sort_link(@q, :account_phone, 'Phone', default_order: :desc) %></th>
-      <th>Contacts</th>
-      <th>Opportunities</th>
+      <th><%= sort_link(@q, :customer_id, 'Contacts', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :opportunity_id, 'Opportunities', default_order: :desc) %></th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>

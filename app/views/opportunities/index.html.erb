@@ -33,6 +33,12 @@
                 <td><%= link_to opportunity.account.account_name.to_s.titlecase, opportunity.account %></td>
               </tr>
               <tr>
+                <td>Contacts:</td>
+            <td><% opportunity.customers.each do |customer| %>
+            <%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %>
+            <% end %></td>
+              </tr>
+              <tr>
                 <td>Close Date:</td>
                 <td><%= opportunity.opportunity_closing_date.to_s.capitalize %></td>
               </tr>
@@ -79,6 +85,7 @@
     </tr>
       <th><%= sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %></th>
       <th><%= sort_link(@q, :account_id, 'Account Name', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :customer_id, 'Contact', default_order: :desc) %></th>
       <th><%= sort_link(@q, :opportunity_closing_date, 'Closing Date', default_order: :desc) %></th>
       <th><%= sort_link(@q, :opportunity_stage, 'Stage', default_order: :desc) %></th>
       <th><%= sort_link(@q, :opportunity_amount, 'Amount', default_order: :desc) %></th>
@@ -90,6 +97,9 @@
     </tr>
       <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
      <td><%= link_to opportunity.account.account_name.to_s.titlecase, opportunity.account %></td>
+     <td><% opportunity.customers.each do |customer| %>
+            <%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %>
+            <% end %></td>
      <td><%= opportunity.opportunity_closing_date.to_s.capitalize %></td>
      <td><%==opportunity.opportunity_stage.to_s.capitalize%></td>
      <td>$<%= opportunity.opportunity_amount.to_s%></td>

@@ -23,7 +23,7 @@
                     <p><span>Opportunity: <%= link_to @task.opportunity.opportunity_name.to_s.capitalize, @task.opportunity%></span></p>
                     <p><span>Type: <%==@task.task_type.to_s.capitalize%></span> </p>
                     <p><span>Comments: <%=@task.task_comments.to_s.capitalize%></span></p>
-                       <%= link_to 'Edit', edit_task_path(@task) %>|<%= link_to 'Delete', @task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                       <strong><%= link_to 'Edit', edit_task_path(@task) %>|<%= link_to 'Delete', @task, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
               </div>
         </div>
       </div>
