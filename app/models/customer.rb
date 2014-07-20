@@ -5,7 +5,7 @@ class Customer < ActiveRecord::Base
 
   validates_presence_of :user, :customer_first_name, :customer_last_name, :customer_email, :account_id
   belongs_to :account
-  has_many :opportunities, through: :accounts
+  has_and_belongs_to_many :opportunities
 
      def self.to_csv(options = {})
       CSV.generate(options) do |csv|
