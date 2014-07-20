@@ -7,6 +7,11 @@ class CustomersController < ApplicationController
   def index
    @q = Customer.accessible_by(current_ability).search(params[:q])
     @customers = @q.result(distinct: true).page params[:page]    
+    respond_to do |format|
+    format.html
+    format.csv { send_data @customers.to_csv }
+    format.xls { send_data @customers.to_csv(col_sep: "\t") }
+    end
   end
 
   def show

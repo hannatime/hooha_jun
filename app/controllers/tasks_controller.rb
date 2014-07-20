@@ -7,6 +7,11 @@ class TasksController < ApplicationController
   def index  
     @q = Task.accessible_by(current_ability).search(params[:q])
     @tasks = @q.result(distinct: true).page params[:page]
+    respond_to do |format|
+    format.html
+    format.csv { send_data @tasks.to_csv }
+    format.xls { send_data @tasks.to_csv(col_sep: "\t") }
+  end
   end
 
   # GET /tasks/1

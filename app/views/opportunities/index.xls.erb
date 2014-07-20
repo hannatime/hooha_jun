@@ -9,13 +9,13 @@
       <Row>
         <Cell><Data ss:Type="String">Name</Data></Cell>
         <Cell><Data ss:Type="String">Ammount</Data></Cell>
-        <Cell><Data ss:Type="String">Due Date</Data></Cell>
+        <Cell><Data ss:Type="String">Closing Date</Data></Cell>
       </Row>
     <% @opportunities.each do |opportunity| %>
       <Row>
         <Cell><Data ss:Type="String"><%= opportunity.opportunity_name %></Data></Cell>
         <Cell><Data ss:Type="String"><%= opportunity.opportunity_amount %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= opportunity.opportunity_due_date %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= opportunity.opportunity_closing_date %></Data></Cell>
       </Row>
     <% end %>
     </Table>

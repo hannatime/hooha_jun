@@ -96,5 +96,9 @@
 <%= paginate @tasks , :window => 2 %>
 </div>
 </div>
-
+<p class="white-txt">
+  Download:
+  <%= link_to "CSV", tasks_path(format: "csv") %> |
+  <%= link_to "Excel", tasks_path(format: "xls") %>
+</p>
 <%= render 'layouts/dashboard_bottom'%>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Account</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Phone</Data></Cell>
+        <Cell><Data ss:Type="String">Address</Data></Cell>
+      </Row>
+    <% @customer.each do |customer| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= customer.customer_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= customer.account.account_name %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= customer.customer_email %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= customer.customer_phone %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= customer.customer_address%></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

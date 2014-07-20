@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Address</Data></Cell>
+        <Cell><Data ss:Type="String">City</Data></Cell>
+        <Cell><Data ss:Type="String">State</Data></Cell>
+        <Cell><Data ss:Type="String">Country</Data></Cell>
+        <Cell><Data ss:Type="String">Phone</Data></Cell>
+      </Row>
+    <% @tasks.each do |account| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= account.account_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.account_address %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.account_city %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.account_state %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.account_country %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= account.account_phone %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

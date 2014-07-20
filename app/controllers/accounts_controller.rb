@@ -9,6 +9,11 @@ class AccountsController < ApplicationController
   def index
     @q = Account.accessible_by(current_ability).search(params[:q])
     @accounts = @q.result(distinct: true).page params[:page]
+    respond_to do |format|
+    format.html
+    format.csv { send_data @accounts.to_csv }
+    format.xls { send_data @accounts.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /accounts/1
