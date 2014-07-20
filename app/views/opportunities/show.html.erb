@@ -47,6 +47,20 @@
                                 </div>
                                 <%end%>
 
+                            <h3>Contacts</h3>
+                                
+
+                            <table class="black-text table-responsive table-bordered table table-condensed white-bg">
+                            <tr>
+                              <th>Name</th>
+                            </tr>
+                            <% @opportunity.customers.each do |customer| %>
+                            <tr>
+                              <td><%= link_to customer.customer_first_name.upcase, customer %></td>
+                            </tr>
+                            <% end %>
+                            </table>
+                            
                       
         </div>
       </div>

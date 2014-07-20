@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140720084949) do
+ActiveRecord::Schema.define(version: 20140720101219) do
 
   create_table "accounts", force: true do |t|
     t.datetime "created_at"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20140720084949) do
     t.string   "customer_postcode"
     t.integer  "user_id"
     t.integer  "account_id"
-    t.integer  "opportunity_id"
   end
 
   create_table "customers_opportunities", id: false, force: true do |t|
@@ -83,12 +82,10 @@ ActiveRecord::Schema.define(version: 20140720084949) do
     t.decimal  "opportunity_amount"
     t.string   "opportunity_stage"
     t.string   "opportunity_probability"
-    t.string   "opportunity_contact_name"
     t.string   "opportunity_comments"
     t.date     "opportunity_closing_date"
     t.integer  "user_id"
     t.integer  "account_id"
-    t.integer  "customer_id"
   end
 
   create_table "roles", force: true do |t|

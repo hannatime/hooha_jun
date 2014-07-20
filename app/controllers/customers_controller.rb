@@ -80,7 +80,6 @@ class CustomersController < ApplicationController
     def customer_params
       params.require(:customer).permit(
         :account_id, 
-        :opportunity_id,
         :customer_first_name,
         :customer_last_name,
         :customer_email,
@@ -89,7 +88,8 @@ class CustomersController < ApplicationController
         :customer_city,
         :customer_state,
         :customer_country,
-        :customer_postcode
+        :customer_postcode,
+        {:opportunity_ids => []}
         )
     end
 end
