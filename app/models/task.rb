@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
 
     belongs_to :user
     belongs_to :opportunity
-    validates_presence_of :user,:task_type, :task_name, :task_due_date
+    validates_presence_of :user, :task_type, :task_name, :task_due_date, :opportunity_id
     
         def self.to_csv(options = {})
       CSV.generate(options) do |csv|
