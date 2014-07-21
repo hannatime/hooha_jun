@@ -37,7 +37,7 @@
                             <% @opportunity.tasks.each do |task| %>
                             <tr>
                               <td><%= link_to task.task_name.upcase, task %></td>
-                              <td><%= link_to task.task_due_date, task %></td>
+                              <td><%= task.task_due_date %></td>
                             </tr>
                             <% end %>
                             </table>
