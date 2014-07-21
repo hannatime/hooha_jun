@@ -17,7 +17,7 @@ module CustomersHelper
       end
       info.html_safe
   end
-
+ 
 end
 
 
