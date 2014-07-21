@@ -1,1 +1,33 @@
-how_to.html.erb
+<% title("How To") %>
+<div class="row">
+  <div class ="col-sm-6">
+  <h1>How to use Hooha</h1>
+  <p>Hooha is a really simple CRM, but if you haven't used one before, it can still take a bit to get used to. Following is a simple explanation of how Hooha works, and what you can do to get the most out of using it.</p>
+
+    <h3>Main Features</h3>
+  <p>Hooha has four main pieces of information it helps you manage.</p><br>
+
+          <h4>Accounts</h4>
+          <p>The business or entity you are selling to.</p>
+
+          <h4>Contacts</h4>
+          <p>The individual you are selling to and their details.</p>
+
+          <h4>Opportunities</h4>
+          <p>What are you selling, how much for and when it will close.</p>
+
+          <h4>Tasks</h4>
+          <p>The actions you need to take to make the sale.</p>
+
+  </div>
+
+
+<div class ="col-sm-6">
+
+</div>
+</div>
+<% if !user_signed_in? %>
+<div class="container text-center">
+  <p><%= link_to 'Free Trial', new_user_registration_path(:plan => 'free'), :class => 'btn titlebuttons btn-warning btn-lg' %></p>        
+</div>
+<%end%>

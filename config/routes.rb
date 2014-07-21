@@ -17,6 +17,7 @@ HoohaJun::Application.routes.draw do
   get "dashboard", to: "pages#dashboard", as: "dashboard"
   get "about", to: "pages#about", as: "about"
   get "feature", to: "pages#feature", as: "feature"
+   get "how_to", to: "pages#how_to", as: "how_to"
   get "plans", to: "pages#plans", as: "plans"
   
   get "contacts", to: "contacts#new", as: 'feedback'

@@ -3,7 +3,7 @@ class Opportunity < ActiveRecord::Base
     belongs_to :account
     has_and_belongs_to_many :customers
     has_many :tasks, dependent: :destroy  
-    validates_presence_of :user, :opportunity_name
+    validates_presence_of :user, :opportunity_name, :account_id
     paginates_per 10
     
     def self.to_csv(options = {})
