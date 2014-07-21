@@ -84,7 +84,7 @@
     </tr>
       <td><%=link_to task.task_name.to_s.upcase, task %></td>
      <td><%= link_to task.opportunity.opportunity_name.to_s.capitalize, task.opportunity%></td>
-    <td><%=link_to task.task_type.to_s.upcase, task %></td>
+    <td><%=task.task_type.to_s.upcase %></td>
     <td><%= task.task_due_date.to_s.upcase%></td>
      <td><%=task.task_comments.to_s.capitalize%></td>
      <td><%= link_to 'Edit', edit_task_path(task) %></td>
