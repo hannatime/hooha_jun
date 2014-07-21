@@ -59,7 +59,7 @@
                             <% @opportunity.customers.each do |customer| %>
                             <tr>
                               <td><%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %></td>
-                              <td><%= link_to customer.customer_phone, customer %></td>
+                              <td><%= customer.customer_phone %></td>
                               <td><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a></td>
                             </tr>
                             <% end %>
