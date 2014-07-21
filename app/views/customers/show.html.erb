@@ -15,21 +15,22 @@
           <% end %>
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= @customer.customer_first_name.to_s.upcase%> <%= @customer.customer_last_name.to_s.upcase%></h3>
+    <h3 class="panel-title">Contact Details</h3>
   </div>
   <div class="panel-body">
     <div class="list-group">
 <div class="panel-heading black-text bg-info">
 <div class ="">
+  <strong><%= @customer.customer_first_name.to_s.upcase%> <%= @customer.customer_last_name.to_s.upcase%></strong>
           <address>
-            <a href="mailto:<%= @customer.customer_email.to_s.downcase %>"><%= @customer.customer_email.to_s.downcase %></a><br>
             <abbr title="Address">A:</abbr><%= @customer.customer_address.to_s.capitalize %> <br>
             <%= @customer.customer_city.to_s.capitalize %><br>
             <%= @customer.customer_state.to_s.capitalize %>
             <%= @customer.customer_country.to_s.capitalize %>, <%= @customer.customer_postcode.to_s.capitalize %><br>
-            Phone:<%= @customer.customer_phone.to_s.capitalize %>
+            <abbr title="Phone">P:</abbr><%= @customer.customer_phone.to_s.capitalize %><br>
+            <abbr title="Email">E:</abbr><a href="mailto:<%= @customer.customer_email.to_s.downcase %>"><%= @customer.customer_email.to_s.downcase %></a><br>
           </address>
-          <p>Account: <%= link_to @customer.account.account_name.to_s.titlecase, @customer.account %></p>
+          <p>Account: <%= link_to @customer.account.account_name.to_s.upcase, @customer.account %></p>
           <strong><%= link_to 'Edit', edit_customer_path(@customer) %> | <%= link_to 'Delete', @customer, method: :delete, data: { confirm: 'Are you sure?' } %> </strong>
         </div>
       </div>

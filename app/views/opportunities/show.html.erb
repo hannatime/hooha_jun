@@ -14,17 +14,18 @@
           <% end %>
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= @opportunity.opportunity_name.to_s.upcase%></h3>
+    <h3 class="panel-title">Opportunity Details</h3>
   </div>
   <div class="panel-body">
     <div class="list-group">
       <div class="panel-heading black-text bg-info">
-                    <p>Account: <%= link_to @opportunity.account.account_name.to_s.titlecase, @opportunity.account %></p>
-                    <p><span>Close Date: <%= @opportunity.opportunity_closing_date.to_s.capitalize %></span> </p>
+        <strong>Name: <%= @opportunity.opportunity_name.to_s.upcase%></strong>
+                    <p>Account: <%= link_to @opportunity.account.account_name.to_s.upcase, @opportunity.account %></p>
+                    <p><span>Close Date: <%= @opportunity.opportunity_closing_date.to_s.titlecase %></span> </p>
                     <p><span>Stage: <%==@opportunity.opportunity_stage.to_s.capitalize%></span> </p>
                     <p><span>Probability: <%= @opportunity.opportunity_probability.to_s.capitalize%></span></p>
-                    <p><span>Amount: <%= @opportunity.opportunity_amount.to_s.capitalize%></span></p>
-                    <p><span>Comments: <%= @opportunity.opportunity_comments.to_s.capitalize%></span></p>
+                    <p><span>Amount: $<%= @opportunity.opportunity_amount.to_s.capitalize%></span></p>
+                    <p><span>Comments: <%= @opportunity.opportunity_comments.to_s.humanize%></span></p>
                        <strong><%= link_to 'Edit', edit_opportunity_path(@opportunity) %>|<%= link_to 'Delete', @opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
                           <h3>Tasks</h3>
                                 
@@ -37,7 +38,7 @@
                             <% @opportunity.tasks.each do |task| %>
                             <tr>
                               <td><%= link_to task.task_name.upcase, task %></td>
-                              <td><%= task.task_due_date %></td>
+                              <td><%= task.task_due_date.to_s.titlecase %></td>
                             </tr>
                             <% end %>
                             </table>
@@ -58,9 +59,10 @@
                             </tr>
                             <% @opportunity.customers.each do |customer| %>
                             <tr>
-                              <td><%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %></td>
+                              <td><%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %></td>
                               <td><%= customer.customer_phone %></td>
-                              <td><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a></td>
+                              <td class = "hidden-sm hidden-md hidden-lg"><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= 'Email' %></a></td>
+                              <td class = "hidden-xs"><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a></td>
                             </tr>
                             <% end %>
                             </table>

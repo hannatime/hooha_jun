@@ -23,24 +23,24 @@
 
               <% @opportunities.each do |opportunity| %>
             <div class=" black-text">
-             <table class="black-text table-responsive table-condensed table table-condensed white-bg">
+             <table class="black-text table-responsive table-condensed table table-bordered white-bg">
               <tr>
                 <th><strong>Name:</strong></th>
                 <th><strong><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></strong></th>
               </tr>
               <tr>
                 <td>Account:</td>
-                <td><%= link_to opportunity.account.account_name.to_s.titlecase, opportunity.account %></td>
+                <td><%= link_to opportunity.account.account_name.to_s.upcase, opportunity.account %></td>
               </tr>
               <tr>
                 <td>Contacts:</td>
             <td><% opportunity.customers.each do |customer| %>
-            <%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %>
+            <%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %>
             <% end %></td>
               </tr>
               <tr>
                 <td>Close Date:</td>
-                <td><%= opportunity.opportunity_closing_date.to_s.capitalize %></td>
+                <td><%= opportunity.opportunity_closing_date.to_s.titlecase %></td>
               </tr>
               <tr>
                 <td>Stage:</td>
@@ -56,7 +56,7 @@
               </tr>
               <tr>
                 <td>Comments:</td>
-                <td><%= opportunity.opportunity_comments.to_s.capitalize%></td>
+                <td><%= opportunity.opportunity_comments.to_s.humanize%></td>
               </tr>
             <tr>
               <td> <strong><%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></strong></td>
@@ -96,11 +96,11 @@
    <% @opportunities.each do |opportunity| %>
     </tr>
       <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
-     <td><%= link_to opportunity.account.account_name.to_s.titlecase, opportunity.account %></td>
+     <td><%= link_to opportunity.account.account_name.to_s.upcase, opportunity.account %></td>
      <td><% opportunity.customers.each do |customer| %>
-            <%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %>
+            <%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %>
             <% end %></td>
-     <td><%= opportunity.opportunity_closing_date.to_s.capitalize %></td>
+     <td><%= opportunity.opportunity_closing_date.to_s.titlecase %></td>
      <td><%==opportunity.opportunity_stage.to_s.capitalize%></td>
      <td>$<%= opportunity.opportunity_amount.to_s%></td>
      <td><%= opportunity.opportunity_probability.to_s.capitalize%></td>

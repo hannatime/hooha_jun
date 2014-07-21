@@ -15,17 +15,18 @@
           <% end %>
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= @account.account_name.to_s.upcase%></h3>
+    <h3 class="panel-title">Account Details</h3>
   </div>
   <div class="panel-body">
     <div class="list-group">      
 <div class="panel-heading black-text bg-info">
+  <strong><%= @account.account_name.to_s.upcase%></strong>
           <address>
-            Address:<%= @account.account_address.to_s.titlecase %> <br>
+            <abbr title="Address">A:</abbr><%= @account.account_address.to_s.titlecase %> <br>
             <%= @account.account_city.to_s.titlecase %><br>
             <%= @account.account_state.to_s.titlecase %>
             <%= @account.account_country.to_s.titlecase %> <%= @account.account_postcode.to_s.titlecase %><br>
-            Phone:<%= @account.account_phone.to_s.capitalize %><br>
+            <abbr title="Phone">P:</abbr><%= @account.account_phone.to_s.capitalize %><br>
           </address>
           <p><strong><%= link_to 'Edit', edit_account_path(@account) %> | <%= link_to 'Delete', @account, method: :delete, data: { confirm: 'Are you sure?' } %></strong></p>
 <div class="col-md-6"> 
@@ -34,18 +35,23 @@
           <table class="black-text table-responsive table-bordered table table-condensed white-bg">
                             <tr>
                               <th>Name</th>
+                              <th>Closing Date</th>
                               <th>Amount</th>
+                              
                             </tr>
                             <% @account.opportunities.each do |opportunity| %>
                             <tr>
-                              <td><%= link_to opportunity.opportunity_name, opportunity %></td>
+                              <td><%= link_to opportunity.opportunity_name.upcase, opportunity %></td>
+                              <td><%= opportunity.opportunity_closing_date.to_s %></td>
                               <td>$<%= link_to opportunity.opportunity_amount.to_s, opportunity %></td>
                             </tr>
                             <% end %>
                             <tr>
                               <th>Total</th>
+                              <td></td>
                               <td>$<%= @account.opportunities.sum(:opportunity_amount).to_s %></td>
                           </tr>
+                          
                             </table>
                             <% if @account.opportunities.empty?%>
                  <div class="text-center black-text">
@@ -64,9 +70,10 @@
                             </tr>
                             <% @account.customers.each do |customer| %>
                             <tr>
-                              <td><%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %></td>
+                              <td><%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %></td>
                               <td class="tel"><%= customer.customer_phone %></td>
-                              <td><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a></td>
+                              <td class = "hidden-sm hidden-md hidden-lg"><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= 'Email' %></a></td>
+                              <td class = "hidden-xs"><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a></td>
                             </tr>
                             <% end %>
                             </table>

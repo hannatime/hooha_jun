@@ -23,14 +23,14 @@
       <% @customers.each do |customer| %>
       <div class ="">
         <div class="panel-heading black-text bg-info">
-           <table class="black-text table-responsive table-condensed table table-condensed white-bg">
+           <table class="black-text table-responsive table-bordered table-condensed table table-condensed white-bg">
               <tr>
                 <th>Name:</th>
                 <th><%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %></th>
               </tr>
               <tr>
                 <td>Account:</td>
-                <td><%= link_to customer.account.account_name.to_s.titlecase, customer.account %></td>
+                <td><%= link_to customer.account.account_name.to_s.upcase, customer.account %></td>
               </tr>
               <tr>
                 <td>Email:</td>
@@ -83,8 +83,8 @@
    <% @customers.each do |customer| %>
     </tr>
       <td><%=link_to customer.customer_first_name.upcase, customer%></td>
-     <td><%= link_to customer.customer_last_name.to_s.titlecase, customer %></td>
-    <td><%= link_to customer.account.account_name.to_s.titlecase, customer.account %></td>
+     <td><%= link_to customer.customer_last_name.to_s.upcase, customer %></td>
+    <td><%= link_to customer.account.account_name.to_s.upcase, customer.account %></td>
      <td><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></td>
      <td><%==customer.customer_phone.to_s.capitalize%></td>
      <td><%= link_to 'Edit', edit_customer_path(customer) %></td>

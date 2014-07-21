@@ -42,13 +42,13 @@
               <tr>
                 <td>Contacts:</td>
               <td><% account.customers.each do |customer| %>
-            <%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %>
+            <%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %>
             <% end %></td>
             </tr>
             <tr>
                 <td>Opportunities:</td>
               <td><% account.opportunities.each do |opportunity| %>
-            <%= link_to opportunity.opportunity_name, opportunity %>
+            <%= link_to opportunity.opportunity_name.upcase, opportunity %>
             <% end %></td>
             </tr>
               <tr>
@@ -91,10 +91,10 @@
       <td><%= account.id %></td>
      <td><%= account.account_phone.to_s.capitalize %></td>
      <td><% account.customers.each do |customer| %>
-            <%= link_to customer.customer_first_name + " " + customer.customer_last_name, customer %>
+            <%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %>
             <% end %></td>
      <td><% account.opportunities.each do |opportunity| %>
-            <%= link_to opportunity.opportunity_name, opportunity %>
+            <%= link_to opportunity.opportunity_name.upcase, opportunity %>
             <% end %></td>
      <td><%= link_to 'Edit', edit_account_path(account) %></td>
      <td><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
