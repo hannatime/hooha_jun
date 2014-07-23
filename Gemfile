@@ -17,7 +17,7 @@ gem "stripe_event"
 gem 'newrelic_rpm'
 gem "ransack"
 gem "chartkick"
-
+gem 'groupdate'
 
 # Rolify
 gem "rolify"
@@ -34,8 +34,8 @@ end
 
 # development gems
 group :development, :test do
-  gem 'sqlite3', '~> 1.3.8'    # dev & test database
-  gem 'figaro', '~> 0.7.0'     # env variables
+ gem 'pg'
+ gem 'figaro', '~> 0.7.0'     # env variables
   gem 'quiet_assets', group: :development
 end
 
