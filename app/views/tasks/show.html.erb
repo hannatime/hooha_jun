@@ -23,6 +23,7 @@
                     <p><span>Due Date: <%= @task.task_due_date.to_s.titlecase %></span> </p>
                     <p><span>Opportunity: <%= link_to @task.opportunity.opportunity_name.to_s.upcase, @task.opportunity%></span></p>
                     <p><span>Type: <%==@task.task_type.to_s.capitalize%></span> </p>
+                    <p>Status: <%= @task.task_status.to_s.titlecase %></p>
                     <p><span>Comments: <%=@task.task_comments.to_s.humanize%></span></p>
                        <strong><%= link_to 'Edit', edit_task_path(@task) %>|<%= link_to 'Delete', @task, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
               </div>

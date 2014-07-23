@@ -10,7 +10,7 @@
 
 <div class="panel panel-info hidden-md hidden-lg">
   <div class="panel-heading">
-    <h3 class="panel-title">Tasks - Sort by <%= content_tag :th, sort_link(@q, :task_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_id, 'Opportunity', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :task_type, 'Type', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :task_due_date, 'Due Date', default_order: :desc) %></h3>
+    <h3 class="panel-title">Tasks - Sort by <%= content_tag :th, sort_link(@q, :task_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_id, 'Opportunity', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :task_type, 'Type', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :task_status, 'Status', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :task_due_date, 'Due Date', default_order: :desc) %></h3>
   </div>
   <div class="panel-body">
     <small class="black-text"><%= page_entries_info @tasks%></small>
@@ -36,6 +36,10 @@
                <tr>
                 <td>Type:</td>
                 <td><%= task.task_type.to_s.titlecase %></td>
+              </tr>
+              <tr>
+                <td>Status:</td>
+                <td><%= task.task_status.to_s.titlecase %></td>
               </tr>
               <tr>
                 <td>Due Date:</td>
@@ -75,6 +79,7 @@
       <th><%= sort_link(@q, :task_name, 'Name', default_order: :desc) %></th>
       <th><%= sort_link(@q, :opportunity_id, 'Opportunity', default_order: :desc) %></th>
       <th><%= sort_link(@q, :task_type, 'Type', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :task_status, 'Type', default_order: :desc) %></th>
       <th><%= sort_link(@q, :task_due_date, 'Due Date', default_order: :desc) %></th>
       <th>Comments</th>
       <th>Edit</th>
@@ -85,6 +90,7 @@
       <td><%=link_to task.task_name.to_s.upcase, task %></td>
      <td><%= link_to task.opportunity.opportunity_name.to_s.upcase, task.opportunity%></td>
     <td><%=task.task_type.to_s.titlecase %></td>
+    <td><%=task.task_status.to_s.titlecase %></td>
     <td><%= task.task_due_date.to_s.titlecase%></td>
      <td><%=task.task_comments.to_s.humanize%></td>
      <td><%= link_to 'Edit', edit_task_path(task) %></td>

@@ -24,14 +24,17 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
-    @tasks = [['Call', 'Call'], ['Meeting', 'Meeting'], ['Email', 'Email'] , ['Follow-Up', 'Follow-Up']]
+    @tasks = [['Call', 'Call'], ['Meeting', 'Meeting'], ['Email', 'Email'] , ['Follow-Up', 'Follow-Up'],['Other', 'Other']]
+    @statuss = [['Not-Started', 'not_started'],['In-Progress', 'in_progress'],['Completed', 'completed']]
   end
 
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
     authorize! :edit, @task
-    @tasks = [['Call', 'Call'], ['Meeting', 'Meeting'], ['Email', 'Email'] , ['Follow-Up', 'Follow-Up'],['Closed', 'Closed']]
+    @tasks = [['Call', 'Call'], ['Meeting', 'Meeting'], ['Email', 'Email'] , ['Follow-Up', 'Follow-Up'],['Closed', 'Closed'],['Other', 'Other']]
+     @statuss = [['Not-Started', 'not_started'],['In-Progress', 'in_progress'],['Completed', 'completed']]
+
   end
 
   # POST /tasks
@@ -91,6 +94,7 @@ class TasksController < ApplicationController
         :task_name, 
         :task_due_date, 
         :task_type, 
+        :task_status, 
         :task_comments,
         :opportunity_id
         )
