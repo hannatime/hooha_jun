@@ -483,7 +483,7 @@ color:white;
 
 
 .jumbotron{
- background-color: rgba(0, 0, 0, 0.8); // black with opacity 0.1
+ background-color: rgba(0, 0, 0, 0.6); // black with opacity 0.1
 }
 
 
@@ -1433,4 +1433,9 @@ a {
 
 #pagination{
   padding-left:18px;
+}
+
+.center{
+  margin-left:0px;
+  margin-right:0px;
 }
