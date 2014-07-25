@@ -22,4 +22,4 @@ def secure_token
   end
 end
 
-HoohaJun::Application.config.secret_key_base = secure_token
+HoohaJun::Application.config.secret_key_base = ENV['SECRET_TOKEN']
