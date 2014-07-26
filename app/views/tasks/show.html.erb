@@ -19,13 +19,40 @@
   <div class="panel-body">
     <div class="list-group">
 <div class="panel-heading black-text bg-info">
-  <strong><%= @task.task_name.to_s.upcase%></strong>
-                    <p><span>Due Date: <%= @task.task_due_date.to_s.titlecase %></span> </p>
-                    <p><span>Opportunity: <%= link_to @task.opportunity.opportunity_name.to_s.upcase, @task.opportunity%></span></p>
-                    <p><span>Type: <%==@task.task_type.to_s.capitalize%></span> </p>
-                    <p>Status: <%= @task.task_status.to_s.titlecase %></p>
-                    <p><span>Comments: <%=@task.task_comments.to_s.humanize%></span></p>
-                       <strong><%= link_to 'Edit', edit_task_path(@task) %>|<%= link_to 'Delete', @task, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
+         <table class="black-text table-responsive table-condensed table table-bordered white-bg">
+              <tr>
+                <th>Name:</th>
+                <th><%= @task.task_name.upcase %></th>
+              </tr>
+              <tr>
+                <td>Opportunity:</td>
+                <td><%= link_to @task.opportunity.opportunity_name.to_s.upcase, @task.opportunity%></td>
+              </tr>
+               <tr>
+                <td>Type:</td>
+                <td><%= @task.task_type.to_s.titlecase %></td>
+              </tr>
+              <tr>
+                <td>Status:</td>
+                <td><%= @task.task_status.to_s.titlecase %></td>
+              </tr>
+              <tr>
+                <td>Due Date:</td>
+                <td><%= @task.task_due_date.to_s.titlecase%></td>
+              </tr>
+              <tr>
+                <td>Comments:</td>
+                <td><%=@task.task_comments.to_s.humanize%></td>
+              </tr>
+              <tr>
+                <td>
+            <strong><%= link_to 'Edit', edit_task_path(@task) %>|<%= link_to 'Delete', @task, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
+            </td>
+            <td>
+            </td>
+              </tr>
+            </table>
+                    
               </div>
         </div>
       </div>

@@ -8,6 +8,7 @@
     <Table>
       <Row>
         <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Status</Data></Cell>
         <Cell><Data ss:Type="String">Type</Data></Cell>
         <Cell><Data ss:Type="String">Due Date</Data></Cell>
         <Cell><Data ss:Type="String">Comments</Data></Cell>
@@ -15,6 +16,7 @@
     <% @tasks.each do |task| %>
       <Row>
         <Cell><Data ss:Type="String"><%= task.task_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= task.task_status %></Data></Cell>
         <Cell><Data ss:Type="String"><%= task.task_type %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= task.task_due_date %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= task.task_comments %></Data></Cell>
