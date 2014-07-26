@@ -21,17 +21,38 @@
     <div class="list-group">
 <div class="panel-heading black-text bg-info">
 <div class ="">
-  <strong><%= @customer.customer_first_name.to_s.upcase%> <%= @customer.customer_last_name.to_s.upcase%></strong>
-          <address>
-            <abbr title="Address">A:</abbr><%= @customer.customer_address.to_s.capitalize %> <br>
-            <%= @customer.customer_city.to_s.capitalize %><br>
-            <%= @customer.customer_state.to_s.capitalize %>
-            <%= @customer.customer_country.to_s.capitalize %>, <%= @customer.customer_postcode.to_s.capitalize %><br>
-            <abbr title="Phone">P:</abbr><%= @customer.customer_phone.to_s.capitalize %><br>
-            <abbr title="Email">E:</abbr><a href="mailto:<%= @customer.customer_email.to_s.downcase %>"><%= @customer.customer_email.to_s.downcase %></a><br>
-          </address>
-          <p>Account: <%= link_to @customer.account.account_name.to_s.upcase, @customer.account %></p>
-          <strong><%= link_to 'Edit', edit_customer_path(@customer) %> | <%= link_to 'Delete', @customer, method: :delete, data: { confirm: 'Are you sure?' } %> </strong>
+  <table class="black-text table-responsive table-bordered table-condensed table table-condensed white-bg">
+              <tr>
+                <th>Name:</th>
+                <th><%= link_to @customer.customer_first_name.upcase + " " + @customer.customer_last_name.upcase, @customer %></th>
+              </tr>
+              <tr>
+                <td>Account:</td>
+                <td><%= link_to @customer.account.account_name.to_s.upcase, @customer.account %></td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td><a href="mailto:<%= @customer.customer_email.to_s.downcase %>"><%= @customer.customer_email.to_s.downcase %></a></td>
+              </tr>
+              <tr>
+                <td>Phone:</td>
+                <td><%= @customer.customer_phone.to_s %></td>
+              </tr>
+              <tr>
+                <td>Address:</td>
+                <td><address>Address:<%= @customer.customer_address.to_s.titlecase %>
+            <%= @customer.customer_city.to_s.titlecase %>
+            <%= @customer.customer_state.to_s.titlecase %>
+            <%= @customer.customer_country.to_s.titlecase %> <%= @customer.customer_postcode.to_s %></address></td>
+              </tr>
+              <tr>
+                <td>
+            <strong><%= link_to 'Edit', edit_customer_path(@customer) %>|<%= link_to 'Delete', @customer, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
+            </td>
+            <td>
+            </td>
+              </tr>
+            </table>
         </div>
       </div>
     </div>
