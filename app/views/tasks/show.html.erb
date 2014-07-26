@@ -25,8 +25,8 @@
                 <th><%= @task.task_name.upcase %></th>
               </tr>
               <tr>
-                <td>Opportunity:</td>
-                <td><%= link_to @task.opportunity.opportunity_name.to_s.upcase, @task.opportunity%></td>
+                <td>Opportunity - Account:</td>
+                <td><%= link_to @task.opportunity.opportunity_name.to_s.upcase, @task.opportunity%> - <%= link_to @task.opportunity.account.account_name.capitalize, @task.opportunity.account%></td>
               </tr>
                <tr>
                 <td>Type:</td>

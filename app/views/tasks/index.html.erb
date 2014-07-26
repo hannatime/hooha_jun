@@ -30,8 +30,8 @@
                 <th><%= link_to task.task_name.upcase, task %></th>
               </tr>
               <tr>
-                <td>Opportunity:</td>
-                <td><%= link_to task.opportunity.opportunity_name.to_s.upcase, task.opportunity%></td>
+                <td>Opportunity-Account:</td>
+                <td><%= link_to task.opportunity.opportunity_name.to_s.upcase, task.opportunity%> - <%= link_to task.opportunity.account.account_name.capitalize, task.opportunity.account%></td>
               </tr>
                <tr>
                 <td>Type:</td>
@@ -77,7 +77,7 @@
   <table class="table black-text table-striped white-bg">
     </tr>
       <th><%= sort_link(@q, :task_name, 'Name', default_order: :desc) %></th>
-      <th><%= sort_link(@q, :opportunity_id, 'Opportunity', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :opportunity_id, 'Opportunity - Account', default_order: :desc) %></th>
       <th><%= sort_link(@q, :task_type, 'Type', default_order: :desc) %></th>
       <th><%= sort_link(@q, :task_status, 'Type', default_order: :desc) %></th>
       <th><%= sort_link(@q, :task_due_date, 'Due Date', default_order: :desc) %></th>
@@ -88,7 +88,7 @@
    <% @tasks.each do |task| %>
     </tr>
       <td><%=link_to task.task_name.to_s.upcase, task %></td>
-     <td><%= link_to task.opportunity.opportunity_name.to_s.upcase, task.opportunity%></td>
+     <td><%= link_to task.opportunity.opportunity_name.to_s.upcase, task.opportunity%> - <%= link_to task.opportunity.account.account_name.capitalize, task.opportunity.account%></td>
     <td><%=task.task_type.to_s.titlecase %></td>
     <td><%=task.task_status.to_s.titlecase %></td>
     <td><%= task.task_due_date.to_s.titlecase%></td>
