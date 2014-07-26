@@ -19,12 +19,8 @@
   <div class="panel-body">
     <div class="list-group">
       <div class="panel-heading black-text bg-info">
-                          
+                  <h3>Name: <%=@opportunity.opportunity_name.to_s.upcase%></h3>        
                      <table class="black-text table-responsive table-condensed table table-bordered white-bg">
-              <tr>
-                <th><strong>Name:</strong></th>
-                <th><strong><%=link_to @opportunity.opportunity_name.to_s.upcase, @opportunity%></strong></th>
-              </tr>
               <tr>
                 <td>Account:</td>
                 <td><%= link_to @opportunity.account.account_name.to_s.upcase, @opportunity.account %></td>

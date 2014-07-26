@@ -20,15 +20,29 @@
   <div class="panel-body">
     <div class="list-group">      
 <div class="panel-heading black-text bg-info">
-  <strong><%= @account.account_name.to_s.upcase%></strong>
-          <address>
-            <abbr title="Address">A:</abbr><%= @account.account_address.to_s.titlecase %> <br>
-            <%= @account.account_city.to_s.titlecase %><br>
+<h3>Name: <%= @account.account_name.upcase %></h3>
+          <table class="black-text table-responsive table-bordered table-condensed table table-condensed white-bg">
+              <tr>
+              <td>Address:</td>
+                <td><address><%= @account.account_address.to_s.titlecase %>
+            <%= @account.account_city.to_s.titlecase %>
             <%= @account.account_state.to_s.titlecase %>
-            <%= @account.account_country.to_s.titlecase %> <%= @account.account_postcode.to_s.titlecase %><br>
-            <abbr title="Phone">P:</abbr><%= @account.account_phone.to_s.capitalize %><br>
-          </address>
-          <p><strong><%= link_to 'Edit', edit_account_path(@account) %> | <%= link_to 'Delete', @account, method: :delete, data: { confirm: 'Are you sure?' } %></strong></p>
+            <%= @account.account_country.to_s.titlecase %> <%= @account.account_postcode.to_s %></address></td>
+              </tr>
+               <tr>
+                <td>Phone:</td>
+                <td><%= @account.account_phone.to_s.capitalize %></td>
+              </tr>
+
+              <tr>
+                <td>
+            <strong><%= link_to 'Edit', edit_account_path(@account) %>|<%= link_to 'Delete', @account, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
+            </td>
+            <td>
+            </td>
+              </tr>
+            </table>
+
 <div class="col-md-6"> 
           <h3>Opportunities</h3>
 
