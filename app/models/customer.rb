@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
     belongs_to :user
-      validates :customer_email, :uniqueness => {:scope => :user_id}
+      validates :customer_email, :allow_blank => true, :uniqueness => {:scope => :user_id}
 
   validates_presence_of :user, :customer_first_name, :customer_last_name, :account_id
   belongs_to :account
