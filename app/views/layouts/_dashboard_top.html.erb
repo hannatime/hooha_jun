@@ -7,11 +7,23 @@
 <hr>
 <li><%= link_to "<span class=\"fa fa-tachometer\"> Dashboard</span>".html_safe, dashboard_path%></li>
 <hr>
+ <% if @accounts.empty? && @opportunities.empty?%>
+<li class="disabled"><%= link_to "<span class=\"fa fa-plus\">    Task</span>".html_safe%></li>
+<li class="disabled"><%= link_to "<span class=\"fa fa-plus\">    Contact</span>".html_safe%></li>
+<li class="disabled"> <%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe%></li>
+<li><%= link_to "<span class=\"fa fa-plus\">    Account</span>".html_safe, new_account_path%></li>
+
+<% elsif !@accounts.empty? && @opportunities.empty?%>
+<li class="disabled"><%= link_to "<span class=\"fa fa-plus\">    Task</span>".html_safe%></li>
+<li><%= link_to "<span class=\"fa fa-plus\">    Contact</span>".html_safe, new_customer_path%></li>
+<li><%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path%></li>
+<li><%= link_to "<span class=\"fa fa-plus\">    Account</span>".html_safe, new_account_path%></li>
+<% elsif !@accounts.empty? && !@opportunities.empty?%>
 <li><%= link_to "<span class=\"fa fa-plus\">    Task</span>".html_safe, new_task_path%></li>
 <li><%= link_to "<span class=\"fa fa-plus\">    Contact</span>".html_safe, new_customer_path%></li>
 <li><%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path%></li>
 <li><%= link_to "<span class=\"fa fa-plus\">    Account</span>".html_safe, new_account_path%></li>
-
+<%end%>
 <hr>
 <li><%= link_to "<span class=\"fa fa-check-square-o\"> Tasks</span>".html_safe, tasks_path%></li>
 <li><%= link_to "<span class=\"fa fa-group\">    Contacts</span>".html_safe, customers_path%></li>
@@ -22,7 +34,6 @@
                 <br> 
                 <br>          
         </div>
-
         <!-- Page content -->
         <div id="page-content-wrapper">
             <div class="content-header">

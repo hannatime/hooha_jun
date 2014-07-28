@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     
 
   def dashboard
+        @accounts = Account.accessible_by(current_ability)
 
     @q = Task.accessible_by(current_ability).search(params[:q])
     @tasks1 = @q.result(distinct: true).page params[:page]

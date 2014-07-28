@@ -6,6 +6,7 @@ class OpportunitiesController < ApplicationController
   def index
     @q = Opportunity.accessible_by(current_ability).search(params[:q])
     @opportunities = @q.result(distinct: true).page params[:page] 
+    @accounts = Account.accessible_by(current_ability)
     respond_to do |format|
     format.html
     format.csv { send_data @opportunities.to_csv }
@@ -15,17 +16,20 @@ class OpportunitiesController < ApplicationController
 
   def show
      @opportunities = Opportunity.accessible_by(current_ability)
+     @accounts = Account.accessible_by(current_ability)
 
     authorize! :show, @opportunity
   end
 
   def new
     @opportunity = Opportunity.new
+    @accounts = Account.accessible_by(current_ability)
     @opportunities = Opportunity.accessible_by(current_ability)
   end
 
   def edit
     @opportunity = Opportunity.accessible_by(current_ability).find(params[:id])
+    @accounts = Account.accessible_by(current_ability)
     authorize! :edit, @opportunity
 
   end

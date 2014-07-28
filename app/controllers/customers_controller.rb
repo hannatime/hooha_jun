@@ -7,6 +7,8 @@ class CustomersController < ApplicationController
   def index
    @q = Customer.accessible_by(current_ability).search(params[:q])
     @customers = @q.result(distinct: true).page params[:page]    
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     respond_to do |format|
     format.html
     format.csv { send_data @customers.to_csv }
@@ -15,19 +17,24 @@ class CustomersController < ApplicationController
   end
 
   def show
-    
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     @customers = Customer.accessible_by(current_ability).find(params[:id])
     @customer.user = current_user
     authorize! :show, @customer
   end
 
   def new
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     @customer = Customer.new
     @customer.user = current_user
     authorize! :new, @customer
   end
 
   def edit
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     @customer = Customer.accessible_by(current_ability).find(params[:id])
     @customer.user = current_user
     authorize! :edit, @customer

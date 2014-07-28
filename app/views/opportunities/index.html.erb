@@ -13,12 +13,13 @@
               <div class="panel-body">
                 <small class="black-text task-info"><%= page_entries_info @opportunities %></small>
                 <div class="list-group">
-                  <% if @opportunities.empty?%>
+           
+                <!--   <% if @opportunities.empty?%>
                   <br>
                  <div class="black-text">
                   <%= link_to "Add your first opportunity here or click +Opportunity".html_safe, new_opportunity_path%>
                 </div>
-                  <%end%>
+                  <%end%> -->
                                   <small class="black-text task-info"><%= paginate @opportunities , :window => 2%></small>
 
               <% @opportunities.each do |opportunity| %>

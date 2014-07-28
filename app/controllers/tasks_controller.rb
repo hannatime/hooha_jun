@@ -7,7 +7,8 @@ class TasksController < ApplicationController
   def index  
     @q = Task.accessible_by(current_ability).search(params[:q])
     @tasks = @q.result(distinct: true).page params[:page]
-
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     respond_to do |format|
     format.html
     format.csv { send_data @tasks.to_csv }
@@ -18,11 +19,15 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     authorize! :show, @task
   end
 
   # GET /tasks/new
   def new
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     @task = Task.new
     @tasks = [['Call', 'Call'], ['Meeting', 'Meeting'], ['Email', 'Email'] , ['Follow-Up', 'Follow-Up'],['Other', 'Other']]
     @statuss = [['Not-Started', 'not_started'],['In-Progress', 'in_progress'],['Completed', 'completed']]
@@ -30,6 +35,8 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     @task = Task.find(params[:id])
     authorize! :edit, @task
     @tasks = [['Call', 'Call'], ['Meeting', 'Meeting'], ['Email', 'Email'] , ['Follow-Up', 'Follow-Up'],['Closed', 'Closed'],['Other', 'Other']]

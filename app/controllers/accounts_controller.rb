@@ -9,6 +9,7 @@ class AccountsController < ApplicationController
   def index
     @q = Account.accessible_by(current_ability).search(params[:q])
     @accounts = @q.result(distinct: true).page params[:page]
+    @opportunities = Opportunity.accessible_by(current_ability)
     respond_to do |format|
     format.html
     format.csv { send_data @accounts.to_csv }
@@ -20,18 +21,21 @@ class AccountsController < ApplicationController
   # GET /accounts/1.json
   def show
     @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     authorize! :show, @account
   end
 
   # GET /accounts/new
   def new
     @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     @account = Account.new 
   end
 
   # GET /accounts/1/edit
   def edit
     @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     @account = Account.find(params[:id])
     authorize! :edit, @account
   end
