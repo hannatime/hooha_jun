@@ -12,6 +12,7 @@
     <h3 class="panel-title">Contacts - Sort by Name, <%= content_tag :th, sort_link(@q, :customer_first_name, 'First', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :customer_last_name, 'Last', default_order: :desc) %></h3>
   </div>
   <div class="panel-body">
+    <%= link_to "<span class=\"fa fa-plus\">    Contact</span>".html_safe, new_customer_path, :class => 'btn btn-success btn-md'%>
     <small class="black-text"><%= custom_page_entries_info(@customers)%></small>
     <div class="list-group">
       <!--  <% if @customers.empty?%>
@@ -49,7 +50,7 @@
               </tr>
               <tr>
                 <td>
-            <strong><%= link_to 'Edit', edit_customer_path(customer) %>|<%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
+            <strong><%= link_to 'Edit', edit_customer_path(customer), :class => 'btn btn-info btn-sm' %><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger delete_btn btn-sm' %></strong>
             </td>
             <td>
             </td>
@@ -67,7 +68,8 @@
 <div class="panel panel-info hidden-xs hidden-sm">
   <div class="panel-heading"><h3 class="panel-title">Contacts</h3></div>
   <div class="panel-body">
-    <p><small class="black-text task-info"><%= custom_page_entries_info(@customers)%></small></p>
+    <%= link_to "<span class=\"fa fa-plus\">    Contact</span>".html_safe, new_customer_path, :class => 'btn btn-success btn-md'%>
+    <small class="black-text task-info"><%= custom_page_entries_info(@customers)%></small>
     <%= paginate @customers , :window => 2%>
   </div>
   <table class="table black-text table-striped white-bg">
@@ -87,8 +89,8 @@
     <td><%= link_to customer.account.account_name.to_s.upcase, customer.account %></td>
      <td><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></td>
      <td><%==customer.customer_phone.to_s.capitalize%></td>
-     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-     <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     <td><%= link_to 'Edit', edit_customer_path(customer), :class => 'btn btn-info btn-sm' %></td>
+     <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-sm' %></td>
     </tr>
     <% end %>
   </table>

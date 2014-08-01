@@ -28,7 +28,7 @@ class OpportunitiesController < ApplicationController
   end
 
   def edit
-    @opportunity = Opportunity.accessible_by(current_ability).find(params[:id])
+     @opportunities = Opportunity.accessible_by(current_ability)
     @accounts = Account.accessible_by(current_ability)
     authorize! :edit, @opportunity
 

@@ -46,7 +46,7 @@
                 <td><%= @opportunity.opportunity_comments.to_s.humanize%></td>
               </tr>
             <tr>
-              <td> <strong><%= link_to 'Edit', edit_opportunity_path(@opportunity) %>|<%= link_to 'Delete', @opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></strong></td>
+              <td> <strong><%= link_to 'Edit', edit_opportunity_path(@opportunity), :class => 'btn btn-info  btn-sm' %><%= link_to 'Delete', @opportunity, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger delete_btn btn-sm' %></strong></td>
               <td></td>
           </tr>
             </table>
@@ -70,12 +70,8 @@
                             </tr>
                             <% end %>
                             </table>
-                            <% if @opportunity.tasks.empty?%>
-                                 <div class="text-center black-text bordered-table white-bg">
-                                  "<%= link_to "Add your first task here or click +Task".html_safe, new_task_path%>"
-                                </div>
-                                <%end%>
-
+                          
+                                <%= link_to "<span class=\"fa fa-plus\">    Task</span>".html_safe, new_task_path, :class => 'btn btn-success btn-md'%>
                             <h3>Contacts</h3>
                                 
 
@@ -94,6 +90,7 @@
                             </tr>
                             <% end %>
                             </table>
+                            <%= link_to "<span class=\"fa fa-plus\">    Contact</span>".html_safe, new_customer_path, :class => 'btn btn-success btn-md'%>
                             
                       
         </div>

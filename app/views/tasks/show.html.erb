@@ -26,7 +26,7 @@
               </tr>
               <tr>
                 <td>Opportunity - Account:</td>
-                <td><%= link_to @task.opportunity.opportunity_name.to_s.upcase, @task.opportunity%> - <%= link_to @task.opportunity.account.account_name.capitalize, @task.opportunity.account%></td>
+                <td><%= link_to @task.opportunity.opportunity_name.to_s.upcase, @task.opportunity%> - <%= link_to @task.opportunity.account.account_name.to_s.upcase, @task.opportunity.account%></td>
               </tr>
                <tr>
                 <td>Type:</td>
@@ -46,7 +46,7 @@
               </tr>
               <tr>
                 <td>
-            <strong><%= link_to 'Edit', edit_task_path(@task) %>|<%= link_to 'Delete', @task, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
+            <strong><%= link_to 'Edit', edit_task_path(@task), :class => 'btn btn-info  btn-sm' %><%= link_to 'Delete', @task, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-danger delete_btn btn-sm'%></strong>
             </td>
             <td>
             </td>

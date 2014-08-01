@@ -11,6 +11,7 @@
                 <h3 class="panel-title">Opportunities - Sort by <%= content_tag :th, sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_closing_date, 'Closing Date', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_amount, 'Amount', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_stage, 'Stage', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_probability, 'Probability', default_order: :desc) %></h3>
               </div>
               <div class="panel-body">
+                <%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path, :class => 'btn btn-success btn-md'%>
                 <small class="black-text task-info"><%= page_entries_info @opportunities %></small>
                 <div class="list-group">
            
@@ -23,7 +24,7 @@
                                   <small class="black-text task-info"><%= paginate @opportunities , :window => 2%></small>
 
               <% @opportunities.each do |opportunity| %>
-            <div class=" black-text">
+            <div class="opportunity_list black-text">
              <table class="black-text table-responsive table-condensed table table-bordered white-bg">
               <tr>
                 <th><strong>Name:</strong></th>
@@ -60,7 +61,7 @@
                 <td><%= opportunity.opportunity_comments.to_s.humanize%></td>
               </tr>
             <tr>
-              <td> <strong><%= link_to 'Edit', edit_opportunity_path(opportunity) %>|<%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></strong></td>
+              <td> <strong><%= link_to 'Edit', edit_opportunity_path(opportunity), :class => 'btn btn-info btn-sm' %><%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-danger delete_btn btn-sm'%></strong></td>
               <td></td>
           </tr>
             </table>
@@ -79,7 +80,8 @@
   <div class="panel panel-info hidden-xs hidden-sm">
   <div class="panel-heading"><h3 class="panel-title">Opportunities</h3></div>
   <div class="panel-body">
-    <p><small class="black-text task-info"><%= page_entries_info @opportunities %></small></p>
+    <%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path, :class => 'btn btn-success btn-md'%>
+    <small class="black-text task-info"><%= page_entries_info @opportunities %></small>
     <%= paginate @opportunities , :window => 2%>
   </div>
   <table class="table black-text table-striped white-bg">
@@ -105,8 +107,8 @@
      <td><%==opportunity.opportunity_stage.to_s.capitalize%></td>
      <td>$<%= opportunity.opportunity_amount.to_s%></td>
      <td><%= opportunity.opportunity_probability.to_s.capitalize%></td>
-     <td><%= link_to 'Edit', edit_opportunity_path(opportunity) %></td>
-     <td><%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     <td><%= link_to 'Edit', edit_opportunity_path(opportunity), :class => 'btn btn-info btn-sm' %></td>
+     <td><%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-danger btn-sm'%></td>
     </tr>
     <% end %>
   </table>
