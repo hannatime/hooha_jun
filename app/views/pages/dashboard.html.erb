@@ -137,7 +137,7 @@
           
           <div class="col-sm-6">
 
-            <div class="panel panel-info">
+            <div class="panel panel-info dash-panel">
               <div class="panel-heading">
                 <h3 class="panel-title">OPPORTUNITIES by stage</h3>
 
@@ -168,10 +168,80 @@
             </div>
             
           </div>
-
           <div class="col-sm-6">
 
-            <div class="panel panel-info">
+            <div class="panel panel-info dash-panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">OPPORTUNITIES by Closing Date</h3>
+
+              </div>
+
+              <div class="panel-body">
+                <div class="list-group">
+                <% if @opportunities.empty?%>
+                 <br>
+                 <div class=" black-text text-center">
+                  <%= link_to "Your pipeline is empty, add an opportunity".html_safe, new_opportunity_path%>
+                </div>
+              <%end%>
+               
+                <table class="table black-text table-striped white-bg">
+    </tr>
+      <th>Name</th>
+      <th>Account Name</th>
+      <th>Closing Date</th>
+     </tr>
+   <% @opportunities.order(opportunity_closing_date: :asc).each do |opportunity| %>
+    </tr>
+      <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
+     <td><%= link_to opportunity.account.account_name.to_s.upcase, opportunity.account %></td>
+     <td><%= opportunity.opportunity_closing_date.to_s.titlecase %></td>
+    </tr>
+    <% end %>
+  </table>
+
+                </div>
+              </div>
+            </div>
+            
+          </div><div class="col-sm-6">
+
+            <div class="panel panel-info dash-panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">OPPORTUNITIES by Value</h3>
+
+              </div>
+
+              <div class="panel-body">
+                <div class="list-group">
+                <% if @opportunities.empty?%>
+                 <br>
+                 <div class=" black-text text-center">
+                  <%= link_to "Your pipeline is empty, add an opportunity".html_safe, new_opportunity_path%>
+                </div>
+              <%end%>
+                            <table class="table black-text table-striped white-bg">
+                    </tr>
+                      <th>Name</th>
+                      <th>Account Name</th>
+                      <th>Value</th>
+                     </tr>
+                   <% @opportunities.order(opportunity_amount: :desc).each do |opportunity| %>
+                    </tr>
+                      <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
+                     <td><%= link_to opportunity.account.account_name.to_s.upcase, opportunity.account %></td>
+                     <td><%= opportunity.opportunity_amount.to_s.titlecase %></td>
+                    </tr>
+                    <% end %>
+                  </table>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-sm-6">
+
+            <div class="panel panel-info dash-panel">
               <div class="panel-heading">
                 <h3 class="panel-title">TASKS by type</h3>
 
