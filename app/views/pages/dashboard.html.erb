@@ -230,7 +230,7 @@
                     </tr>
                       <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
                      <td><%= link_to opportunity.account.account_name.to_s.upcase, opportunity.account %></td>
-                     <td><%= opportunity.opportunity_amount.to_s.titlecase %></td>
+                     <td>$<%= opportunity.opportunity_amount.to_s.titlecase %></td>
                     </tr>
                     <% end %>
                   </table>
