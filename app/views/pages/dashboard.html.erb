@@ -191,7 +191,7 @@
       <th>Account Name</th>
       <th>Closing Date</th>
      </tr>
-   <% @opportunities.order(opportunity_closing_date: :asc).each do |opportunity| %>
+   <% @opportunities.order(opportunity_closing_date: :asc).limit(6).each do |opportunity| %>
     </tr>
       <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
      <td><%= link_to opportunity.account.account_name.to_s.upcase, opportunity.account %></td>
@@ -226,7 +226,7 @@
                       <th>Account Name</th>
                       <th>Value</th>
                      </tr>
-                   <% @opportunities.order(opportunity_amount: :desc).each do |opportunity| %>
+                   <% @opportunities.order(opportunity_amount: :desc).limit(6).each do |opportunity| %>
                     </tr>
                       <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
                      <td><%= link_to opportunity.account.account_name.to_s.upcase, opportunity.account %></td>
