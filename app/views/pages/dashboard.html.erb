@@ -152,16 +152,16 @@
                 </div>
               <%end%>
                 <div class="panel-heading hidden-xs hidden-lg hidden-sm black-text bg-info">
-                    <%= column_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }}, colors: [ "#2ecc71"]  %>
+                    <%= pie_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "2ecc71", "f1c40f"] %>
                 </div>
                 <div class="panel-heading hidden-sm hidden-md hidden-lg black-text bg-info">
-                    <%= column_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45 } }, colors: [ "#2ecc71"] %>
+                    <%= pie_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45 } }, colors: [ "2ecc71", "f1c40f"] %>
                 </div>
                 <div class="panel-heading hidden-xs hidden-md hidden-lg black-text bg-info">
-                    <%= column_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45 } }, colors: [ "#2ecc71"] %>
+                    <%= pie_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45 } }, colors: [ "#2ecc71"] %>
                 </div>
                 <div class="panel-heading hidden-xs hidden-md hidden-sm black-text bg-info">
-                    <%= column_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45 } }, colors: [ "#2ecc71"] %>
+                    <%= pie_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45 } }, colors: [ "#2ecc71"] %>
                 </div>
                 </div>
               </div>
