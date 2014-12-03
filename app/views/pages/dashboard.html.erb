@@ -139,7 +139,7 @@
 
             <div class="panel panel-info dash-panel">
               <div class="panel-heading">
-                <h3 class="panel-title">OPPORTUNITIES by stage</h3>
+                <h3 class="panel-title">OPPORTUNITIES by probability</h3>
 
               </div>
 
@@ -152,16 +152,16 @@
                 </div>
               <%end%>
                 <div class="panel-heading hidden-xs hidden-lg hidden-sm black-text bg-info">
-                    <%= pie_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 <div class="panel-heading hidden-sm hidden-md hidden-lg black-text bg-info">
-                    <%= pie_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45 } }, colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 <div class="panel-heading hidden-xs hidden-md hidden-lg black-text bg-info">
-                    <%= pie_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45 } }, colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 <div class="panel-heading hidden-xs hidden-md hidden-sm black-text bg-info">
-                    <%= pie_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45 } }, colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 </div>
               </div>

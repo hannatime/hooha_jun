@@ -8,6 +8,7 @@ HoohaJun::Application.routes.draw do
   resources :opportunities
 
   root "pages#home"  
+  
   # get "content/free"
   # get "content/silver"
   # get "content/gold"
