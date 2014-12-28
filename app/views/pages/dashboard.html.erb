@@ -134,8 +134,42 @@
  </div>   
  <% else %>
  <div class="row">
+
+  <div class="col-md-6">
+
+            <div class="panel panel-info dash-panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">OPPORTUNITIES by stage</h3>
+
+              </div>
+
+              <div class="panel-body">
+                <div class="list-group">
+                <% if @opportunities.empty?%>
+                 <br>
+                 <div class=" black-text text-center">
+                  <%= link_to "Your pipeline is empty, add an opportunity".html_safe, new_opportunity_path%>
+                </div>
+              <%end%>
+                <div class="panel-heading hidden-xs hidden-lg hidden-sm black-text bg-info">
+                    <%= bar_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                </div>
+                <div class="panel-heading hidden-sm hidden-md hidden-lg black-text bg-info">
+                    <%= bar_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                </div>
+                <div class="panel-heading hidden-xs hidden-md hidden-lg black-text bg-info">
+                    <%= bar_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                </div>
+                <div class="panel-heading hidden-xs hidden-md hidden-sm black-text bg-info">
+                    <%= bar_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
           
-          <div class="col-sm-6">
+          <div class="col-md-6">
 
             <div class="panel panel-info dash-panel">
               <div class="panel-heading">
@@ -168,7 +202,7 @@
             </div>
             
           </div>
-          <div class="col-sm-6">
+          <div class="col-md-6">
 
             <div class="panel panel-info dash-panel">
               <div class="panel-heading">
@@ -204,7 +238,7 @@
               </div>
             </div>
             
-          </div><div class="col-sm-6">
+          </div><div class="col-md-6">
 
             <div class="panel panel-info dash-panel">
               <div class="panel-heading">
