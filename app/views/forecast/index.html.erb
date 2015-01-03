@@ -1,18 +1,18 @@
 <%= render 'layouts/dashboard_top'%>
 
 <div class="dashboard-heading hidden-sm hidden-md hidden-lg">
-  <h2>Opportunities List</h2>
+  <h2>Forecast</h2>
 </div>
 <div class="dashboard-heading-xs hidden-xs">
-  <h2>Opportunities List</h2>
+  <h2>Forecast</h2>
 </div>
             <div class="panel panel-info hidden-md hidden-lg">
               <div class="panel-heading">
-                <h3 class="panel-title">Opportunities - Sort by <%= content_tag :th, sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_closing_date, 'Closing Date', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_amount, 'Amount', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_stage, 'Stage', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_probability, 'Probability', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :omitted, 'Omitted', default_order: :desc) %></h3>
+                <h3 class="panel-title">Forecast - Sort by <%= content_tag :th, sort_link(@q, :opportunity_name, 'Name', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_closing_date, 'Closing Date', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_amount, 'Amount', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_stage, 'Stage', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :opportunity_probability, 'Probability', default_order: :desc) %> - <%= content_tag :th, sort_link(@q, :omitted, 'Omitted', default_order: :desc) %></h3>
               </div>
               <div class="panel-body">
                 <%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path, :class => 'btn btn-success btn-md'%>
-                <small class="black-text task-info"><%= page_entries_info @opportunities %></small>
+                <small class="black-text task-info"><%= page_entries_info @opportunities.where("omitted = false") %></small>
                 <div class="list-group">
            
                 <!--   <% if @opportunities.empty?%>
@@ -21,9 +21,9 @@
                   <%= link_to "Add your first opportunity here or click +Opportunity".html_safe, new_opportunity_path%>
                 </div>
                   <%end%> -->
-                                  <small class="black-text task-info"><%= paginate @opportunities , :window => 2%></small>
+                                  <small class="black-text task-info"><%= paginate @opportunities.where("omitted = false") , :window => 2%></small>
 
-              <% @opportunities.each do |opportunity| %>
+              <% @opportunities.where("omitted = false").each do |opportunity| %>
             <div class="opportunity_list black-text">
              <table class="black-text table-responsive table-condensed table table-bordered white-bg">
               <tr>
@@ -75,7 +75,7 @@
 
                 <% end %>
 
-                <%= paginate @opportunities , :window => 2%>
+                <%= paginate @opportunities.where("omitted = false") , :window => 2%>
                 </div>
                 
               </div>
@@ -83,11 +83,11 @@
             </div>
 
   <div class="panel panel-info hidden-xs hidden-sm">
-  <div class="panel-heading"><h3 class="panel-title">Opportunities</h3></div>
+  <div class="panel-heading"><h3 class="panel-title">Forecast</h3></div>
   <div class="panel-body">
     <%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path, :class => 'btn btn-success btn-md'%>
-    <small class="black-text task-info"><%= page_entries_info @opportunities %></small>
-    <%= paginate @opportunities , :window => 2%>
+    <small class="black-text task-info"><%= page_entries_info @opportunities.where("omitted = false") %></small>
+    <%= paginate @opportunities.where("omitted = false") , :window => 2%>
   </div>
   <table class="table black-text table-striped white-bg">
     </tr>
@@ -102,7 +102,7 @@
       <th>Delete</th>
       <th><%= sort_link(@q, :omitted, 'Omitted', default_order: :desc) %></th>
     </tr>
-   <% @opportunities.each do |opportunity| %>
+   <% @opportunities.where("omitted = false").each do |opportunity| %>
     </tr>
       <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
      <td><%= link_to opportunity.account.account_name.to_s.upcase, opportunity.account %></td>
@@ -121,15 +121,15 @@
   </table>
 
   <div id="pagination">
-<%= paginate @opportunities , :window => 2 %>
+<%= paginate @opportunities.where("omitted = false") , :window => 2 %>
 
 </div>
 
 </div>
 <p class="white-txt">
   Download:
-  <%= link_to "CSV", opportunities_path(format: "csv") %> |
-  <%= link_to "Excel", opportunities_path(format: "xls") %>
+  <%= link_to "CSV", forecast_path(format: "csv") %> |
+  <%= link_to "Excel", forecast_path(format: "xls") %>
 </p>
 
 <%= render 'layouts/dashboard_bottom'%>

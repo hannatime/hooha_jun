@@ -1,6 +1,5 @@
-module OpportunitiesHelper
-
-  def custom_page_entries_info(collection, options = {} )
+module ForecastHelper
+    def custom_page_entries_info(collection, options = {} )
     collection_name = options[:collection_name] || (collection.empty?? 'entry' : collection.first.class.name.underscore.sub('_', ' '))
       if collection.num_pages < 2
         case collection.size
@@ -17,5 +16,4 @@ module OpportunitiesHelper
       end
       info.html_safe
   end
-
 end

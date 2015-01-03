@@ -1,4 +1,3 @@
-
 <%= render 'layouts/dashboard_top'%>
 
 <div class="dashboard-heading hidden-sm hidden-md hidden-lg">
@@ -76,7 +75,7 @@
                     <i class="fa fa-dollar fa-3x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <strong><p class="announcement-heading"><%=@opportunities.count%></p></strong>
+                    <strong><p class="announcement-heading"><%=number_with_precision(@opportunities.where("omitted = false").sum(:opportunity_amount), options = {precision: 2})%></p></strong>
                   </div>
                 </div>
               </div>
@@ -84,7 +83,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      <strong><%= link_to 'Opportunities', opportunities_path %></strong>
+                      <strong><%= link_to 'Forecast', forecast_path %></strong>
                     </div>
                     <div class="col-xs-6 text-right">
                     </div>
@@ -139,7 +138,7 @@
 
             <div class="panel panel-info dash-panel">
               <div class="panel-heading">
-                <h3 class="panel-title">OPPORTUNITIES by stage</h3>
+                <h3 class="panel-title">FORECAST by stage</h3>
 
               </div>
 
@@ -152,16 +151,16 @@
                 </div>
               <%end%>
                 <div class="panel-heading hidden-xs hidden-lg hidden-sm black-text bg-info">
-                    <%= bar_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.where("omitted = false").group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 <div class="panel-heading hidden-sm hidden-md hidden-lg black-text bg-info">
-                    <%= bar_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.where("omitted = false").group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 <div class="panel-heading hidden-xs hidden-md hidden-lg black-text bg-info">
-                    <%= bar_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.where("omitted = false").group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 <div class="panel-heading hidden-xs hidden-md hidden-sm black-text bg-info">
-                    <%= bar_chart @opportunities.group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.where("omitted = false").group(:opportunity_stage).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  } ,vAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 </div>
               </div>
@@ -173,7 +172,7 @@
 
             <div class="panel panel-info dash-panel">
               <div class="panel-heading">
-                <h3 class="panel-title">OPPORTUNITIES by probability</h3>
+                <h3 class="panel-title">FORECAST by probability</h3>
 
               </div>
 
@@ -186,16 +185,16 @@
                 </div>
               <%end%>
                 <div class="panel-heading hidden-xs hidden-lg hidden-sm black-text bg-info">
-                    <%= bar_chart @opportunities.group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.where("omitted = false").group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 <div class="panel-heading hidden-sm hidden-md hidden-lg black-text bg-info">
-                    <%= bar_chart @opportunities.group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.where("omitted = false").group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 <div class="panel-heading hidden-xs hidden-md hidden-lg black-text bg-info">
-                    <%= bar_chart @opportunities.group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.where("omitted = false").group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 <div class="panel-heading hidden-xs hidden-md hidden-sm black-text bg-info">
-                    <%= bar_chart @opportunities.group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
+                    <%= bar_chart @opportunities.where("omitted = false").group(:opportunity_probability).sum(:opportunity_amount),library: { hAxis: {slantedText: true, slantedTextAngle: 45  }} , colors: [ "#3498db","2ecc71", "f1c40f", "#e74c3c"] %>
                 </div>
                 </div>
               </div>
@@ -206,7 +205,7 @@
 
             <div class="panel panel-info dash-panel">
               <div class="panel-heading">
-                <h3 class="panel-title">OPPORTUNITIES by Closing Date</h3>
+                <h3 class="panel-title">FORECAST by Closing Date</h3>
 
               </div>
 
@@ -225,7 +224,7 @@
       <th>Account Name</th>
       <th>Closing Date</th>
      </tr>
-   <% @opportunities.order(opportunity_closing_date: :asc).limit(6).each do |opportunity| %>
+   <% @opportunities.where("omitted = false").order(opportunity_closing_date: :asc).limit(6).each do |opportunity| %>
     </tr>
       <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
      <td><%= link_to opportunity.account.account_name.to_s.upcase, opportunity.account %></td>
@@ -242,7 +241,7 @@
 
             <div class="panel panel-info dash-panel">
               <div class="panel-heading">
-                <h3 class="panel-title">OPPORTUNITIES by Value</h3>
+                <h3 class="panel-title">FORECAST by Value</h3>
 
               </div>
 
@@ -260,11 +259,11 @@
                       <th>Account Name</th>
                       <th>Value</th>
                      </tr>
-                   <% @opportunities.order(opportunity_amount: :desc).limit(6).each do |opportunity| %>
+                   <% @opportunities.where("omitted = false").order(opportunity_amount: :desc).limit(6).each do |opportunity| %>
                     </tr>
                       <td><%=link_to opportunity.opportunity_name.to_s.upcase, opportunity%></td>
                      <td><%= link_to opportunity.account.account_name.to_s.upcase, opportunity.account %></td>
-                     <td>$<%= opportunity.opportunity_amount.to_s.titlecase %></td>
+                     <td><%= number_to_currency(opportunity.opportunity_amount.to_s.titlecase )%></td>
                     </tr>
                     <% end %>
                   </table>

@@ -19,15 +19,19 @@
 <li><%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path%></li>
 <li><%= link_to "<span class=\"fa fa-plus\">    Account</span>".html_safe, new_account_path%></li>
 <% elsif !@accounts.empty? && !@opportunities.empty?%>
+<li><%= link_to "<span class=\"fa fa-plus\">    Account</span>".html_safe, new_account_path%></li>
+
 <li><%= link_to "<span class=\"fa fa-plus\">    Task</span>".html_safe, new_task_path%></li>
 <li><%= link_to "<span class=\"fa fa-plus\">    Contact</span>".html_safe, new_customer_path%></li>
 <li><%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path%></li>
 <li><%= link_to "<span class=\"fa fa-plus\">    Account</span>".html_safe, new_account_path%></li>
 <%end%>
 <hr>
+<li><%= link_to "<span class=\"fa fa-dollar\"> Forecast</span>".html_safe, forecast_path%></li>
+
 <li><%= link_to "<span class=\"fa fa-check-square-o\"> Tasks</span>".html_safe, tasks_path%></li>
 <li><%= link_to "<span class=\"fa fa-group\">    Contacts</span>".html_safe, customers_path%></li>
-<li><%= link_to "<span class=\"fa fa-dollar\">    Opportunities</span>".html_safe, opportunities_path%></li>
+<li><%= link_to "<span class=\"fa fa-bullseye\">    Opportunities</span>".html_safe, opportunities_path%></li>
 <li><%= link_to "<span class=\"fa fa-building-o\">    Accounts</span>".html_safe, accounts_path%></li>
 <li><br> </li>
                 </ul>  

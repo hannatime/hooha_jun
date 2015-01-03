@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723075631) do
+ActiveRecord::Schema.define(version: 20141228050256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,29 @@ ActiveRecord::Schema.define(version: 20140723075631) do
     t.date     "opportunity_closing_date"
     t.integer  "user_id"
     t.integer  "account_id"
+    t.boolean  "omitted",                  default: false
+  end
+
+  create_table "products", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "product_name"
+    t.string   "product_type"
+    t.string   "product_status"
+    t.string   "product_sell"
+    t.string   "product_cost"
+    t.string   "product_comments"
+    t.integer  "user_id"
+  end
+
+  create_table "projects", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "project_name"
+    t.date     "project_due_date"
+    t.string   "project_comments"
+    t.integer  "account_id"
+    t.integer  "user_id"
   end
 
   create_table "roles", force: true do |t|
@@ -112,6 +135,8 @@ ActiveRecord::Schema.define(version: 20140723075631) do
     t.integer  "user_id"
     t.integer  "opportunity_id"
     t.string   "task_status"
+    t.string   "task_active"
+    t.integer  "project_id"
   end
 
   create_table "users", force: true do |t|

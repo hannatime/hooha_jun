@@ -1,16 +1,15 @@
-class OpportunitiesController < ApplicationController
-  
-  before_filter :authenticate_user!
+class ForecastController < ApplicationController
+before_filter :authenticate_user!
   before_action :set_opportunity, only: [:show, :edit, :update, :destroy]
 
   def index
-    @q = Opportunity.accessible_by(current_ability).search(params[:q])
+    @q = Opportunity.where("omitted = false").accessible_by(current_ability).search(params[:q])
     @opportunities = @q.result(distinct: true).page params[:page] 
     @accounts = Account.accessible_by(current_ability)
     respond_to do |format|
     format.html
-    format.csv { send_data @opportunities.to_csv }
-    format.xls { send_data @opportunities.to_csv(col_sep: "\t") }
+    format.csv { send_data @opportunities.where("omitted = false").to_csv }
+    format.xls { send_data @opportunities.where("omitted = false").to_csv(col_sep: "\t") }
     end 
   end
 
