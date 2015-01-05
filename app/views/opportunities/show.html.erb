@@ -35,7 +35,7 @@
               </tr>
               <tr>
                 <td>Amount:</td>
-                <td>$<%= @opportunity.opportunity_amount.to_s.capitalize%></td>
+                <td><%= number_to_currency(@opportunity.opportunity_amount.to_s.capitalize)%></td>
               </tr>
               <tr>
                 <td>Probability:</td>

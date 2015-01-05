@@ -57,7 +57,7 @@
                             <tr>
                               <td><%= link_to opportunity.opportunity_name.upcase, opportunity %></td>
                               <td><%= opportunity.opportunity_closing_date.to_s %></td>
-                              <td>$<%= link_to opportunity.opportunity_amount.to_s, opportunity %></td>
+                              <td><%= number_to_currency(opportunity.opportunity_amount, precision: 2)%></td>
                             </tr>
                             <% end %>
                             <tr>

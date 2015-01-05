@@ -50,7 +50,7 @@
               </tr>
               <tr>
                 <td>Amount:</td>
-                <td>$<%= opportunity.opportunity_amount.to_s.capitalize%></td>
+                <td><%= number_to_currency(opportunity.opportunity_amount.to_s.capitalize)%></td>
               </tr>
               <tr>
                 <td>Probability:</td>
@@ -111,7 +111,7 @@
             <% end %></td>
      <td><%= opportunity.opportunity_closing_date.to_s.titlecase %></td>
      <td><%==opportunity.opportunity_stage.to_s.capitalize%></td>
-     <td>$<%= opportunity.opportunity_amount.to_s%></td>
+     <td><%= number_to_currency(opportunity.opportunity_amount.to_s)%></td>
      <td><%= opportunity.opportunity_probability.to_s.capitalize%></td>
      <td><%= link_to 'Edit', edit_opportunity_path(opportunity), :class => 'btn btn-info btn-sm' %></td>
      <td><%= link_to 'Delete', opportunity, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-danger btn-sm'%></td>
