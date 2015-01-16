@@ -19,8 +19,6 @@
 <li><%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path%></li>
 <li><%= link_to "<span class=\"fa fa-plus\">    Account</span>".html_safe, new_account_path%></li>
 <% elsif !@accounts.empty? && !@opportunities.empty?%>
-<li><%= link_to "<span class=\"fa fa-plus\">    Account</span>".html_safe, new_account_path%></li>
-
 <li><%= link_to "<span class=\"fa fa-plus\">    Task</span>".html_safe, new_task_path%></li>
 <li><%= link_to "<span class=\"fa fa-plus\">    Contact</span>".html_safe, new_customer_path%></li>
 <li><%= link_to "<span class=\"fa fa-plus\">    Opportunity</span>".html_safe, new_opportunity_path%></li>

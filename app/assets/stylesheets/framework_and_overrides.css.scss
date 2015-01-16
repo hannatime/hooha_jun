@@ -155,6 +155,8 @@ $navbar-default-toggle-hover-bg: #dddddd;
 $navbar-default-toggle-icon-bar-bg: #cccccc; 
 $navbar-default-toggle-border-color: #dddddd;
 
+
+
 // Navbar: Inverted navbar
 // -> Basics
 $navbar-inverse-color: #eeeeee; 
@@ -171,6 +173,7 @@ $navbar-inverse-link-disabled-bg:$navbar-inverse-bg;
 // -> Brand
 $navbar-inverse-brand-color: $navbar-inverse-link-color; 
 $navbar-inverse-brand-hover-color: #ffffff; 
+$navbar-inverse-background-color-opacity: 0.5;
 
 // -> Toggle
 $navbar-inverse-toggle-hover-bg: #333333; 
