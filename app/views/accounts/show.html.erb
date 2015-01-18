@@ -63,7 +63,7 @@
                             <tr>
                               <th>Total</th>
                               <td></td>
-                              <td>$<%= @account.opportunities.sum(:opportunity_amount).to_s %></td>
+                              <td><%= number_to_currency(@account.opportunities.sum(:opportunity_amount), precision: 2) %></td>
                           </tr>
                           
                             </table>
