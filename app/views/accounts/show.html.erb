@@ -86,7 +86,7 @@
                             </tr>
                             <% @account.customers.each do |customer| %>
                             <tr>
-                              <td><%= link_to customer.customer_first_name.upcase + " " + customer.customer_last_name.upcase, customer %></td>
+                              <td><%= link_to customer.customer_first_name.capitalize + " " + customer.customer_last_name.capitalize, customer %></td>
                               <td class="tel"><%= customer.customer_phone %></td>
                               <td class = "hidden-sm hidden-md hidden-lg"><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= 'Email' %></a></td>
                               <td class = "hidden-xs"><a href="mailto:<%= customer.customer_email.to_s.downcase %>"><%= customer.customer_email.to_s.downcase %></a></td>
