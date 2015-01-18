@@ -3,7 +3,6 @@
 
 # Temporary admin account
 u = User.new(
-    username: "admin",
     email: "admin@example.com",
     password: "1234",
     password_confirmation: "1234",
@@ -14,7 +13,6 @@ u.save!
 
 
 u2 = User.new(
-    username: "benhanna",
     email: "ben@hooha.com.au",
     password: "1234",
     password_confirmation: "1234",
