@@ -1,11 +1,11 @@
-<% title("Home") %>
+<% title("Free CRM for Small Business") %>
 
 <%= image_tag("frontpage.jpg", :alt => "frontpage", :class => "home_image") %>
   
       <% if !user_signed_in? %>
 
       <div class="jumbotron home_page">
-  <h1>Welcome to Hooha</h1>
+  <h1>Free Small Business CRM</h1>
 
   <p>Hooha is a startup focused on making the running of a small business just that little bit easier through the launch of a series of free small business applications. We've just launched CRM, a simple, fast, and secure small business focused CRM. </p><p>Sign up now, and you'll get it free for ever.</p>  
       <p><%= link_to 'Free', new_user_registration_path(:plan => 'free'), :class => 'btn titlebuttons btn-warning btn-lg' %>
@@ -17,5 +17,4 @@
       <p><a href="contacts"class="btn titlebuttons btn-primary btn-lg" role="button">Give us feedback</a></p>   </div>
 <% end %>
 
-<div class="navbar navbar-fixed-bottom"></div>
 
