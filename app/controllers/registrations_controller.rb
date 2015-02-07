@@ -1,5 +1,13 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def edit
+  
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
+
+  end
+
+
   def new
     @plan = params[:plan]
     if @plan && ENV["ROLES"].include?(@plan) && @plan != "admin"
