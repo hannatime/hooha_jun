@@ -8,6 +8,8 @@ class Admin::UsersController < Admin::BaseController
   
   def index
     @users = User.search_and_order(params[:search], params[:page])
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
   end
   
   def show
@@ -15,13 +17,16 @@ class Admin::UsersController < Admin::BaseController
   end
   
   def edit
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
   end
   
   def update
     old_username = @user.email
     new_params = user_params.dup
     new_params[:email] = new_params[:email].strip
-    
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
     @user.email = new_params[:email]
     @user.password = new_params[:password] if new_params[:password].strip.length > 0
     @user.password_confirmation = new_params[:password_confirmation] if new_params[:password_confirmation].strip.length > 0

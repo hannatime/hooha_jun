@@ -7,6 +7,19 @@ class RegistrationsController < Devise::RegistrationsController
 
   end
 
+  def index
+  
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
+
+  end
+
+    def show
+  
+    @accounts = Account.accessible_by(current_ability)
+    @opportunities = Opportunity.accessible_by(current_ability)
+
+  end
 
   def new
     @plan = params[:plan]
