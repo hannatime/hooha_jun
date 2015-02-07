@@ -1,7 +1,13 @@
+<%= render 'layouts/dashboard_top'%>
 <div class="row">
 
   <div class="col-lg-6 ">
-    <h1>Edit your profile</h1>
+    <div class="dashboard-heading hidden-sm hidden-md hidden-lg">
+  <h2>Edit Your Profile</h2>
+</div>
+<div class="dashboard-heading-xs hidden-xs">
+  <h2>Edit Your Profile</h2>
+</div>
 
     <%= form_for(resource, :as => resource_name, 
     :url => registration_path(resource_name), 
@@ -44,11 +50,8 @@
  
       <% end %>
        </div>
-     </div>
-        
-      <div class="col-lg-6">
+
 <% if !current_user.admin? %>
-      <br>
       <h2>Delete your profile</h2>
       <p class="white-txt" form-group>
   We hate to see you go. Once, you delete your account, you can't get your information back.<br>
@@ -59,3 +62,4 @@
 
   </div>
 </div>
+<%= render 'layouts/dashboard_bottom'%>
