@@ -332,6 +332,7 @@ $component-offset-horizontal: 180px; // Horizontal offset for forms and lists
 @import "bootstrap";
 @import "font-awesome";
 
+
 //***********************************************************
 // TESTING CLASSES
 .shigh{
@@ -379,7 +380,7 @@ img{
 //***********************************************************
 // ERRORS
 #error_explanation{
-  color: $brand-danger;
+  color: #f39c12;
   ul{
     margin-left: 8px;
     padding-left: 8px;
@@ -1455,4 +1456,8 @@ padding-right:20%;
 
 .dash-panel{
   height:411px;
+}
+
+.forecast_total{
+  float:right;
 }
