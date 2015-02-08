@@ -1,9 +1,10 @@
 
 <div class="row">
-<div class="col-lg-6">
+<div class="col-lg-4">
     <div>
       <h1>Edit Your Profile</h1>
     </div>
+    <p>Edit your email or your password through the form below.</p>
 
     <%= form_for(resource, :as => resource_name, 
     :url => registration_path(resource_name), 
@@ -50,7 +51,7 @@
 <% if !current_user.admin? %>
       <h2>Delete your profile</h2>
       <p class="white-txt" form-group>
-  We hate to see you go. Once, you delete your account, you can't get your information back.<br>
+  We hate to see you go. Once, you delete your account, you can't get your information back.<br><br>
   <%= link_to "Delete my account anyway", registration_path(resource_name), :confirm => "Are you sure? You can't come back from this!", :method => :delete, :class => "btn btn-md cancel btn-danger"%>
 </p>
 <% end %>
